@@ -44,11 +44,13 @@ endfunction
 "
 map <F11> :call SendToSC("~veco.show_gui;")<CR>
 
+let g:SCveco_project_root = "~/code/sc/seco/vlive/"
+let g:SCveco_project_path = g:SCveco_project_root . "v1"
+
 function! SCveco_open_project( path )
-	let g:SCveco_project_path = a:path
-	let g:SCveco_project_root = "~/code/sc/seco/vlive/"
-	exe "cd " . g:SCveco_project_root . a:path
-	call SendToSC( "~veco.open_project(\"" . g:SCveco_project_root . a:path . "\");")
+	let g:SCveco_project_path = g:SCveco_project_root . a:path
+	exe "cd " . g:SCveco_project_path
+	call SendToSC( "~veco.open_project(\"" . g:SCveco_project_path . "\");")
 	source ~/.vim/sctile.vim
 	set hidden
 endfunction
@@ -58,7 +60,7 @@ command! -nargs=1 VecoOpenProject :call SCveco_open_project(<f-args>)
 function! SCveco_open_buffer( key, idx )
 	let l:cc = "~veco.open_buffer(" . a:idx . ", ~name);"
 	let l:cc2 = "~veco.set_buffer_name(" . a:idx . ", ~name);"
-	let l:cmd = "drop " . a:key . ".scd"
+	let l:cmd = "drop " . g:SCveco_project_path . "/" . a:key . ".scd"
 	" let SC initialize the buffer and switch to it
 	call SendToSC( l:cc )
 	exe l:cmd
