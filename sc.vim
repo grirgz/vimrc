@@ -37,7 +37,7 @@ set sessionoptions-=options
 
 function! Jack_connect( )
 	call SendToSC("if(MIDIClient.initialized == false) { MIDIClient.init; };") 
-	silent !jack_connect A-PRO:midi/playback_2 SuperCollider:midi/capture_1<CR>:redraw!<CR>
+	normal !jack_connect A-PRO:midi/playback_2 SuperCollider:midi/capture_1<CR>:redraw!<CR>
 endfunction
 
 " ================ VECO
