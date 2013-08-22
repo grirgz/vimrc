@@ -49,8 +49,10 @@ let g:SCveco_project_path = g:SCveco_project_root . "v1"
 
 function! SCveco_open_project( path )
 	let g:SCveco_project_path = g:SCveco_project_root . a:path
+	exe "silent !mkdir ". g:SCveco_project_path
+	redraw!
 	exe "cd " . g:SCveco_project_path
-	call SendToSC( "~veco.open_project(\"" . g:SCveco_project_path . "\");")
+	call SendToSC( "Veco.force_init; ~veco.open_project(\"" . g:SCveco_project_path . "\");")
 	source ~/.vim/sctile.vim
 	set hidden
 endfunction
@@ -58,17 +60,27 @@ endfunction
 command! -nargs=1 VecoOpenProject :call SCveco_open_project(<f-args>)
 
 function! SCveco_open_buffer( key, idx )
+	" echo "plop1"
 	let l:cc = "~veco.open_buffer(" . a:idx . ", ~name);"
+	" echo "plop2"
 	let l:cc2 = "~veco.set_buffer_name(" . a:idx . ", ~name);"
+	" echo "plop3"
 	let l:cmd = "drop " . g:SCveco_project_path . "/" . a:key . ".scd"
+	" echo "plop4"
 	" let SC initialize the buffer and switch to it
 	call SendToSC( l:cc )
+	""echo "plop5"
 	exe l:cmd
+	""echo "plop6"
 	" read first line to get name and send it to SC
 	normal mQgg
+	""echo "plop7"
 	call SClang_send()
+	""echo "plop8"
 	normal 'Q
+	""echo "plop9"
 	call SendToSC( l:cc2 )
+	""echo "plop0"
 endfunction
 
 function! SCveco_copy_buffer( key, idx )

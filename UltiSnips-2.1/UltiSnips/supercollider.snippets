@@ -1,3 +1,62 @@
+
+snippet spn
+(
+SynthDef(~name, { arg out=0, amp=0.1, gate=1, pan=0, spread=0.8, freq=200, doneAction=2;
+	var sig, sig1, sig2, sig3;
+	sig = ${1:SinOsc.ar(freq)};
+	sig = sig * EnvGen.ar(\adsr.kr(Env.adsr(0.01,0.1,0.8,0.1)),gate,doneAction:doneAction);
+	sig = Splay.ar(sig, spread, amp, pan);
+	Out.ar(out, sig);
+}).add;
+);
+(
+Pdef(~name, Pbind(
+	\instrument, ~name,
+	\degree, Pseq([0],inf),${2}
+	\dur, 1/4,
+	\amp, 0.1
+))
+);
+endsnippet
+
+snippet preinit
+if(Pdef(~name +++ \pre).source.isNil) { Pdef(~name +++ \pre, Pbind()) };
+Pdef(~name, Pdef(~name +++ \pre) <> Pbind(
+endsnippet
+
+snippet premod
+Pdef(~name +++ \pre, Pbind(
+	${1:\\${2:freq}, ${3:100}},
+));
+endsnippet
+
+snippet sdn
+(
+SynthDef(~name, { arg out=0, amp=0.1, gate=1, pan=0, spread=0.8, freq=200, doneAction=2;
+	var sig, sig1, sig2, sig3;
+	sig = ${2:SinOsc.ar(freq)};
+	sig = sig * EnvGen.ar(\adsr.kr(Env.adsr(0.01,0.1,0.8,0.1)),gate,doneAction:doneAction);
+	sig = Splay.ar(sig, spread, amp, pan);
+	Out.ar(out, sig);
+}).add;
+);
+endsnippet
+
+snippet pdn
+(
+Pdef(~name, Pbind(
+	\instrument, ${1:~name},
+	\degree, Pseq([0],inf),
+	\dur, 1/4,
+	\amp, 0.1
+))
+);
+endsnippet
+
+
+
+
+
 snippet arg
 { arg self${1};
 	${0}
@@ -104,7 +163,7 @@ SynthDef(\\${1:plop}, { arg out=0, amp=0.1, gate=1, pan=0, freq=200;
 	sig = Pan2.ar(sig, pan, amp);
 	Out.ar(out, sig);
 }).add;
-)
+);
 endsnippet
 
 snippet SynthDefinp
