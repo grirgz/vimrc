@@ -1,8 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/media/02178DE37615750E/boot/grub/locale'
-let g:netrw_dirhist_2='/media/02178DE37615750E/boot/grub'
-let g:netrw_dirhist_3='/home/ggz/.local/share/SuperCollider/Extensions/seco/seco/exp'
-let g:netrw_dirhist_4='/home/ggz/.local/share/SuperCollider/Extensions/seco'
-let g:netrw_dirhist_5='/home/ggz/.local/share/SuperCollider/Extensions/seco/seco'
-let g:netrw_dirhist_6='/home/ggz/.local/share/SuperCollider/Extensions/seco/seco/veco'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/home/ggz/code/sc/seco/vlive/v4'

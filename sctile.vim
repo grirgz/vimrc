@@ -1,6 +1,6 @@
 map <F9>& <Esc>:call SCveco_open_buffer("1", 0)<Enter>
 map <F11>c& <Esc>:call SCveco_copy_buffer("1", 0)<Enter>
-map <F9>7 <Esc>:call SCveco_open_buffer("2", 1)<Enter>
+map <F9>é <Esc>:call SCveco_open_buffer("2", 1)<Enter>
 map <F11>c7 <Esc>:call SCveco_copy_buffer("2", 1)<Enter>
 map <F9>" <Esc>:call SCveco_open_buffer("3", 2)<Enter>
 map <F11>c" <Esc>:call SCveco_copy_buffer("3", 2)<Enter>
@@ -10,7 +10,7 @@ map <F9>( <Esc>:call SCveco_open_buffer("5", 4)<Enter>
 map <F11>c( <Esc>:call SCveco_copy_buffer("5", 4)<Enter>
 map <F9>- <Esc>:call SCveco_open_buffer("6", 5)<Enter>
 map <F11>c- <Esc>:call SCveco_copy_buffer("6", 5)<Enter>
-map <F9>2 <Esc>:call SCveco_open_buffer("7", 6)<Enter>
+map <F9>è <Esc>:call SCveco_open_buffer("7", 6)<Enter>
 map <F11>c2 <Esc>:call SCveco_copy_buffer("7", 6)<Enter>
 map <F9>_ <Esc>:call SCveco_open_buffer("8", 7)<Enter>
 map <F11>c_ <Esc>:call SCveco_copy_buffer("8", 7)<Enter>
