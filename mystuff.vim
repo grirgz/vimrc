@@ -13,3 +13,5 @@ highlight Folded ctermbg=none ctermfg=grey
 
 
 map <F2> mW'X<F5>'W
+
+

@@ -19,6 +19,19 @@ Pdef(~name, Pbind(
 );
 endsnippet
 
+snippet prepdn
+(
+if(Pdef(~name +++ \pre).source.isNil) { Pdef(~name +++ \pre, Pbind()) };
+Pdef(~name, Pdef(~name +++ \pre) <> Pbind(
+	\instrument, ${1:~name},
+	\degree, Pseq([0],inf),
+	\isRest, Veco(~name).isrest,
+	\dur, 1/4,
+	\amp, 0.1
+))
+);
+endsnippet
+
 snippet preinit
 if(Pdef(~name +++ \pre).source.isNil) { Pdef(~name +++ \pre, Pbind()) };
 Pdef(~name, Pdef(~name +++ \pre) <> Pbind(
@@ -47,6 +60,7 @@ snippet pdn
 Pdef(~name, Pbind(
 	\instrument, ${1:~name},
 	\degree, Pseq([0],inf),
+	\isRest, Veco.main.seq.pryn(~name),
 	\dur, 1/4,
 	\amp, 0.1
 ))

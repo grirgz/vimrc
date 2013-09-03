@@ -2,32 +2,39 @@
 map <F2> mZ'W<F5>'Z
 map <F3> mZ'X<F5>'Z
 
-map <F4>b :call SendToSC("s.boot;")<CR>
+map <F4>b <Esc>:call SendToSC("s.boot;")<CR>
 imap <F4>b <Esc>:call SendToSC("s.boot;")<CR>a
 
-map <F4>k :call SendToSC("Quarks.gui;")<CR>
+map <F4>k <Esc>:call SendToSC("Quarks.gui;")<CR>
 imap <F4>k <Esc>:call SendToSC("Quarks.gui;")<CR>a
 
-map <F4>g :call SendToSC("if(GUI.current == SwingGUI) { GUI.qt } { GUI.swing };")<CR>
-imap <F4>g :call SendToSC("if(GUI.current == SwingGUI) { GUI.qt } { GUI.swing };")<CR>
+map <F4>g <Esc>:call SendToSC("if(GUI.current == SwingGUI) { GUI.qt } { GUI.swing };")<CR>
+imap <F4>g <Esc>:call SendToSC("if(GUI.current == SwingGUI) { GUI.qt } { GUI.swing };")<CR>
 
-map <F4>q :call SendToSC("s.queryAllNodes;")<CR>
-map <F4>t :call SendToSC("s.plotTree;")<CR>
+map <F4>q <Esc>:call SendToSC("s.queryAllNodes;")<CR>
+map <F4>t <Esc>:call SendToSC("s.plotTree;")<CR>
 
-map <F4>m :call SendToSC("s.meter;")<CR>
-map <F4>f :call SendToSC("FreqScope.new;")<CR>
-map <F4>s :call SendToSC("Stethoscope.new(s);")<CR>
+map <F4>m <Esc>:call SendToSC("s.meter;")<CR>
+map <F4>f <Esc>:call SendToSC("FreqScope.new;")<CR>
+map <F4>s <Esc>:call SendToSC("Stethoscope.new(s);")<CR>
 
-map <F4>D :call SendToSC("Debug.enableDebug = true;")<CR>
-map <F4>d :call SendToSC("Debug.enableDebug = false;")<CR>
+map <F4>D <Esc>:call SendToSC("Debug.enableDebug = true;")<CR>
+map <F4>d <Esc>:call SendToSC("Debug.enableDebug = false;")<CR>
 
-map <F4>h :call SendToSC("Help.gui;")<CR>
+map <F4>h <Esc>:call SendToSC("Help.gui;")<CR>
 
-map <F4>j :call Jack_connect()<CR>
+map <F4>j <Esc>:call Jack_connect()<CR>
 
-map <F8> :call SendToSC("thisProcess.stop;")<CR>
+map <F4>n <Esc>:call SendToSC("~name.debug(\"== NOM\");")<CR>
+map <F4>v <Esc>:call SendToSC("s.volume.gui;")<CR>
 
-map g<f6> <Esc>"nyiw :exe "call SendToSC(\"Pdef(\\\\" . getreg("n") . ").stop;\")"<CR>
+map <F8> <Esc>:call SendToSC("thisProcess.stop;")<CR>
+
+"map g<f6> <Esc>"nyiw :exe "call SendToSC(\"Pdef(\\\\" . getreg("n") . ").stop;\")"<CR>
+map <F9><F5> <Esc>:call SendToSC("Pdef(~name).play;")<CR>
+"map g<F5> <Esc>:call SendToSC("Pdef(~name).play;")<CR>
+map <F9><F6> <Esc>:call SendToSC("Pdef(~name).stop;")<CR>
+map <F11><F5> <Esc>:%call SClang_send()<CR>
 
 
 ""source ~/.vim/indent/sc_indent.vim
@@ -37,6 +44,21 @@ set sessionoptions-=options
 
 function! Jack_connect( )
 	call SendToSC("~initialize_jack.value;") 
+endfunction
+
+function! DeleteHiddenBuffers()
+    let tpbl=[]
+    call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+    for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+        silent execute 'bwipeout' buf
+    endfor
+endfunction
+
+
+function! RemoveNode()
+	exe "silent !mv % /tmp/"
+	bdelete
+	tabedit .
 endfunction
 
 " ================ VECO
@@ -57,6 +79,10 @@ function! SCveco_open_project( path )
 endfunction
 
 command! -nargs=1 VecoOpenProject :call SCveco_open_project(<f-args>)
+
+function! SCveco_open_subbuffer( idx )
+	exe "drop %:r:r:r:r." . a:idx . ".scd"
+endfunction
 
 function! SCveco_open_buffer( key, idx )
 	" echo "plop1"
