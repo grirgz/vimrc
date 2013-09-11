@@ -1,4 +1,31 @@
 
+snippet Splay
+Splay.ar(sig, spread, amp, pan);
+endsnippet
+
+snippet lfo
+Ndef(~name+++${1:\lfo1}, { ${2:SinOsc.kr(1).range(50,100)}  });
+endsnippet
+
+snippet lfoset
+Ndef(~name+++${1:\lfo1}).put(1, \set -> Pbind(
+	${2:\freq, Pseq([1],inf),}
+	\dur, 1,
+));
+endsnippet
+
+snippet Pseqadsr
+Pseq([
+	${1:[ Env.adsr(0.1,0.1,0.8,0.1) ]},
+],inf),
+endsnippet
+
+snippet Pseq
+Pseq([
+	${1}
+],inf),
+endsnippet
+
 snippet spn
 (
 SynthDef(~name, { arg out=0, amp=0.1, gate=1, pan=0, spread=0.8, freq=200, doneAction=2;

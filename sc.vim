@@ -14,7 +14,7 @@ imap <F4>g <Esc>:call SendToSC("if(GUI.current == SwingGUI) { GUI.qt } { GUI.swi
 map <F4>q <Esc>:call SendToSC("s.queryAllNodes;")<CR>
 map <F4>t <Esc>:call SendToSC("s.plotTree;")<CR>
 
-map <F4>m <Esc>:call SendToSC("s.meter;")<CR>
+map <F4>l <Esc>:call SendToSC("s.meter;")<CR>
 map <F4>f <Esc>:call SendToSC("FreqScope.new;")<CR>
 map <F4>s <Esc>:call SendToSC("Stethoscope.new(s);")<CR>
 
@@ -27,6 +27,7 @@ map <F4>j <Esc>:call Jack_connect()<CR>
 
 map <F4>n <Esc>:call SendToSC("~name.debug(\"== NOM\");")<CR>
 map <F4>v <Esc>:call SendToSC("s.volume.gui;")<CR>
+map <F4>m <Esc>:call SendToSC("~mixer_gui.new(Veco.main);")<CR>
 
 map <F8> <Esc>:call SendToSC("thisProcess.stop;")<CR>
 
