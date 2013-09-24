@@ -85,6 +85,14 @@ function! SCveco_open_subbuffer( idx )
 	exe "drop %:r:r:r:r." . a:idx . ".scd"
 endfunction
 
+function! SCveco_open_current_node_buffer()
+	exe "drop %:r:r:r:r.scd"
+	" read first line to get name and send it to SC
+	normal mQgg
+	call SClang_send()
+	normal 'Q
+endfunction
+
 function! SCveco_open_buffer( key, idx )
 	" echo "plop1"
 	let l:cc = "~veco.open_buffer(" . a:idx . ", ~name);"

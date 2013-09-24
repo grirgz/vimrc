@@ -1,6 +1,19 @@
 
+snippet mixer
+* Pkey(\amp),
+) <> Veco(~name).mixer)
+endsnippet
+
 snippet Splay
 Splay.ar(sig, spread, amp, pan);
+endsnippet
+
+snippet ndeffreq
+Ndef(~name+++${1:\lfo1}).bus.asMap,
+endsnippet
+
+snippet ndeflfo
+Ndef(~name+++${1:\lfo1}),
 endsnippet
 
 snippet lfo
@@ -54,8 +67,8 @@ Pdef(~name, Pdef(~name +++ \pre) <> Pbind(
 	\degree, Pseq([0],inf),
 	\isRest, Veco(~name).isrest,
 	\dur, 1/4,
-	\amp, 0.1
-))
+	\amp, 0.1 * Pkey(\amp),
+) <> Veco(~name).mixer)
 );
 endsnippet
 
