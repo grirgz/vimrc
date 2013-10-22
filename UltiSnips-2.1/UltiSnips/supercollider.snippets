@@ -1,3 +1,23 @@
+snippet initproject
+TempoClock.default.tempo = t = 1;
+Veco.main.board_size = Point(16,64);
+Pdef.defaultQuant = 4;
+Veco.load_lib("main.scd");
+~load_quick_quant_chooser.();
+
+// END
+
+Veco.main.fadeout_time = 16;
+
+endsnippet
+
+snippet isRestx
+\\isRest, Veco(~namex).isrest(16),
+endsnippet
+
+snippet isRest
+\\isRest, Veco(~name).isrest,
+endsnippet
 
 snippet mixer
 * Pkey(\amp),
@@ -16,11 +36,21 @@ snippet ndeflfo
 Ndef(~name+++${1:\lfo1}),
 endsnippet
 
-snippet lfo
+snippet ndeffxdef
+Ndef(~name+++\fx, {
+	var in = In.ar(BusDef(~name+++\fx),2);
+	var sig;
+	var sig1,sig2,sig3,sig4,sig5;
+	sig = in;
+	sig;
+});
+endsnippet
+
+snippet ndeflfodef
 Ndef(~name+++${1:\lfo1}, { ${2:SinOsc.kr(1).range(50,100)}  });
 endsnippet
 
-snippet lfoset
+snippet ndefsetdef
 Ndef(~name+++${1:\lfo1}).put(1, \set -> Pbind(
 	${2:\freq, Pseq([1],inf),}
 	\dur, 1,
@@ -100,7 +130,7 @@ snippet pdn
 Pdef(~name, Pbind(
 	\instrument, ${1:~name},
 	\degree, Pseq([0],inf),
-	\isRest, Veco.main.seq.pryn(~name),
+	\isRest, Veco(~name).isrest,
 	\dur, 1/4,
 	\amp, 0.1
 ))
