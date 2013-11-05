@@ -25,7 +25,7 @@ map <F4>h <Esc>:call SendToSC("Help.gui;")<CR>
 
 map <F4>j <Esc>:call Jack_connect()<CR>
 
-map <F4>n <Esc>:call SendToSC("~name.debug(\"== NOM\");")<CR>
+map <F4>n <Esc>:call SendToSC("[~name, ~namex, ~index].debug(\"== NOM: name, namex, index\");")<CR>
 map <F4>v <Esc>:call SendToSC("s.volume.gui;")<CR>
 map <F4>m <Esc>:call SendToSC("~mixer_gui.new(Veco.main);")<CR>
 
@@ -81,7 +81,13 @@ endfunction
 
 command! -nargs=1 VecoOpenProject :call SCveco_open_project(<f-args>)
 
+"function! SCveco_open_subbuffer( idx )
+"	exe "drop %:r:r:r:r." . a:idx . ".scd"
+"endfunction
+
 function! SCveco_open_subbuffer( idx )
+	let l:cc = "~veco.get_node_by_uname(~name).get_clip_by_index(" . a:idx . " - 1 ).define_variables;"
+	call SendToSC( l:cc )
 	exe "drop %:r:r:r:r." . a:idx . ".scd"
 endfunction
 
