@@ -80,8 +80,12 @@ function! SCveco_open_project( path )
 	set hidden
 endfunction
 
-command! -nargs=1 VecoOpenProject :call SCveco_open_project(<f-args>)
+"exe "set path+=" . g:SCveco_project_root
+command! -nargs=1 -complete=customlist,ListProjects VecoOpenProject :call SCveco_open_project(<f-args>)
 
+fun! ListProjects(A,L,P)
+	return split(fnamemodify(globpath(g:SCveco_project_root, a:A), ":h"), "\n")
+endfun
 "function! SCveco_open_subbuffer( idx )
 "	exe "drop %:r:r:r:r." . a:idx . ".scd"
 "endfunction
