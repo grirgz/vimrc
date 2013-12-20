@@ -74,8 +74,8 @@ function! SCveco_open_project( path )
 	exe "silent !mkdir ". g:SCveco_project_path
 	redraw!
 	exe "cd " . g:SCveco_project_path
-	"call SendToSC( "Veco.force_init; ~veco.open_project(\"" . g:SCveco_project_path . "\");")
-	call SendToSC( "Veco.open_project(\"" . g:SCveco_project_path . "\");")
+	call SendToSC( "Veco.force_init; Veco.open_project(\"" . g:SCveco_project_path . "\");")
+	"call SendToSC( "Veco.open_project(\"" . g:SCveco_project_path . "\");")
 	source ~/.vim/sctile.vim
 	set hidden
 endfunction
