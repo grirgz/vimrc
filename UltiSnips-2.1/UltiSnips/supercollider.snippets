@@ -1,3 +1,11 @@
+snippet envspec
+\env -> [4, ControlSpec(0.001,8,\exp, 0, 1), nil, nil, Env.new([9.5, 1, 0.5, 0], [0.105, 0.16, 00.2])],
+endsnippet
+
+snippet patfx
+~patfx.(~name+++\\patfx) <>
+endsnippet
+
 snippet Out
 Out.ar(out, sig);
 endsnippet
@@ -61,7 +69,7 @@ Ndef(~name+++${1:\lfo1}).put(1, \set -> Pbind(
 ));
 endsnippet
 
-snippet pseqadsr
+snippet Pseqadsr
 Pseq([
 	${1:[ Env.adsr(0.1,0.1,0.8,0.1) ]},
 ],inf),
