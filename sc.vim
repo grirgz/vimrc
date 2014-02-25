@@ -29,7 +29,7 @@ map <F4>n <Esc>:call SendToSC("[~name, ~namex, ~index].debug(\"== NOM: name, nam
 map <F4>v <Esc>:call SendToSC("s.volume.gui;")<CR>
 map <F4>m <Esc>:call SendToSC("~mixer_gui.new(Veco.main);")<CR>
 
-map <F4>i <Esc>:call SendToSC("Veco.force_init;")<CR>
+map <F4>i <Esc>:call SendToSC("Veco.force_init; VecoLib.load_lib;")<CR>
 
 map <F8> <Esc>:call SendToSC("thisProcess.stop;")<CR>
 
@@ -44,6 +44,27 @@ map <F11><F5> <Esc>:%call SClang_send()<CR>
 set dictionary=~/.scvim/sc_object_completion
 set complete+=k
 set sessionoptions-=options
+
+
+"" unfold searched word
+""set foldexpr=getline(v:lnum)!~@/
+
+
+
+function! GetPotionFold(lnum)
+    ""if getline(a:lnum)!~@/
+	""	return indent(a:lnum) / &sw
+    ""endif
+
+	""return "="
+	return 1
+    ""return indent(a:lnum) / &sw
+endfunction
+
+set foldmethod=expr
+set foldexpr=GetPotionFold(v:lnum)
+
+"""""""""
 
 function! Jack_connect( )
 	call SendToSC("~initialize_jack.value;") 
