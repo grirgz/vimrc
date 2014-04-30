@@ -61,7 +61,7 @@ function! GetPotionFold(lnum)
     ""return indent(a:lnum) / &sw
 endfunction
 
-set foldmethod=expr
+set foldmethod=indent
 set foldexpr=GetPotionFold(v:lnum)
 
 """""""""
