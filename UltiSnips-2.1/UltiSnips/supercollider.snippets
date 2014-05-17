@@ -1,3 +1,18 @@
+snippet pseqcoin
+Pseq([1,0,0,0, 0,0,0,0],inf).coin.not,
+endsnippet
+
+snippet pseqcoin16
+Pseq([1,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0],inf).coin.not,
+endsnippet
+
+snippet pseqcoin32
+Pseq([
+	1,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
+	0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
+],inf).coin.not,
+endsnippet
+
 snippet ndeflfolag
 Ndef(~name+++\lfo1).quant = Pdef.defaultQuant;
 Ndef(~name+++\lfo1, { arg val=1, vlag=0.1; val.lag(vlag) });
