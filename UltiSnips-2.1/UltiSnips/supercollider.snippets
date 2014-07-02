@@ -32,12 +32,30 @@ Veco.main.fadeout_time = 16;
 
 endsnippet
 
+snippet Pseqcoin
+Pseq([1,0,0,0],inf).coin.not,
+endsnippet
+
+snippet Pseqcoin8
+Pseq([1,0,0,0, 0,0,0,0],inf).coin.not,
+endsnippet
+
+snippet Pseqcoin16
+Pseq([
+	1,0,0,0, 0,0,0,0,
+],inf).coin.not,
+endsnippet
+
 snippet isRestx
 \\isRest, Veco(~namex).isrest(16),
 endsnippet
 
 snippet isRest
 \\isRest, Veco(~name).isrest,
+endsnippet
+
+snippet vmixer
+Veco(~name).make_mixer;
 endsnippet
 
 snippet mixer
