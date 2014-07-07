@@ -97,8 +97,9 @@ function! SCveco_open_project( path )
 	exe "silent !mkdir ". g:SCveco_project_path
 	redraw!
 	exe "cd " . g:SCveco_project_path
-	call SendToSC( " s.waitForBoot {  Veco.force_init; Veco.open_project(\"" . g:SCveco_project_path . "\"); };")
-	"call SendToSC( "Veco.open_project(\"" . g:SCveco_project_path . "\");")
+	""call SendToSC( " s.waitForBoot {  Veco.force_init; Veco.open_main_project(\"" . g:SCveco_project_path . "\"); };")
+	call SendToSC( " s.waitForBoot {  Veco.init; Veco.open_main_project(\"" . g:SCveco_project_path . "\"); };")
+	"call SendToSC( "Veco.open_main_project(\"" . g:SCveco_project_path . "\");")
 	source ~/.vim/sctile.vim
 	set hidden
 endfunction
@@ -131,7 +132,7 @@ function! SCveco_open_buffer( key, idx )
 	" echo "plop1"
 	let l:cc = "~veco.open_buffer(" . a:idx . ", ~name);"
 	" echo "plop2"
-	let l:cc2 = "~veco.set_buffer_name(" . a:idx . ", ~name);"
+	""let l:cc2 = "~veco.set_buffer_name(" . a:idx . ", ~name);"
 	" echo "plop3"
 	let l:cmd = "drop " . g:SCveco_project_path . "/" . a:key . ".scd"
 	" echo "plop4"
@@ -141,13 +142,13 @@ function! SCveco_open_buffer( key, idx )
 	exe l:cmd
 	""echo "plop6"
 	" read first line to get name and send it to SC
-	normal mQgg
+	""normal mQgg
 	""echo "plop7"
-	call SClang_send()
+	""call SClang_send()
 	""echo "plop8"
-	normal 'Q
+	""normal 'Q
 	""echo "plop9"
-	call SendToSC( l:cc2 )
+	""call SendToSC( l:cc2 )
 	""echo "plop0"
 endfunction
 

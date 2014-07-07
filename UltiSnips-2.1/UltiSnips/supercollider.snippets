@@ -1,3 +1,21 @@
+snippet mixerfx
+Ndef(~name+++\mixer).put(50, \filter -> { arg in;
+	var sig = in;
+	${0}
+	sig;
+})
+endsnippet
+
+snippet mixerfxp
+(
+Ndef(~name+++\mixer).put(50, \filter -> { arg in;
+	var sig = in;
+	${0}
+	sig;
+})
+)
+endsnippet
+
 snippet ndeflfolag
 Ndef(~name+++\lfo1).quant = Pdef.defaultQuant;
 Ndef(~name+++\lfo1, { arg val=1, vlag=0.1; val.lag(vlag) });
