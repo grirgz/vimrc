@@ -4,6 +4,8 @@ map <F3> mZ'X<F5>'Z
 
 map <F4>b <Esc>:call SendToSC("s.boot;")<CR>
 imap <F4>b <Esc>:call SendToSC("s.boot;")<CR>a
+map <F4>Q <Esc>:call SendToSC("s.quit;")<CR>
+imap <F4>Q <Esc>:call SendToSC("s.quit;")<CR>a
 
 map <F4>k <Esc>:call SendToSC("Quarks.gui;")<CR>
 imap <F4>k <Esc>:call SendToSC("Quarks.gui;")<CR>a
@@ -30,6 +32,8 @@ map <F4>v <Esc>:call SendToSC("s.volume.gui;")<CR>
 map <F4>m <Esc>:call SendToSC("~mixer_gui.new(Veco.main);")<CR>
 
 map <F4>i <Esc>:call SendToSC("Veco.force_init; VecoLib.load_lib;")<CR>
+
+map <F4>e <Esc>:call SCcallInlineEditor("number")<CR>
 
 map <F8> <Esc>:call SendToSC("thisProcess.stop;")<CR>
 
@@ -76,6 +80,20 @@ function! DeleteHiddenBuffers()
     for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
         silent execute 'bwipeout' buf
     endfor
+endfunction
+
+function! OpenSystemFiles()
+	0tabedit ~/.local/share/SuperCollider/Extensions/seco/seco/veco/main.scd
+	0tabedit ~/.local/share/SuperCollider/Extensions/seco/seco/veco/buffer.scd
+	0tabedit ~/.local/share/SuperCollider/Extensions/seco/seco/veco/launchpad.scd
+	0tabedit ~/.vim/sc.vim
+endfunction
+
+function! CloseSystemFiles()
+	exec "bd " . bufnr('veco/main.scd$')
+	exec "bd " . bufnr('veco/buffer.scd$')
+	exec "bd " . bufnr('veco/launchpad.scd$')
+	exec "bd " . bufnr('.vim/sc.vim$')
 endfunction
 
 
@@ -227,3 +245,48 @@ function! SCcallFunctionOnSelection() range
 	let l = readfile( filename)
 	exe "normal gvc". join(l,"\n") . "\e" 
 endfunction
+
+function! SCcallInlineEditor(cmd)
+	let [blkstart,blkend] = FindOuterMostBlock()
+	echo blkstart
+	let lines = getline(blkstart[0],blkend[0])
+	let lines[0] = lines[0][blkstart[1] - 1:]
+	let lines[-1] = lines[-1][: blkend[1] - 1]
+	let flines = join(lines, "\n")
+	let flines = substitute(flines, '\', '\\\\', 'g')
+	let flines = substitute(flines, '"', '\\"', 'g')
+	""echo line(".") - blkstart[0]
+	let linepos = line(".") - blkstart[0] 
+	""echo linepos
+	""echo "----"
+	""let l:cmd = "number"
+	let l:cmd = a:cmd
+	let code = "~inline_editor.(\\" . l:cmd . " , " . blkstart[0] . ", " . blkend[0] . ", " . linepos . ", " . col(".") . ", \"" . flines . "\" )"
+	""echo code
+	call SendToSC(code)
+endfunction
+
+function! SCreplaceTextBlock_old(start, end, text)
+	let l:text = a:text
+	echo l:text
+	let l:text = substitute(l:text, "\\", '\', "g")
+	echo l:text
+	let l:text = substitute(l:text, "\n", '', "g")
+	echo l:text
+	exe a:start . "," . a:end . "d"
+	exe "normal i" . l:text
+endfunction
+
+function! SCreplaceTextBlock(start, end, line, col)
+	let filename = "/tmp/scvim_inline_editor"
+	exe a:start . "," . a:end . "d"
+	normal k
+	exe "r " . filename
+	""echo a:line
+	""echo a:start
+	""echo a:line + a:start
+	""exe a:line + a:start
+	exe "call cursor(" . ( a:line + a:start ) . " , " . a:col ")"
+endfunction
+
+
