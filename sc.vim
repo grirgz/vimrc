@@ -38,9 +38,11 @@ map <F4>e <Esc>:call SCcallInlineEditor("number")<CR>
 map <F8> <Esc>:call SendToSC("thisProcess.stop;")<CR>
 
 "map g<f6> <Esc>"nyiw :exe "call SendToSC(\"Pdef(\\\\" . getreg("n") . ").stop;\")"<CR>
-map <F9><F5> <Esc>:call SendToSC("Pdef(~name).play;")<CR>
+"map <F9><F5> <Esc>:call SendToSC("Pdef(~name).play;")<CR>
+map <F9><F5> <Esc>:call SendToSC("Veco(~name).play_node;")<CR>
 "map g<F5> <Esc>:call SendToSC("Pdef(~name).play;")<CR>
-map <F9><F6> <Esc>:call SendToSC("Pdef(~name).stop;")<CR>
+"map <F9><F6> <Esc>:call SendToSC("Pdef(~name).stop;")<CR>
+map <F9><F6> <Esc>:call SendToSC("Veco(~name).stop_node;")<CR>
 map <F11><F5> <Esc>:%call SClang_send()<CR>
 
 
