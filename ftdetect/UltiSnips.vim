@@ -1,0 +1,1 @@
+/home/ggz/.vim/ultisnips3/ftdetect/UltiSnips.vim

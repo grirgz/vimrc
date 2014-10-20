@@ -128,7 +128,11 @@ endfunction
 command! -nargs=1 -complete=customlist,ListProjects VecoOpenProject :call SCveco_open_project(<f-args>)
 
 fun! ListProjects(A,L,P)
-	return map(split(globpath(g:SCveco_project_root, a:A . "*"), "\n"), 'fnamemodify(v:val, ":t")')
+	let l:save_cwd = getcwd()
+	exe "cd " . g:SCveco_project_root
+	let l:res = map(split(globpath(g:SCveco_project_root, a:A . "*/"), "\n"), 'fnamemodify(v:val, ":.")')
+	exe "cd " . l:save_cwd
+	return l:res
 endfun
 "function! SCveco_open_subbuffer( idx )
 "	exe "drop %:r:r:r:r." . a:idx . ".scd"
