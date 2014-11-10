@@ -1,0 +1,727 @@
+
+#######################################################
+###### coding templates
+
+snippet arg
+{ arg self${1};
+	${0}
+},
+endsnippet
+
+snippet ~class
+~class_${1} = (
+	new: { arg self;
+		self = self.deepCopy;
+	
+		self;
+	},
+);
+endsnippet
+
+snippet new
+new: { arg self;
+	self = self.deepCopy;
+
+	$1
+
+	self;
+},
+endsnippet
+
+snippet windowescape
+win.view.keyDownAction = { arg view, char, modifiers, u, k; 
+	//[char, modifiers, u, k].debug("KEYBOARD INPUT");
+	if( u == 27 ) { // Esc
+		view.close() 
+	};
+};
+endsnippet
+
+#######################################################
+###### tracks templates
+
+snippet Ndeffx
+(
+Ndef(~name+++\fx).put(50, \filter -> { arg in;
+	var sig = in;
+	
+	sig = sig * SinOsc.ar(120);
+
+	sig;
+});
+);
+endsnippet
+
+snippet Ndefgreyhole
+Ndef(~name+++\fx).put(50, \filter -> { arg in;
+	var sig = in;
+	
+	sig = Greyhole.ar(sig, 
+		\delay.kr(1/4),\damp.kr(0.1),\size.kr(1), \diff.kr(0.707) , \feedback.kr(0.8), \modDepth.kr(0.1), \modFreq.kr(2)
+	);
+
+	sig;
+});
+endsnippet
+
+
+snippet fx_channel
+
+~fx_channel.();
+~make_fx.();
+endsnippet
+
+snippet ndef_channel
+~ndef_channel.();
+(
+Ndef(~name+++\fx).quant = Pdef.defaultQuant;
+);
+endsnippet
+
+snippet pdef_channel
+
+~pdef_channel.();
+
+(
+SynthDef(~name, { arg out=0, amp=0.1, gate=1, pan=0, spread=0.8, freq=200, doneAction=2;
+	var sig, sig1, sig2, sig3;
+	sig = ${2:SinOsc.ar(freq)};
+	sig = sig * EnvGen.ar(\adsr.kr(Env.adsr(0.01,0.1,0.8,0.1)),gate,doneAction:doneAction);
+	sig = Splay.ar(sig, spread, amp, pan);
+	Out.ar(out, sig);
+}).add;
+);
+
+(
+if(Pdef(~name +++ \pre).source.isNil) { Pdef(~name +++ \pre, Pbind()) };
+Pdef(~name, Pdef(~name +++ \pre) <> Pbind(
+	\instrument, ${1:~name},
+	\degree, Pseq([0],inf),
+	\isRest, Veco(~name).isrest,
+	\dur, 1/4,
+	\amp, 0.1 * Pkey(\amp),
+) <> Veco(~name).mixer)
+);
+endsnippet
+
+snippet spn
+(
+SynthDef(~name, { arg out=0, amp=0.1, gate=1, pan=0, spread=0.8, freq=200, doneAction=2;
+	var sig, sig1, sig2, sig3;
+	sig = ${1:SinOsc.ar(freq)};
+	sig = sig * EnvGen.ar(\adsr.kr(Env.adsr(0.01,0.1,0.8,0.1)),gate,doneAction:doneAction);
+	sig = Splay.ar(sig, spread, amp, pan);
+	Out.ar(out, sig);
+}).add;
+);
+(
+Pdef(~name, Pbind(
+	\instrument, ~name,
+	\degree, Pseq([0],inf),${2}
+	\dur, 1/4,
+	\amp, 0.1
+))
+);
+endsnippet
+
+snippet prepdn
+(
+if(Pdef(~name +++ \pre).source.isNil) { Pdef(~name +++ \pre, Pbind()) };
+Pdef(~name, Pdef(~name +++ \pre) <> Pbind(
+	\instrument, ${1:~name},
+	\degree, Pseq([0],inf),
+	\isRest, Veco(~name).isrest,
+	\dur, 1/4,
+	\amp, 0.1 * Pkey(\amp),
+) <> Veco(~name).mixer)
+);
+endsnippet
+
+snippet pdn
+(
+Pdef(~name, Pbind(
+	\instrument, ${1:~name},
+	\degree, Pseq([0],inf),
+	\isRest, Veco(~name).isrest,
+	\dur, 1/4,
+	\amp, 0.1
+))
+);
+endsnippet
+
+snippet ndn
+Ndef(~name+++\fx).put(0, { arg amp=0.1;
+	var sig;
+	${0}
+	amp = amp * \gain.kr(1);
+	sig = Splay.ar(sig, \spread.kr(0.8), amp, \pan.kr(0));
+	sig;
+})
+endsnippet
+
+snippet preinit
+if(Pdef(~name +++ \pre).source.isNil) { Pdef(~name +++ \pre, Pbind()) };
+Pdef(~name, Pdef(~name +++ \pre) <> Pbind(
+endsnippet
+
+snippet premod
+Pdef(~name +++ \pre, Pbind(
+	${1:\\${2:freq}, ${3:100}},
+));
+endsnippet
+
+snippet sdn
+(
+SynthDef(~name, { arg out=0, amp=0.1, gate=1, pan=0, spread=0.8, freq=200, doneAction=2;
+	var sig, sig1, sig2, sig3;
+	sig = ${2:SinOsc.ar(freq)};
+	sig = sig * EnvGen.ar(\adsr.kr(Env.adsr(0.01,0.1,0.8,0.1)),gate,doneAction:doneAction);
+	sig = Splay.ar(sig, spread, amp, pan);
+	Out.ar(out, sig);
+}).add;
+);
+endsnippet
+
+snippet sdnrlpf
+(
+SynthDef(~name, { arg out=0, amp=0.1, gate=1, pan=0, spread=0.8, freq=200, doneAction=2, ffreq=4000, rq=0.3;
+	var sig, sig1, sig2, sig3;
+	sig = LFSaw.ar(freq * [1.01,1,0.99]);
+	sig = RLPF.ar(sig, ffreq, rq);
+	sig = sig * EnvGen.ar(\adsr.kr(Env.adsr(0.01,0.1,0.8,0.1)),gate,doneAction:doneAction);
+	sig = Splay.ar(sig, spread, amp, pan);
+	Out.ar(out, sig);
+}).add;
+);
+endsnippet
+
+#######################################################
+###### Others
+
+snippet nfx
+Ndef(~name+++\fx)
+endsnippet
+
+snippet pname
+Pdef(~name+++${1:\\mod})${0}
+endsnippet
+
+snippet fxfx
+Ndef(~name+++\fx).put(50, \filter -> { arg in;
+	var sig = in;
+	${0}
+	sig;
+})
+endsnippet
+
+snippet mixerfx
+Ndef(~name+++\mixer).put(50, \filter -> { arg in;
+	var sig = in;
+	${0}
+	sig;
+})
+endsnippet
+
+snippet mixerfxp
+(
+Ndef(~name+++\mixer).put(50, \filter -> { arg in;
+	var sig = in;
+	${0}
+	sig;
+})
+)
+endsnippet
+
+snippet ndeflfolag
+Ndef(~name+++\lfo1).quant = Pdef.defaultQuant;
+Ndef(~name+++\lfo1, { arg val=1, vlag=0.1; val.lag(vlag) });
+Ndef(~name+++\lfo1).put(1, \set -> Pbind(
+	\val, Pseq([1],inf),
+	\dur, 1,
+));
+endsnippet
+
+snippet envspec
+\env -> [4, ControlSpec(0.001,8,\exp, 0, 1), nil, nil, Env.new([9.5, 1, 0.5, 0], [0.105, 0.16, 00.2])],
+endsnippet
+
+snippet patfx
+~patfx.(~name+++\\patfx) <>
+endsnippet
+
+snippet initproject
+TempoClock.default.tempo = t = ~t = 1;
+Veco.main.board_size = Point(32,64);
+Pdef.defaultQuant = 4;
+Veco.load_lib("main.scd");
+Veco.load_lib("synth.scd");
+~load_standard_quickpad.();
+
+// END
+
+~define_effects.(['56','57','58','59']);
+Veco.main.fadeout_time = 16;
+
+endsnippet
+
+snippet vmixer
+Veco(~name).make_mixer;
+endsnippet
+
+
+#######################################################
+###### SynthDef synthdef
+
+snippet CombL
+CombL.ar(sig, 4/~t, 1/8/~t,1/~t) + sig;
+endsnippet
+
+snippet flanger
+AllpassL.ar(sig, 4/~t, 1/8/~t * SinOsc.kr(1/45).range(0.9,1.1),14) + sig;
+endsnippet
+
+
+snippet Ndefline
+Ndef(~name+++\lfo1, { XLine.kr(100,1,8) });
+endsnippet
+
+snippet kr
+\\${VISUAL:\key}.kr(${1})
+endsnippet
+
+snippet ndefgain
+amp = amp * \\gain.kr(1);
+endsnippet
+
+snippet SynthDef
+SynthDef(\\${1:plop}, { arg out=0, amp=0.1, gate=1, pan=0, freq=200;
+	var sig;
+	sig = ${2:SinOsc.ar(freq)};
+	sig = sig * EnvGen.ar(Env.adsr(0.01,0.1,0.8,0.1),gate,doneAction:2);
+	sig = Pan2.ar(sig, pan, amp);
+	Out.ar(out, sig);
+}).add;
+endsnippet
+
+snippet SynthDefp
+(
+SynthDef(\\${1:plop}, { arg out=0, amp=0.1, gate=1, pan=0, freq=200;
+	var sig;
+	sig = ${2:SinOsc.ar(freq)};
+	sig = sig * EnvGen.ar(Env.adsr(0.01,0.1,0.8,0.1),gate,doneAction:2);
+	sig = Pan2.ar(sig, pan, amp);
+	Out.ar(out, sig);
+}).add;
+);
+endsnippet
+
+snippet SynthDefinp
+(
+SynthDef(\\${1:plop}, { arg in, out=0, mix=0.5, amp=1, gate=1;
+	var sigin, sig;
+	sigin = In.ar(in, 2);
+	sig = ${2:sigin};
+	sig = SelectX.ar(mix, [sigin, sig]);
+	sig = sig * EnvGen.ar(Env.asr(0.0001,1,0.0001),gate,doneAction:2);
+	Out.ar(out, sig);
+}).add;
+)
+endsnippet
+
+snippet Ndefp
+(
+Ndef(\\${1:plop}, { arg freq=200, pan=0, amp=0.1;
+	var sig;
+	sig = ${2:SinOsc.ar(freq)};
+	sig = Pan2.ar(sig, pan, amp);
+}).play;
+);
+endsnippet
+
+snippet Instr
+Instr(\\${1:plop}, { arg amp=0.1, gate=1, pan=0, freq=200;
+	var sig;
+	sig = ${2:SinOsc.ar(freq)};
+	sig = sig * EnvGen.ar(\\adsr.kr(Env.adsr(0.01,0.1,0.8,0.1)),gate,doneAction:2);
+	sig = Pan2.ar(sig, pan, amp);
+}).addSynthDef;
+endsnippet
+
+snippet specs
+}, metadata:(specs:(
+	duration: ControlSpec(0.001,4,\lin, 0, 1)
+))).store;
+endsnippet
+
+snippet Pan
+Pan2.ar(sig, pan, amp);
+endsnippet
+
+snippet EnvGen
+EnvGen.ar(Env.adsr(0.1,0.1,1,0.1),gate,doneAction:2);
+endsnippet
+
+snippet Named
+NamedControl.kr(\\${1:adsr}, Env.adsr(0.1,0.1,0.8,0.1))
+endsnippet
+
+snippet adsr
+EnvGen.kr(\\${1:adsr}.kr(Env.adsr(0.1,0.1,0.8,0.1)), gate, doneAction:doneAction);
+endsnippet
+
+snippet env
+EnvGen.kr(\\${1:env}.kr(Env([1,2,1,2],[0.1,0.8,0.1].normalizeSum)), gate, timeScale:tsustain);
+endsnippet
+
+snippet Env
+Env([1,2,1],[0.1,0.8])
+endsnippet
+
+snippet envperc
+EnvGen.kr(Env.perc(0.0001,0.1), gate)
+endsnippet
+
+snippet envs
+EnvGen.kr(Env([1,2,1],[0.1,0.8]), 1);
+endsnippet
+
+snippet envc
+EnvGen.kr(Env([1,2,1],[0.1,0.8,0.3]).circle, 1);
+endsnippet
+
+snippet	RLPF
+RLPF.ar(sig, \\lpf.kr(100), \rq.kr(0.5));
+endsnippet
+
+snippet	RLPFmix
+sig1 = RLPF.ar(sig, \\lpf.kr(100), \rq.kr(0.5));
+sig = SelectX.ar(\lpmix.kr(0.5), [sig, sig1]);
+endsnippet
+
+snippet distmix
+sig1 = sig.clip2(1);
+sig2 = sig.distort(1);
+sig3 = sig.tanh(1);
+sig = SelectX.ar(\distmix.kr(0.5)*2, [sig1, sig2, sig3]);
+endsnippet
+
+snippet mix2
+SelectX.ar(\mix.kr(0.5), [sig1, sig2]);
+endsnippet
+
+snippet SelectX
+SelectX.ar(\mix.kr(0.5), [sig1, sig2]);
+endsnippet
+
+snippet mix3
+SelectX.ar(\mix.kr(0.5)*2, [sig1, sig2, sig3]);
+endsnippet
+
+snippet varsig
+var sig1, sig2, sig3, sig4, sig5, sig6, sig7, sig8;
+endsnippet
+
+snippet 3osc
+sig1 = LFSaw.ar(freq);
+sig2 = LFPulse.ar(freq);
+sig3 = SinOsc.ar(freq);
+sig = SelectX.ar(\oscmix.kr(0.5)*2, [sig1, sig2, sig3]);
+endsnippet
+
+snippet Duty
+Duty.kr(1/~t, 0, Dseq([
+	1,0,0,0,
+],inf))
+endsnippet
+
+snippet parafil
+sig2 = SelectX.ar(\parafil.kr(0), [sig1, sig]);
+sig = SelectX.ar( \parafil.kr, [sig2, sig1 + sig2]);
+endsnippet
+
+
+snippet LFNoise
+LFNoise1.kr(1/2).range(0.0,1.0)
+endsnippet
+
+snippet Demand
+Demand.kr(trig, 0, Dseq([
+	1,0,0,0,
+],inf))
+endsnippet
+
+snippet Out
+Out.ar(out, sig);
+endsnippet
+
+snippet lfo
+SinOsc.kr(${1}).range(${2:0},${3:1})
+endsnippet
+
+snippet spread
+((0..${1:7})/$1 - 0.5 * ${2:fspread} + 1)
+endsnippet
+
+snippet Splay
+Splay.ar(sig, spread, amp, pan);
+endsnippet
+
+snippet Splaya
+Splay.ar(sig, \spread.kr(0.8), \amp.kr(1), \pan.kr(0));
+endsnippet
+
+snippet ndeffreq
+Ndef(~name+++${1:\lfo1}).bus.asMap,
+endsnippet
+
+snippet ndeflfo
+Ndef(~name+++${1:\lfo1}),
+endsnippet
+
+snippet ndeffxdef
+Ndef(~name+++\fx, {
+	var in = In.ar(BusDef(~name+++\fx),2);
+	var sig;
+	var sig1,sig2,sig3,sig4,sig5;
+	sig = in;
+	sig;
+});
+endsnippet
+
+snippet ndeflfodef
+Ndef(~name+++${1:\lfo1}, { ${2:SinOsc.kr(1).range(50,100)}  });
+endsnippet
+
+snippet ndefsetdef
+Ndef(~name+++${1:\lfo1}).put(1, \set -> Pbind(
+	${2:\freq, Pseq([1],inf),}
+	\dur, 1,
+));
+endsnippet
+
+#######################################################
+###### Patterns patterns
+
+snippet Pfunc
+Pfunc({
+	${VISUAL}${1}
+}),
+endsnippet
+
+snippet Pfuncn
+Pfunc({
+	${VISUAL}${1}
+},1),
+endsnippet
+
+snippet Plazy
+Plazy({
+	${VISUAL}${1}
+}).loop,
+endsnippet
+
+snippet grooveamp
+\amp, Pkey(\amp) * Pseq([
+	1,0.3,0.5,0.3,
+],inf),
+endsnippet
+
+snippet amp
+\amp, Pkey(\amp) * ${1:1},
+endsnippet
+
+snippet Pseg
+Pseg(Pseq([0,1],inf),${1:8}),
+endsnippet
+
+snippet Pseqcoin
+Pseq([1,0,0,0],inf).coin.not,
+endsnippet
+
+snippet Pseqcoin8
+Pseq([1,0,0,0, 0,0,0,0],inf).coin.not,
+endsnippet
+
+snippet Pseqcoin16
+Pseq([
+	1,0,0,0, 0,0,0,0,
+],inf).coin.not,
+endsnippet
+
+snippet isRestcoin
+\\isRest, Pseq([
+	1,0,0,0,
+],inf).coin.not,
+endsnippet
+
+snippet isRestx
+\\isRest, Veco(~namex).isrest(16),
+endsnippet
+
+snippet isRest
+\\isRest, Veco(~name).isrest,
+endsnippet
+
+snippet mixer
+* Pkey(\amp),
+) <> Veco(~name).mixer)
+endsnippet
+
+
+snippet Pseqadsr
+Pseq([
+	${1:[ Env.adsr(0.1,0.1,0.8,0.1) ]},
+],inf),
+endsnippet
+
+snippet Pseq
+Pseq([
+	${VISUAL}${1}
+],${2:1}),
+endsnippet
+
+snippet Prand
+Prand([
+	${VISUAL}${1}
+],${2:1}),
+endsnippet
+
+snippet Pat
+${1:Pser}([
+	${VISUAL}${2}
+],${3:1}),
+endsnippet
+
+snippet Dseq
+Dseq([
+	${VISUAL}${1}
+],${2:1}),
+endsnippet
+
+snippet Dstutter
+Dstutter(${1:8},
+	${VISUAL}${2}
+),
+endsnippet
+
+snippet Drand
+Drand([
+	${VISUAL}${1}
+],${2:1}),
+endsnippet
+
+
+snippet Pbind
+Pbind(
+	\instrument, \\${1:default},
+	\freq, 200,
+	\dur, 1,
+	\amp, 0.1
+);
+endsnippet
+
+snippet Pbindp
+(
+Pbind(
+	\instrument, \\${1:default},
+	\freq, 200,
+	\dur, 1,
+	\amp, 0.1
+);
+)
+endsnippet
+
+snippet Pdef
+Pdef(\\${1:plop}, Pbind(
+	\instrument, \\${2:default},
+	\freq, 200,
+	\dur, 1,
+	\amp, 0.1
+));
+endsnippet
+
+snippet Pdefp
+(
+Pdef(\\${1:plop}, Pbind(
+	\instrument, \\${2:default},
+	\degree, Pseq([0],inf),
+	\dur, 1,
+	\amp, 0.1
+)).play;
+);
+endsnippet
+
+
+
+#######################################################
+###### Old
+
+snippet Mdef
+(
+Mdef(\\${1:plop}, Pbind(
+	\instrument, \\${2:default},
+	\degree, Pseq([0],inf),
+	\dur, 1,
+	\amp, 0.1
+));
+);
+endsnippet
+
+snippet ~class_ci
+~class_ci_${1:plop} = (
+	parent: ~class_instr,
+	synth_rate: \ar,
+	new: { arg self, main, player, namer;
+		self = self.deepCopy;
+
+		self.get_main = { main };
+		self.get_player = { player };
+		self.namer = { namer };
+		self.synthdef_name = \ci_;
+		self.build_data;
+
+		self.simple_args = (gate:1, doneAction:2);
+	
+		self;
+	},
+
+	build_data: { arg self;
+		var main = self.get_main;
+		var player = self.get_player;
+		var specs = self.get_specs;
+
+		self.help_build_data(
+			self.make_control_params([
+				[\mix, \unipolar, 0.5],
+			]),
+			(
+
+			),
+			[
+				//self.insertfxs,
+			],
+		);
+	},
+
+	make_layout: { arg self;
+		self.layout = HLayout(
+			StaticText.new.string_("void")
+		);
+		self.layout;
+	},
+
+	synthfun: { arg self;
+		{ arg args;
+			var i = self.get_synthargs(args);
+			var sig;
+			
+			sig = SinOsc.ar(i.freq);
+			sig = sig * EnvGen.ar(Env.adsr(0.01,0.1,0.8,0.1),i.gate,doneAction:i.doneAction);
+			sig = Pan2.ar(sig, i.pan, i.amp);
+			sig;
+		}
+	},
+
+);
+endsnippet
+
