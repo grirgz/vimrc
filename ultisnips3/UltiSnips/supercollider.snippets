@@ -232,6 +232,10 @@ Ndef(~name+++\mixer).put(50, \filter -> { arg in;
 )
 endsnippet
 
+snippet ndefquant
+Ndef(~name+++${1:\lfo1}).quant = Pdef.defaultQuant;
+endsnippet
+
 snippet ndeflfolag
 Ndef(~name+++\lfo1).quant = Pdef.defaultQuant;
 Ndef(~name+++\lfo1, { arg val=1, vlag=0.1; val.lag(vlag) });
@@ -271,6 +275,22 @@ endsnippet
 
 #######################################################
 ###### SynthDef synthdef
+
+snippet itrig
+var itrig;
+var igate;
+itrig = \itrig.tr(1);
+//igate = \igate.kr(1);
+igate = Trig.kr(itrig, \isustain.kr(0.1));
+endsnippet
+
+snippet TGrains
+TGrains.ar(2, clk, bufnum, pitch_stretch, pos % BufDur.kr(bufnum), dur, pan, 1);
+endsnippet
+
+snippet PlayBuf
+PlayBuf.ar(2, bufnum, BufRateScale.kr(bufnum) * speed, trigger, startPos: (pos*BufFrames.kr(bufnum)), doneAction:doneAction, loop: loop);
+endsnippet
 
 snippet CombL
 CombL.ar(sig, 4/~t, 1/8/~t,1/~t) + sig;
@@ -502,6 +522,26 @@ endsnippet
 #######################################################
 ###### Patterns patterns
 
+snippet 81
+1,1,1,1, 1,1,1,1,
+endsnippet
+
+snippet 80
+0,0,0,0, 0,0,0,0,
+endsnippet
+
+snippet 4140
+1,1,1,1, 0,0,0,0,
+endsnippet
+
+snippet 4041
+0,0,0,0, 1,1,1,1, 
+endsnippet
+
+snippet 810
+1,0,1,0, 1,0,1,0, 
+endsnippet
+
 snippet Pfunc
 Pfunc({
 	${VISUAL}${1}
@@ -532,6 +572,10 @@ endsnippet
 
 snippet Pseg
 Pseg(Pseq([0,1],inf),${1:8}),
+endsnippet
+
+snippet Pstep
+Pstep(Pseq([${1:0,1}],inf),${2:8}),
 endsnippet
 
 snippet Pseqcoin
@@ -578,6 +622,12 @@ snippet Pseq
 Pseq([
 	${VISUAL}${1}
 ],${2:1}),
+endsnippet
+
+snippet Pseqi
+Pseq([
+	${VISUAL}${1}
+],${2:inf}),
 endsnippet
 
 snippet Prand

@@ -28,7 +28,7 @@ map <F4>h <Esc>:call SendToSC("Help.gui;")<CR>
 map <F4>j <Esc>:call Jack_connect()<CR>
 
 ""map <F4>n <Esc>:call SendToSC("[~name, ~namex, ~index].debug(\"== NOM: name, namex, index\");")<CR>
-map <F4>n <Esc>:call SendToSC("debug(\"!!========!! name:%, namex:%, index:%; default.tempo:%, t:% \".format(~name, ~namex, ~index, TempoClock.default.tempo, ~t));")<CR>
+map <F4>n <Esc>:call SendToSC("debug(\"!!========!! name:%, namex:%, index:%; pdefdquant:%, default.tempo:%, t:% \".format(~name, ~namex, ~index, Pdef.defaultQuant, TempoClock.default.tempo, ~t));")<CR>
 map <F4>v <Esc>:call SendToSC("s.volume.gui;")<CR>
 map <F4>m <Esc>:call SendToSC("~mixer_gui.new(Veco.main);")<CR>
 
