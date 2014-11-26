@@ -2,6 +2,14 @@
 #######################################################
 ###### coding templates
 
+snippet ~set_macro
+~set_macro.(\k${1:1}, Ndef(~name+++\fx), ${2:\ffreq}, ${3:\freq});
+endsnippet
+
+snippet Control
+ControlSpec(0,1,\lin,0,1)
+endsnippet
+
 snippet arg
 { arg self${1};
 	${0}
@@ -275,6 +283,10 @@ endsnippet
 
 #######################################################
 ###### SynthDef synthdef
+
+snippet Panrand
+Pan2.ar(sig, {LFNoise1.kr(1/2).range(-1.0,1.0)} ! sig.size, amp).flop;
+endsnippet
 
 snippet itrig
 var itrig;
