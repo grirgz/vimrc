@@ -304,6 +304,11 @@ snippet PlayBuf
 PlayBuf.ar(2, bufnum, BufRateScale.kr(bufnum) * speed, trigger, startPos: (pos*BufFrames.kr(bufnum)), doneAction:doneAction, loop: loop);
 endsnippet
 
+snippet BufRd
+BufRd.ar(2, bufnum, SinOsc.ar(freq).unipolar * range );
+endsnippet
+
+
 snippet CombL
 CombL.ar(sig, 4/~t, 1/8/~t,1/~t) + sig;
 endsnippet
