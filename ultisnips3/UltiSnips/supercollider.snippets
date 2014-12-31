@@ -300,6 +300,32 @@ snippet TGrains
 TGrains.ar(2, clk, bufnum, pitch_stretch, pos % BufDur.kr(bufnum), dur, pan, 1);
 endsnippet
 
+snippet bufstutter
+var bufnum = LocalBuf(s.sampleRate * 4,2);
+var bufgate, stuttrig, choosetrig, recordtrig;
+var attack=0.01, decay=0.01, stutter;
+var env;
+bufnum.clear;
+
+bufgate = Duty.kr(1/4, 0, Dseq([
+	0,0,0,0, 1,1,0,0,
+	0,1,0,1, 0,1,0,0,
+],inf));
+choosetrig = bufgate > 0;
+stutter = DC.kr(1/4);
+stutter = Duty.kr(1/4, 0, Dseq(1/[
+	1,2,4,8,
+],inf));
+stuttrig = TDuty.ar(stutter, choosetrig + Changed.kr(stutter), 1);
+recordtrig = Trig1.kr(choosetrig, 0.01);
+env = EnvGen.ar(Env([0,1,1,0],[attack, stutter-attack-decay, decay]), stuttrig);
+
+RecordBuf.ar(sig, bufnum, 0, 1, 0, run:1,loop:0,trigger: recordtrig,doneAction:0);
+sig1 = PlayBuf.ar(2, bufnum, rate:1/2, trigger:stuttrig,startPos:0, loop:0) * env;
+sig1 = sig1 * 1.2;
+sig = SelectX.ar( bufgate.lag(0.01), [sig, sig1]);
+endsnippet
+
 snippet PlayBuf
 PlayBuf.ar(2, bufnum, BufRateScale.kr(bufnum) * speed, trigger, startPos: (pos*BufFrames.kr(bufnum)), doneAction:doneAction, loop: loop);
 endsnippet
