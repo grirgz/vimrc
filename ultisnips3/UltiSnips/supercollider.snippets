@@ -2,6 +2,10 @@
 #######################################################
 ###### coding templates
 
+snippet asig
+(1..sig.size)
+endsnippet
+
 snippet ~set_macro
 ~set_macro.(\k${1:1}, Ndef(~name+++\fx), ${2:\ffreq}, ${3:\freq});
 endsnippet
@@ -80,10 +84,8 @@ snippet fx_channel
 endsnippet
 
 snippet ndef_channel
+
 ~ndef_channel.();
-(
-Ndef(~name+++\fx).quant = Pdef.defaultQuant;
-);
 endsnippet
 
 snippet pdef_channel
@@ -468,6 +470,10 @@ sig3 = sig.tanh(1);
 sig = SelectX.ar(\distmix.kr(0.5)*2, [sig1, sig2, sig3]);
 endsnippet
 
+snippet mix
+SelectX.ar(${1:\mix.kr(0.5)}, [sig, sig1]);
+endsnippet
+
 snippet mix2
 SelectX.ar(\mix.kr(0.5), [sig1, sig2]);
 endsnippet
@@ -553,6 +559,7 @@ endsnippet
 
 snippet ndeflfodef
 Ndef(~name+++${1:\lfo1}, { ${2:SinOsc.kr(1).range(50,100)}  });
+Ndef(~name+++${1:\lfo1}).quant = Pdef.defaultQuant;
 endsnippet
 
 snippet ndefsetdef
