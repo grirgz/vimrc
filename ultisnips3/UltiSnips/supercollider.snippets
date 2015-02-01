@@ -103,14 +103,13 @@ SynthDef(~name, { arg out=0, amp=0.1, gate=1, pan=0, spread=0.8, freq=200, doneA
 );
 
 (
-if(Pdef(~name +++ \pre).source.isNil) { Pdef(~name +++ \pre, Pbind()) };
-Pdef(~name, Pdef(~name +++ \pre) <> Pbind(
-	\instrument, ${1:~name},
+~pdef_init.(Pbind(
+	\instrument, ${2:~name},
 	\degree, Pseq([0],inf),
 	\isRest, Veco(~name).isrest,
 	\dur, 1/4,
-	\amp, 0.1 * Pkey(\amp),
-) <> Veco(~name).mixer)
+	\amp, 0.1
+))
 );
 endsnippet
 
@@ -124,10 +123,12 @@ SynthDef(~name, { arg out=0, amp=0.1, gate=1, pan=0, spread=0.8, freq=200, doneA
 	Out.ar(out, sig);
 }).add;
 );
+
 (
-Pdef(~name, Pbind(
-	\instrument, ~name,
-	\degree, Pseq([0],inf),${2}
+~pdef_init.(Pbind(
+	\instrument, ${2:~name},
+	\degree, Pseq([0],inf),
+	\isRest, Veco(~name).isrest,
 	\dur, 1/4,
 	\amp, 0.1
 ))
@@ -149,7 +150,7 @@ endsnippet
 
 snippet pdn
 (
-Pdef(~name, Pbind(
+~pdef_init.(Pbind(
 	\instrument, ${1:~name},
 	\degree, Pseq([0],inf),
 	\isRest, Veco(~name).isrest,
@@ -264,11 +265,12 @@ snippet patfx
 endsnippet
 
 snippet initproject
-TempoClock.default.tempo = t = ~t = 1;
-Veco.main.board_size = Point(32,64);
-Pdef.defaultQuant = 4;
 Veco.load_lib("main.scd");
 Veco.load_lib("synth.scd");
+
+Veco.main.board_size = Point(32,64);
+~set_default_quant.(4);
+~set_project_tempo.(1);
 ~load_standard_quickpad.();
 
 // END
