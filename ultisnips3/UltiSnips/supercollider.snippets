@@ -428,6 +428,24 @@ snippet EnvGen
 EnvGen.ar(Env.adsr(0.1,0.1,1,0.1),gate,doneAction:2);
 endsnippet
 
+snippet legato
+var igate, dur, sustain, legato;
+
+freq = 60.midicps * 2;
+
+sig = SinOsc.ar(freq*(1..8)/8);
+
+dur = 1/16;
+legato = 0.5;
+sustain = legato * dur;
+
+igate = TDuty.kr(dur/~t, 0, Dseq([
+	1,1,1,0,
+],inf))*sustain/~t;
+
+sig = sig * EnvGen.ar(Env.adsr(0.1,0.1,1,0.1),Trig.kr(igate,igate),doneAction:0);
+endsnippet
+
 snippet Named
 NamedControl.kr(\\${1:adsr}, Env.adsr(0.1,0.1,0.8,0.1))
 endsnippet
