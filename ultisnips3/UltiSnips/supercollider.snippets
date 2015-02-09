@@ -20,6 +20,12 @@ snippet arg
 },
 endsnippet
 
+snippet argx
+{ arg ${1:x};
+	${0}
+}${2}
+endsnippet
+
 snippet ~class
 ~class_${1} = (
 	new: { arg self;
@@ -104,11 +110,11 @@ SynthDef(~name, { arg out=0, amp=0.1, gate=1, pan=0, spread=0.8, freq=200, doneA
 
 (
 ~pdef_init.(Pbind(
-	\instrument, ${2:~name},
+	\instrument, ${1:~name},
 	\degree, Pseq([0],inf),
 	\isRest, Veco(~name).isrest,
 	\dur, 1/4,
-	\amp, 0.1
+	\amp, 0.1 <> Pkey(\amp),
 ))
 );
 endsnippet
@@ -289,7 +295,7 @@ endsnippet
 ###### SynthDef synthdef
 
 snippet Panrand
-Pan2.ar(sig, {LFNoise1.kr(1/2).range(-1.0,1.0)} ! sig.size, amp).flop;
+Pan2.ar(sig, {LFNoise1.kr(1/2).range(-1.0,1.0)} ! sig.size, amp).mean;
 endsnippet
 
 snippet itrig
@@ -335,6 +341,12 @@ PlayBuf.ar(2, bufnum, BufRateScale.kr(bufnum) * speed, trigger, startPos: (pos*B
 endsnippet
 
 snippet BufRd
+var phase;
+phase = Phasor.ar(1, 1,0,BufFrames.kr(bufnum));
+sig = BufRd.ar(2, bufnum, phase);
+endsnippet
+
+snippet oscsampler
 BufRd.ar(2, bufnum, SinOsc.ar(freq).unipolar * range );
 endsnippet
 
@@ -431,10 +443,6 @@ endsnippet
 snippet legato
 var igate, dur, sustain, legato;
 
-freq = 60.midicps * 2;
-
-sig = SinOsc.ar(freq*(1..8)/8);
-
 dur = 1/16;
 legato = 0.5;
 sustain = legato * dur;
@@ -481,6 +489,18 @@ endsnippet
 snippet	RLPFmix
 sig1 = RLPF.ar(sig, \\lpf.kr(100), \rq.kr(0.5));
 sig = SelectX.ar(\lpmix.kr(0.5), [sig, sig1]);
+endsnippet
+
+snippet filtersplit
+var freqlim, clipmix;
+
+freqlim = 300;
+clipmix = 1;
+sig1 = LPF.ar(sig, freqlim);
+sig2 = HPF.ar(sig, freqlim);
+sig3 = SelectX.ar(clipmix, [sig1, sig2]);
+sig4 = SelectX.ar(1-clipmix, [sig1, sig2]);
+sig = sig3 + sig4;
 endsnippet
 
 snippet distmix
@@ -625,19 +645,19 @@ snippet 810
 endsnippet
 
 snippet Pfunc
-Pfunc({
+Pfunc({ arg ev;
 	${VISUAL}${1}
 }),
 endsnippet
 
 snippet Pfuncn
-Pfunc({
+Pfuncn({ arg ev;
 	${VISUAL}${1}
 },1),
 endsnippet
 
 snippet Plazy
-Plazy({
+Plazy({ arg ev;
 	${VISUAL}${1}
 }).loop,
 endsnippet
