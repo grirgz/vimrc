@@ -462,6 +462,10 @@ snippet adsr
 EnvGen.kr(\\${1:adsr}.kr(Env.adsr(0.1,0.1,0.8,0.1)), gate, doneAction:doneAction);
 endsnippet
 
+snippet iadsr
+EnvGen.kr(\iadsr.kr(Env.adsr(0.1,0.1,0.8,0.1)), Trig.kr(\itrig.kr(1),\isustain.kr(1)), doneAction:0);
+endsnippet
+
 snippet env
 EnvGen.kr(\\${1:env}.kr(Env([1,2,1,2],[0.1,0.8,0.1].normalizeSum)), gate, timeScale:tsustain);
 endsnippet
@@ -556,6 +560,17 @@ sig2 = SelectX.ar(\parafil.kr(0), [sig1, sig]);
 sig = SelectX.ar( \parafil.kr, [sig2, sig1 + sig2]);
 endsnippet
 
+snippet so
+SinOsc.ar(${1:freq}) ${0}
+endsnippet
+
+snippet lfs
+LFSaw.ar(${1:freq}) ${0}
+endsnippet
+
+snippet noise
+LFNoise1.kr(${1:1/2}).range(${2:0.0},${3:1.0})${0}
+endsnippet
 
 snippet LFNoise
 LFNoise1.kr(1/2).range(0.0,1.0)
@@ -622,6 +637,10 @@ endsnippet
 
 snippet 170
 1,0,0,0, 0,0,0,0,
+endsnippet
+
+snippet 18
+(1..${1:8})/$1${0}
 endsnippet
 
 snippet 81
