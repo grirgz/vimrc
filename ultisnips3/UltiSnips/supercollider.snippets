@@ -621,6 +621,10 @@ Ndef(~name+++\fx, {
 endsnippet
 
 snippet ndeflfodef
+Ndef(~name+++\lfo${1:1}, { ${2:SinOsc.kr(1).range(50,100)}  })${0}
+endsnippet
+
+snippet ndeflfodefq
 Ndef(~name+++${1:\lfo1}, { ${2:SinOsc.kr(1).range(50,100)}  });
 Ndef(~name+++${1:\lfo1}).quant = Pdef.defaultQuant;
 endsnippet
@@ -710,6 +714,12 @@ endsnippet
 snippet Pseqcoin16
 Pseq([
 	1,0,0,0, 0,0,0,0,
+],inf).coin.not,
+endsnippet
+
+snippet coin
+\\isRest, Pseq([
+	${1:1,${2:0},$2,$2, $2,$2,$2,$2,}
 ],inf).coin.not,
 endsnippet
 
