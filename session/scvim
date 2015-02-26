@@ -11,6 +11,7 @@ set shortmess=aoO
 badd +1 ~/.local/share/SuperCollider/Extensions/param/Param.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/buffer.scd
 badd +1 midi.scd
+badd +0 ~/code/sc/seco/vlive/lib/demo/param.scd
 silent! argdel *
 edit ~/.local/share/SuperCollider/Extensions/param/Param.sc
 set splitbelow splitright
@@ -27,12 +28,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 105 - ((27 * winheight(0) + 27) / 54)
+let s:l = 125 - ((32 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-105
-normal! 053|
+125
+normal! 012|
 tabedit midi.scd
 set splitbelow splitright
 set nosplitbelow
@@ -48,13 +49,34 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1 - ((0 * winheight(0) + 27) / 54)
+let s:l = 72 - ((15 * winheight(0) + 28) / 56)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+72
+normal! 021|
+tabedit ~/code/sc/seco/vlive/lib/demo/param.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1 - ((0 * winheight(0) + 28) / 56)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
 normal! 0
-tabnext 1
+tabnext 3
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif
