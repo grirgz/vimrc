@@ -2,6 +2,19 @@
 #######################################################
 ###### coding templates
 
+snippet case
+case(
+	{ $1 }, {
+		$2
+	},
+	{ $3 }, {
+		$4
+	}, {
+		$5
+	}
+)$0
+endsnippet
+
 snippet asig
 (1..sig.size)
 endsnippet
