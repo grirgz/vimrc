@@ -3,26 +3,21 @@ if &cp | set nocp | endif
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/code/sc/seco/vlive/lib/demo
+cd ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
 badd +1 ~/.local/share/SuperCollider/Extensions/param/Param.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/buffer.scd
-badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib/midi.scd
-badd +1199 param.scd
-badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib/preset.scd
+badd +1 midi.scd
+badd +1 ~/code/sc/seco/vlive/lib/demo/param.scd
+badd +1 preset.scd
 badd +1 ~/code/sc/seco/vlive/WANTTO
-badd +1 param_doc.scd
-badd +0 param_example.scd
-badd +0 ~/code/sc/seco/vlive/lib/midi.scd
-badd +0 ~/code/sc/seco/vlive/lib/icon.scd
-badd +225 /usr/local/share/SuperCollider-3.6.6/SCClassLibrary/Common/GUI/Base/ControlModel.sc
-badd +276 /usr/local/share/SuperCollider-3.6.6/SCClassLibrary/Common/GUI/Base/Grid.sc
-badd +1 /usr/local/share/SuperCollider-3.6.6/SCClassLibrary/Common/GUI/Base/Model.sc
-badd +1 /usr/local/share/SuperCollider-3.6.6/SCClassLibrary/Common/GUI/Base/QQuartzComposerView.sc
-badd +0 /usr/local/share/SuperCollider-3.6.6/SCClassLibrary/Common/GUI/Base/QLayout.sc
+badd +1 ~/code/sc/seco/vlive/lib/demo/param_doc.scd
+badd +0 ~/.local/share/SuperCollider/Extensions/param/Help/param_examples.scd
+badd +0 ~/.local/share/SuperCollider/Extensions/param/Help/param_tests.scd
+badd +0 ~/.local/share/SuperCollider/Extensions/param/README.md
 silent! argdel *
 edit ~/.local/share/SuperCollider/Extensions/param/Param.sc
 set splitbelow splitright
@@ -39,71 +34,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-1096
-normal zo
-1099
-normal zo
-1104
-normal zo
-1109
-normal zo
-1114
-normal zo
-1118
-normal zo
-1122
-normal zo
-1096
-normal zo
-let s:l = 783 - ((23 * winheight(0) + 19) / 39)
+let s:l = 345 - ((8 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-783
-normal! 02l
-tabedit param_example.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 237 - ((33 * winheight(0) + 19) / 39)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-237
-normal! 033l
-tabedit /usr/local/share/SuperCollider-3.6.6/SCClassLibrary/Common/GUI/Base/QLayout.sc
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 99 - ((17 * winheight(0) + 19) / 39)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-99
-normal! 021l
-lcd ~/code/sc/seco/vlive/lib/demo
+345
+normal! 0
 tabedit ~/code/sc/seco/vlive/lib/demo/param.scd
 set splitbelow splitright
 set nosplitbelow
@@ -119,13 +55,13 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 30 - ((23 * winheight(0) + 19) / 39)
+let s:l = 1099 - ((8 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-30
-normal! 023l
-tabedit ~/code/sc/seco/vlive/lib/midi.scd
+1099
+normal! 014l
+tabedit ~/.local/share/SuperCollider/Extensions/param/Help/param_examples.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -140,35 +76,14 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 149 - ((15 * winheight(0) + 19) / 39)
+let s:l = 45 - ((8 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-149
-normal! 04l
-tabedit ~/code/sc/seco/vlive/lib/icon.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 3 - ((2 * winheight(0) + 19) / 39)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-3
+45
 normal! 0
-lcd ~/code/sc/seco/vlive/lib/demo
-tabedit ~/code/sc/seco/vlive/lib/demo/param_doc.scd
+lcd ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib
+tabedit ~/.local/share/SuperCollider/Extensions/param/Help/param_tests.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -183,12 +98,35 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 63 - ((23 * winheight(0) + 19) / 39)
+let s:l = 27 - ((8 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-63
+27
 normal! 0
+lcd ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib
+tabedit ~/.local/share/SuperCollider/Extensions/param/README.md
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 32 - ((12 * winheight(0) + 8) / 17)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+32
+normal! 0
+lcd ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib
 tabedit ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib/midi.scd
 set splitbelow splitright
 set nosplitbelow
@@ -204,7 +142,7 @@ setlocal fdl=1
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 489 - ((487 * winheight(0) + 19) / 39)
+let s:l = 489 - ((230 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -226,7 +164,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1049 - ((15 * winheight(0) + 19) / 39)
+let s:l = 1049 - ((8 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -248,14 +186,14 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 8 - ((7 * winheight(0) + 19) / 39)
+let s:l = 1 - ((0 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-8
-normal! 022l
+1
+normal! 0
 lcd ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib
-tabnext 2
+tabnext 5
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif
