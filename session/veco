@@ -1,0 +1,158 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/code/sc/seco/vlive/stone14/fx1
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +127 ~/.local/share/SuperCollider/Extensions/param/Param.sc
+badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/buffer.scd
+badd +72 ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib/midi.scd
+badd +16 ~/code/sc/seco/vlive/lib/demo/param.scd
+badd +0 ~/code/sc/seco/vlive/crap
+badd +127 ~/code/sc/seco/vlive/stone14/1.scd
+badd +328 ~/code/sc/seco/vlive/lib/demo/clip.scd
+badd +3 ~/code/sc/seco/vlive/stone14/1.2.scd
+badd +8 ~/code/sc/seco/vlive/lib/demo/trigpad.scd
+badd +891 ~/code/sc/seco/vlive/lib/main.scd
+badd +1 ~/code/sc/seco/vlive/stone14/1.3.scd
+badd +15 ~/code/sc/seco/vlive/stone14/1.1.scd
+badd +7 ~/code/sc/seco/vlive/stone14/1.4.scd
+badd +4 ~/code/sc/seco/vlive/stone14/1.5.scd
+badd +61 ~/code/sc/seco/vlive/stone14/2.1.scd
+badd +4 ~/code/sc/seco/vlive/stone14/2.3.scd
+badd +12 ~/code/sc/seco/vlive/stone14/2.4.scd
+badd +0 ~/code/sc/seco/vlive/stone14/2.5.scd
+badd +5 init.scd
+badd +18 ~/code/sc/seco/vlive/lib/demo/multiproject.scd
+badd +18 ~/code/sc/seco/vlive/stone14/init.scd
+badd +4 1.1.scd
+badd +2 ~/code/sc/seco/vlive/stone11/c.1.scd
+badd +3 1.2.scd
+badd +3 1.scd
+badd +0 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/main.scd
+badd +0 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/launchpad.scd
+badd +0 ~/.vim/sc.vim
+args 1.1.scd
+edit ~/.vim/sc.vim
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+tabedit ~/.local/share/SuperCollider/Extensions/seco/seco/veco/launchpad.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+tabedit ~/.local/share/SuperCollider/Extensions/seco/seco/veco/buffer.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+tabedit ~/.local/share/SuperCollider/Extensions/seco/seco/veco/main.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+tabedit ~/code/sc/seco/vlive/stone14/2.5.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 5 - ((4 * winheight(0) + 20) / 40)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+5
+normal! 014l
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :
