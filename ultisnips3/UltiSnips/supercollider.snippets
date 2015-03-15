@@ -127,7 +127,7 @@ SynthDef(~name, { arg out=0, amp=0.1, gate=1, pan=0, spread=0.8, freq=200, doneA
 	\degree, Pseq([0],inf),
 	\isRest, Veco(~name).isrest,
 	\dur, 1/4,
-	\amp, 0.1 <> Pkey(\amp),
+	\amp, 0.1 * Pkey(\amp),
 ))
 );
 endsnippet
@@ -781,6 +781,12 @@ Ppar([
 endsnippet
 
 snippet Pseq
+Pseq([
+	${VISUAL}${1}
+],${2:1}),
+endsnippet
+
+snippet Pser
 Pseq([
 	${VISUAL}${1}
 ],${2:1}),
