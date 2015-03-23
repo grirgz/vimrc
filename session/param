@@ -18,7 +18,7 @@ badd +1 ~/code/sc/seco/vlive/lib/demo/param_doc.scd
 badd +1 Help/param_examples.scd
 badd +1 Help/param_tests.scd
 badd +1 README.md
-badd +0 extSpec.sc
+badd +1 extSpec.sc
 silent! argdel *
 edit Param.sc
 set splitbelow splitright
@@ -35,13 +35,13 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 141 - ((8 * winheight(0) + 8) / 17)
+let s:l = 905 - ((23 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-141
-normal! 01l
-tabedit extSpec.sc
+905
+normal! 02l
+tabedit Help/param_tests.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -56,7 +56,29 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1 - ((0 * winheight(0) + 8) / 17)
+let s:l = 228 - ((26 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+228
+normal! 06l
+lcd ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib
+tabedit ~/.local/share/SuperCollider/Extensions/param/extSpec.sc
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -77,13 +99,13 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1099 - ((8 * winheight(0) + 8) / 17)
+let s:l = 1095 - ((17 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1099
-normal! 014l
-tabedit Help/param_examples.scd
+1095
+normal! 0
+tabedit ~/.local/share/SuperCollider/Extensions/param/Help/param_examples.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -98,33 +120,11 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 45 - ((8 * winheight(0) + 8) / 17)
+let s:l = 45 - ((17 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 45
-normal! 0
-lcd ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib
-tabedit ~/.local/share/SuperCollider/Extensions/param/Help/param_tests.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 27 - ((8 * winheight(0) + 8) / 17)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-27
 normal! 0
 lcd ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib
 tabedit ~/.local/share/SuperCollider/Extensions/param/README.md
