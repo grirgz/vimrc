@@ -2,6 +2,10 @@
 #######################################################
 ###### coding templates
 
+snippet exec
+Veco(~namex).response_mode = \exec;
+endsnippet
+
 snippet case
 case(
 	{ $1 }, {
@@ -24,7 +28,7 @@ snippet ~set_macro
 endsnippet
 
 snippet Control
-ControlSpec(0,1,\lin,0,1)
+ControlSpec(0,1,${1:\lin})
 endsnippet
 
 snippet arg
