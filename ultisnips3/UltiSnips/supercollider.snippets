@@ -325,6 +325,14 @@ endsnippet
 #######################################################
 ###### SynthDef synthdef
 
+snippet Compander
+Compander.ar(sig, in, \compt.kr(0.4), \complo.kr(1.001), \comphi.kr(0.9));
+endsnippet
+
+snippet in
+InFeedback.ar(\inbus.kr(BusDef(\in0, \audio)), 2); 
+endsnippet
+
 snippet Panrand
 Pan2.ar(sig, {LFNoise1.kr(1/2).range(-1.0,1.0)} ! sig.size, amp).mean;
 endsnippet
@@ -345,6 +353,7 @@ snippet bufstutter
 var bufnum = LocalBuf(s.sampleRate * 4,2);
 var bufgate, stuttrig, choosetrig, recordtrig;
 var attack=0.01, decay=0.01, stutter;
+var rate = 1;
 var env;
 bufnum.clear;
 
@@ -362,7 +371,7 @@ recordtrig = Trig1.kr(choosetrig, 0.01);
 env = EnvGen.ar(Env([0,1,1,0],[attack, stutter-attack-decay, decay]), stuttrig);
 
 RecordBuf.ar(sig, bufnum, 0, 1, 0, run:1,loop:0,trigger: recordtrig,doneAction:0);
-sig1 = PlayBuf.ar(2, bufnum, rate:1/2, trigger:stuttrig,startPos:0, loop:0) * env;
+sig1 = PlayBuf.ar(2, bufnum, rate:rate, trigger:stuttrig,startPos:0, loop:0) * env;
 sig1 = sig1 * 1.2;
 sig = SelectX.ar( bufgate.lag(0.01), [sig, sig1]);
 endsnippet
