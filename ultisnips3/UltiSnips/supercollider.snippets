@@ -312,7 +312,6 @@ Veco.main.board_size = Point(32,64);
 
 // END
 
-~define_effects.(['56','57','58','59']);
 Veco.main.fadeout_time = 16;
 
 endsnippet
@@ -330,7 +329,7 @@ Compander.ar(sig, in, \compt.kr(0.4), \complo.kr(1.001), \comphi.kr(0.9));
 endsnippet
 
 snippet in
-InFeedback.ar(\inbus.kr(BusDef(\in0, \audio)), 2); 
+InFeedback.ar(\inbus.kr(BusDef(\zero, \audio)), 2); 
 endsnippet
 
 snippet Panrand

@@ -22,10 +22,10 @@ badd +1 extSpec.sc
 badd +1 Help/tutorial.scd
 badd +1 HelpSource/Tutorials/tutorial.schelp
 badd +1 Classes/Param.sc
-badd +0 Help/param_examples.scd
-badd +0 HelpSource/Tutorials/Param\ tutorial.schelp
-badd +0 HelpSource/Classes/Param.schelp
-badd +0 HelpSource/Classes/Param.schelp.todo
+badd +1 HelpSource/Tutorials/Param\ tutorial.schelp
+badd +1 HelpSource/Classes/Param.schelp
+badd +1 HelpSource/Classes/Param.schelp.todo
+badd +0 Classes/debug.sc
 silent! argdel *
 edit Classes/Param.sc
 set splitbelow splitright
@@ -42,12 +42,72 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+3
+normal zo
+34
+normal zo
+66
+normal zo
+67
+normal zo
+68
+normal zo
+106
+normal zo
+108
+normal zo
+106
+normal zo
+68
+normal zo
+67
+normal zo
+66
+normal zo
+34
+normal zo
+3
+normal zo
+1096
+normal zo
+1111
+normal zo
+1114
+normal zo
+1116
+normal zo
+1111
+normal zo
+1096
+normal zo
+let s:l = 2441 - ((15 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+2441
 normal! 0
+lcd ~/.local/share/SuperCollider/Extensions/param
+tabedit ~/.local/share/SuperCollider/Extensions/param/Classes/debug.sc
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 6 - ((5 * winheight(0) + 8) / 17)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+6
+normal! 017l
 lcd ~/.local/share/SuperCollider/Extensions/param
 tabedit ~/.local/share/SuperCollider/Extensions/param/HelpSource/Classes/Param.schelp
 set splitbelow splitright
@@ -64,7 +124,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 4 - ((3 * winheight(0) + 19) / 39)
+let s:l = 4 - ((3 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -86,7 +146,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 390 - ((19 * winheight(0) + 19) / 39)
+let s:l = 390 - ((8 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -108,12 +168,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 538 - ((14 * winheight(0) + 19) / 39)
+let s:l = 538 - ((7 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 538
-normal! 070l
+normal! 0
 lcd ~/.local/share/SuperCollider/Extensions/param
 tabedit ~/code/sc/seco/vlive/lib/demo/param.scd
 set splitbelow splitright
@@ -130,12 +190,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 47 - ((23 * winheight(0) + 19) / 39)
+let s:l = 2256 - ((15 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-47
-normal! 0
+2256
+normal! 09l
 lcd ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib
 tabedit ~/.local/share/SuperCollider/Extensions/param/README.md
 set splitbelow splitright
@@ -174,11 +234,11 @@ setlocal fdl=1
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+let s:l = 1255 - ((827 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+1255
 normal! 0
 lcd ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib
 tabedit ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib/preset.scd
@@ -192,11 +252,11 @@ setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
 setlocal fmr={{{,}}}
 setlocal fdi=#
-setlocal fdl=0
+setlocal fdl=1
 setlocal fml=1
 setlocal fdn=20
-setlocal nofen
-let s:l = 1049 - ((8 * winheight(0) + 8) / 17)
+setlocal fen
+let s:l = 1049 - ((736 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -218,14 +278,14 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1 - ((0 * winheight(0) + 8) / 17)
+let s:l = 1 - ((0 * winheight(0) + 4) / 9)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
 normal! 0
 lcd ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib
-tabnext 7
+tabnext 6
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif

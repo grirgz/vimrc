@@ -3,7 +3,7 @@ if &cp | set nocp | endif
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/code/sc/seco/vlive/stone14
+cd ~/code/sc/seco/vlive/fxboard1
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -12,17 +12,25 @@ badd +127 ~/.local/share/SuperCollider/Extensions/param/Param.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/buffer.scd
 badd +72 ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib/midi.scd
 badd +16 ~/code/sc/seco/vlive/lib/demo/param.scd
-badd +0 ~/code/sc/seco/vlive/crap
+badd +1 ~/code/sc/seco/vlive/crap
 badd +5 ~/code/sc/seco/vlive/crap/71.scd
-badd +19 d.3.scd
-badd +20 q.1.scd
-badd +14 q.scd
-badd +15 init.scd
-badd +124 s.scd
-badd +43 s.3.scd
-badd +0 ~/code/sc/seco/vlive/lib/main.scd
-args d.3.scd
-edit ~/code/sc/seco/vlive/lib
+badd +1 ~/code/sc/seco/vlive/stone14/d.3.scd
+badd +34 ~/code/sc/seco/vlive/stone14/q.1.scd
+badd +14 ~/code/sc/seco/vlive/stone14/q.scd
+badd +15 ~/code/sc/seco/vlive/stone14/init.scd
+badd +124 ~/code/sc/seco/vlive/stone14/s.scd
+badd +43 ~/code/sc/seco/vlive/stone14/s.3.scd
+badd +1 ~/code/sc/seco/vlive/lib/main.scd
+badd +1 ~/code/sc/seco/vlive/lib/midi.scd
+badd +14 ~/code/sc/seco/vlive/lib/demo
+badd +1 ~/code/sc/seco/vlive/stone8/1.1.scd
+badd +1 ~/code/sc/seco/vlive/init.scd
+badd +1 ~/code/sc/seco/vlive/stone8/init.scd
+badd +301 ~/code/sc/seco/vlive/lib/demo/macro.scd
+badd +1 ~/code/sc/seco/vlive/lib/demo/morph.scd
+badd +1 ~/code/sc/seco/vlive/lib/demo/fx.scd
+args ~/code/sc/seco/vlive/stone8/1.1.scd
+edit ~/code/sc/seco/vlive/lib/main.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -37,56 +45,14 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 12 - ((11 * winheight(0) + 19) / 39)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-12
-normal! 0
-lcd ~/code/sc/seco/vlive
-tabedit ~/code/sc/seco/vlive/stone14/d.3.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 19 - ((18 * winheight(0) + 19) / 39)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-19
-normal! 01l
-tabedit ~/code/sc/seco/vlive/lib/main.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 315 - ((17 * winheight(0) + 19) / 39)
+let s:l = 315 - ((15 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 315
 normal! 011l
-tabedit ~/code/sc/seco/vlive/stone14/q.1.scd
+lcd ~/code/sc/seco/vlive
+tabedit ~/code/sc/seco/vlive/stone8/1.1.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -101,12 +67,79 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 34 - ((33 * winheight(0) + 19) / 39)
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-34
-normal! 024l
+1
+normal! 0
+lcd ~/code/sc/seco/vlive
+tabedit ~/code/sc/seco/vlive/stone8/init.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 16 - ((15 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+16
+normal! 05l
+lcd ~/code/sc/seco/vlive
+tabedit ~/code/sc/seco/vlive/lib/demo/fx.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 3 - ((2 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+3
+normal! 07l
+lcd ~/code/sc/seco/vlive
+tabedit ~/code/sc/seco/vlive/lib/midi.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 767 - ((20 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+767
+normal! 01l
+lcd ~/code/sc/seco/vlive
 tabnext 4
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
