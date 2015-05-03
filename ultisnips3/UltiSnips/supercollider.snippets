@@ -2,6 +2,10 @@
 #######################################################
 ###### coding templates
 
+snippet swing
+(1 + (0.06 * Pseq([-1,1],inf)))
+endsnippet
+
 snippet if
 if($1) {
 	$2
@@ -323,6 +327,16 @@ endsnippet
 
 #######################################################
 ###### SynthDef synthdef
+
+snippet Fb
+sig = sig + Fb { arg fb;
+	var isig;
+	isig = ( fb * \fb.kr(1) ) + sig;
+
+	isig = Limiter.ar(isig);
+	isig;
+};
+endsnippet
 
 snippet Compander
 Compander.ar(sig, in, \compt.kr(0.4), \complo.kr(1.001), \comphi.kr(0.9));
