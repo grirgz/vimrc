@@ -29,6 +29,8 @@ badd +1 ~/code/sc/seco/vlive/stone8/init.scd
 badd +301 ~/code/sc/seco/vlive/lib/demo/macro.scd
 badd +1 ~/code/sc/seco/vlive/lib/demo/morph.scd
 badd +1 ~/code/sc/seco/vlive/lib/demo/fx.scd
+badd +4 ~/code/sc/seco/vlive/lib/demo/multiproject.scd
+badd +0 ~/code/sc/seco/vlive/lib/scripts/alpha.scd
 args ~/code/sc/seco/vlive/stone8/1.1.scd
 edit ~/code/sc/seco/vlive/lib/main.scd
 set splitbelow splitright
@@ -45,7 +47,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 315 - ((15 * winheight(0) + 19) / 39)
+let s:l = 315 - ((15 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -116,7 +118,29 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 3
-normal! 07l
+normal! 0
+lcd ~/code/sc/seco/vlive
+tabedit ~/code/sc/seco/vlive/lib/scripts/alpha.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 2 - ((1 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+2
+normal! 0
 lcd ~/code/sc/seco/vlive
 tabedit ~/code/sc/seco/vlive/lib/midi.scd
 set splitbelow splitright
@@ -140,7 +164,7 @@ normal! zt
 767
 normal! 01l
 lcd ~/code/sc/seco/vlive
-tabnext 4
+tabnext 5
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif
