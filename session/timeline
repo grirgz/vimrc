@@ -1,0 +1,263 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/code/sc/seco/vlive
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +127 ~/.local/share/SuperCollider/Extensions/param/Param.sc
+badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/buffer.scd
+badd +72 ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib/midi.scd
+badd +16 lib/demo/param.scd
+badd +1 crap
+badd +5 crap/71.scd
+badd +1 stone14/d.3.scd
+badd +34 stone14/q.1.scd
+badd +14 stone14/q.scd
+badd +15 stone14/init.scd
+badd +124 stone14/s.scd
+badd +43 stone14/s.3.scd
+badd +312 lib/main.scd
+badd +767 lib/midi.scd
+badd +14 lib/demo
+badd +1 stone8/1.1.scd
+badd +1 init.scd
+badd +16 stone8/init.scd
+badd +301 lib/demo/macro.scd
+badd +1 lib/demo/morph.scd
+badd +3 lib/demo/fx.scd
+badd +4 lib/demo/multiproject.scd
+badd +3 lib/scripts/alpha.scd
+badd +2 demo/param/base.scd
+badd +13 demo/param/preset.scd
+badd +1 crap/84.scd
+badd +199 demo/param/bass.scd
+badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/Param.sc
+badd +110 demo/param/bass2.scd
+badd +4 crap/87.scd
+badd +4 lib/demo/ugens.scd
+badd +1 catalog/main.scd
+badd +56 test/view.scd
+badd +133 ~/.local/share/SuperCollider/Extensions/seco/seco/seqtest.scd
+badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/seqtest2.scd
+badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/timeline.scd
+badd +1 crap/40.scd
+badd +1 demo/param/timeline.scd
+badd +1 ~/.local/share/SuperCollider/Extensions/seco/TimelineView.sc
+badd +1 ~/.local/share/SuperCollider/quarks/KtlLoop/Classes/EventList.sc
+badd +1 ~/.local/share/SuperCollider/quarks/KtlLoop/Classes/EventLoop.sc
+badd +1 crap/75.scd
+badd +1 demo/param/eventloop.scd
+badd +14 ~/.vim/ultisnips3/UltiSnips/supercollider.snippets
+badd +1 ~/.local/share/SuperCollider/quarks/ixiViews/classes/MIDIKeyboard.sc
+badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/MIDIKeyboardView.sc
+badd +1 demo/param/ktloop.scd
+badd +0 ~/.local/share/SuperCollider/quarks/KtlLoop/Classes/KtlLoop.sc
+args stone8/1.1.scd
+edit ~/.local/share/SuperCollider/Extensions/seco/seco/timeline.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 54 - ((1 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+54
+normal! 0
+lcd ~/code/sc/seco/vlive
+tabedit ~/.local/share/SuperCollider/Extensions/seco/TimelineView.sc
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+12
+normal zo
+578
+normal zo
+582
+normal zo
+584
+normal zo
+592
+normal zo
+584
+normal zo
+582
+normal zo
+12
+normal zo
+1119
+normal zo
+1120
+normal zo
+1119
+normal zo
+1126
+normal zo
+1127
+normal zo
+1134
+normal zo
+1140
+normal zo
+1127
+normal zo
+1153
+normal zo
+1126
+normal zo
+let s:l = 592 - ((19 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+592
+normal! 015l
+lcd ~/code/sc/seco/vlive
+tabedit ~/.local/share/SuperCollider/Extensions/param/Classes/MIDIKeyboardView.sc
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+lcd ~/code/sc/seco/vlive
+tabedit ~/code/sc/seco/vlive/demo/param/timeline.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1158 - ((18 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1158
+normal! 04l
+lcd ~/code/sc/seco/vlive
+tabedit ~/.local/share/SuperCollider/quarks/ixiViews/classes/MIDIKeyboard.sc
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 283 - ((34 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+283
+normal! 0
+lcd ~/code/sc/seco/vlive
+tabedit ~/code/sc/seco/vlive/demo/param/ktloop.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 100 - ((28 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+100
+normal! 0
+lcd ~/code/sc/seco/vlive
+tabedit ~/.local/share/SuperCollider/quarks/KtlLoop/Classes/KtlLoop.sc
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+lcd ~/code/sc/seco/vlive
+tabnext 7
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=1 shortmess=aoO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

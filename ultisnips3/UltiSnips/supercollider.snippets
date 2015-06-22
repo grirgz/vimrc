@@ -2,6 +2,39 @@
 #######################################################
 ###### coding templates
 
+snippet HLayout
+HLayout (
+	${VISUAL}${2}
+)${3}
+endsnippet
+
+snippet VLayout
+VLayout (
+	${VISUAL}${2}
+)${3}
+endsnippet
+
+snippet win
+var window = Window.new;
+var layout;
+layout = ${1};
+window.layout = layout;
+//window.alwaysOnTop = true;
+window.front;
+endsnippet
+
+snippet {
+${1} {
+	${VISUAL}${2}
+${3}
+endsnippet
+
+snippet [
+${1} [
+	${VISUAL}${2}
+${3}
+endsnippet
+
 snippet swing
 (1 + (0.06 * Pseq([-1,1],inf)))
 endsnippet
@@ -393,6 +426,10 @@ sig1 = sig1 * 1.2;
 sig = SelectX.ar( bufgate.lag(0.01), [sig, sig1]);
 endsnippet
 
+snippet Record
+RecordBuf.ar(sig, bufnum, offset:0, recLevel:1, preLevel:0, run:1, loop:0, trigger:1);
+endsnippet
+
 snippet PlayBuf
 PlayBuf.ar(2, bufnum, BufRateScale.kr(bufnum) * speed, trigger, startPos: (pos*BufFrames.kr(bufnum)), doneAction:doneAction, loop: loop);
 endsnippet
@@ -606,6 +643,12 @@ sig3 = SinOsc.ar(freq);
 sig = SelectX.ar(\oscmix.kr(0.5)*2, [sig1, sig2, sig3]);
 endsnippet
 
+snippet TDuty
+TDuty.kr(1/~t, 0, Dseq([
+	1,0,0,0,
+],inf))
+endsnippet
+
 snippet Duty
 Duty.kr(1/~t, 0, Dseq([
 	1,0,0,0,
@@ -762,7 +805,7 @@ endsnippet
 
 snippet grooveamp
 \amp, Pkey(\amp) * Pseq([
-	1,0.3,0.5,0.3,
+	0.3,0.5,1,0.5,
 ],inf),
 endsnippet
 
