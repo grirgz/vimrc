@@ -3,7 +3,7 @@ if &cp | set nocp | endif
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/code/sc/seco/vlive
+cd ~/code/sc/seco/vlive/demo/param
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -11,52 +11,53 @@ set shortmess=aoO
 badd +127 ~/.local/share/SuperCollider/Extensions/param/Param.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/buffer.scd
 badd +72 ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib/midi.scd
-badd +16 lib/demo/param.scd
-badd +1 crap
-badd +5 crap/71.scd
-badd +1 stone14/d.3.scd
-badd +34 stone14/q.1.scd
-badd +14 stone14/q.scd
-badd +15 stone14/init.scd
-badd +124 stone14/s.scd
-badd +43 stone14/s.3.scd
-badd +312 lib/main.scd
-badd +767 lib/midi.scd
-badd +14 lib/demo
-badd +1 stone8/1.1.scd
-badd +1 init.scd
-badd +16 stone8/init.scd
-badd +301 lib/demo/macro.scd
-badd +1 lib/demo/morph.scd
-badd +3 lib/demo/fx.scd
-badd +4 lib/demo/multiproject.scd
-badd +3 lib/scripts/alpha.scd
-badd +2 demo/param/base.scd
-badd +13 demo/param/preset.scd
-badd +1 crap/84.scd
-badd +199 demo/param/bass.scd
+badd +16 ~/code/sc/seco/vlive/lib/demo/param.scd
+badd +1 ~/code/sc/seco/vlive/crap
+badd +5 ~/code/sc/seco/vlive/crap/71.scd
+badd +1 ~/code/sc/seco/vlive/stone14/d.3.scd
+badd +34 ~/code/sc/seco/vlive/stone14/q.1.scd
+badd +14 ~/code/sc/seco/vlive/stone14/q.scd
+badd +15 ~/code/sc/seco/vlive/stone14/init.scd
+badd +124 ~/code/sc/seco/vlive/stone14/s.scd
+badd +43 ~/code/sc/seco/vlive/stone14/s.3.scd
+badd +312 ~/code/sc/seco/vlive/lib/main.scd
+badd +767 ~/code/sc/seco/vlive/lib/midi.scd
+badd +14 ~/code/sc/seco/vlive/lib/demo
+badd +1 ~/code/sc/seco/vlive/stone8/1.1.scd
+badd +1 ~/code/sc/seco/vlive/init.scd
+badd +16 ~/code/sc/seco/vlive/stone8/init.scd
+badd +301 ~/code/sc/seco/vlive/lib/demo/macro.scd
+badd +1 ~/code/sc/seco/vlive/lib/demo/morph.scd
+badd +3 ~/code/sc/seco/vlive/lib/demo/fx.scd
+badd +4 ~/code/sc/seco/vlive/lib/demo/multiproject.scd
+badd +3 ~/code/sc/seco/vlive/lib/scripts/alpha.scd
+badd +2 base.scd
+badd +13 preset.scd
+badd +1 ~/code/sc/seco/vlive/crap/84.scd
+badd +199 bass.scd
 badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/Param.sc
-badd +110 demo/param/bass2.scd
-badd +4 crap/87.scd
-badd +4 lib/demo/ugens.scd
-badd +1 catalog/main.scd
-badd +56 test/view.scd
+badd +110 bass2.scd
+badd +4 ~/code/sc/seco/vlive/crap/87.scd
+badd +4 ~/code/sc/seco/vlive/lib/demo/ugens.scd
+badd +1 ~/code/sc/seco/vlive/catalog/main.scd
+badd +56 ~/code/sc/seco/vlive/test/view.scd
 badd +133 ~/.local/share/SuperCollider/Extensions/seco/seco/seqtest.scd
 badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/seqtest2.scd
 badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/timeline.scd
-badd +1 crap/40.scd
-badd +1 demo/param/timeline.scd
+badd +1 ~/code/sc/seco/vlive/crap/40.scd
+badd +1 timeline.scd
 badd +1 ~/.local/share/SuperCollider/Extensions/seco/TimelineView.sc
 badd +1 ~/.local/share/SuperCollider/quarks/KtlLoop/Classes/EventList.sc
 badd +1 ~/.local/share/SuperCollider/quarks/KtlLoop/Classes/EventLoop.sc
-badd +1 crap/75.scd
-badd +1 demo/param/eventloop.scd
+badd +1 ~/code/sc/seco/vlive/crap/75.scd
+badd +1 eventloop.scd
 badd +14 ~/.vim/ultisnips3/UltiSnips/supercollider.snippets
 badd +1 ~/.local/share/SuperCollider/quarks/ixiViews/classes/MIDIKeyboard.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/MIDIKeyboardView.sc
-badd +1 demo/param/ktloop.scd
+badd +1 ktloop.scd
 badd +1 ~/.local/share/SuperCollider/quarks/KtlLoop/Classes/KtlLoop.sc
-args stone8/1.1.scd
+badd +0 timeline2.scd
+args ~/code/sc/seco/vlive/stone8/1.1.scd
 edit ~/.local/share/SuperCollider/Extensions/seco/seco/timeline.scd
 set splitbelow splitright
 set nosplitbelow
@@ -72,7 +73,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 20 - ((0 * winheight(0) + 19) / 39)
+let s:l = 20 - ((0 * winheight(0) + 9) / 18)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -96,34 +97,22 @@ setlocal fdn=20
 setlocal nofen
 12
 normal zo
-578
-normal zo
-582
-normal zo
-584
-normal zo
-592
-normal zo
-584
-normal zo
-582
-normal zo
 12
 normal zo
-1125
-normal zo
-1128
-normal zo
-1128
+1118
 normal zo
 1125
 normal zo
-let s:l = 139 - ((20 * winheight(0) + 19) / 39)
+1125
+normal zo
+1118
+normal zo
+let s:l = 139 - ((9 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 139
-normal! 029l
+normal! 0
 lcd ~/code/sc/seco/vlive
 tabedit ~/code/sc/seco/vlive/demo/param/timeline.scd
 set splitbelow splitright
@@ -146,7 +135,27 @@ exe s:l
 normal! zt
 1270
 normal! 024l
-lcd ~/code/sc/seco/vlive
+tabedit ~/code/sc/seco/vlive/demo/param/timeline2.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
 tabedit ~/.local/share/SuperCollider/quarks/ixiViews/classes/MIDIKeyboard.sc
 set splitbelow splitright
 set nosplitbelow
@@ -162,7 +171,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 283 - ((34 * winheight(0) + 19) / 39)
+let s:l = 283 - ((15 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -184,7 +193,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 100 - ((28 * winheight(0) + 19) / 39)
+let s:l = 100 - ((12 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -206,7 +215,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+let s:l = 1 - ((0 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -228,14 +237,14 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 146 - ((19 * winheight(0) + 19) / 39)
+let s:l = 146 - ((8 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 146
 normal! 01l
 lcd ~/code/sc/seco/vlive
-tabnext 3
+tabnext 4
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif
