@@ -14,10 +14,19 @@ VLayout (
 )${3}
 endsnippet
 
+snippet keyDown
+keyDownAction_({ arg me, key, modifiers, unicode, keycode;
+	[me, key.asCompileString, modifiers, unicode, keycode].debug("keyDownAction");
+	$1
+});
+endsnippet
+
 snippet win
 var window = Window.new;
 var layout;
-layout = ${1};
+layout = ${1:VLayout}(
+	${2}
+);
 window.layout = layout;
 //window.alwaysOnTop = true;
 window.front;
