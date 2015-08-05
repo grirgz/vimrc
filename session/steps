@@ -65,7 +65,6 @@ badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/TimelineView.sc
 badd +1 ~/code/sc/seco/vlive/test_vrange_hrange.scd
 badd +1 test_vrange_hrange.scd
 badd +17 ~/code/sc/seco/vlive/WANTTO
-badd +20 NERD_tree_1
 badd +1 bass3.scd
 badd +1 step1.scd
 badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/Gui.sc
@@ -77,8 +76,10 @@ badd +1 ~/code/sc/seco/vlive/NERD_tree_2
 badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/seq.scd
 badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/seq.sc
 badd +1 step2.scd
-badd +0 step3.scd
+badd +1 step3.scd
 badd +36 step4.scd
+badd +174 step6.scd
+badd +0 combi1.scd
 args ~/code/sc/seco/vlive/stone8/1.1.scd
 edit ~/.local/share/SuperCollider/Extensions/seco/seco/timeline.scd
 set splitbelow splitright
@@ -95,7 +96,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 20 - ((18 * winheight(0) + 19) / 39)
+let s:l = 20 - ((5 * winheight(0) + 5) / 10)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -117,7 +118,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 60 - ((18 * winheight(0) + 19) / 39)
+let s:l = 60 - ((4 * winheight(0) + 4) / 9)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -139,7 +140,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 106 - ((19 * winheight(0) + 19) / 39)
+let s:l = 106 - ((4 * winheight(0) + 4) / 9)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -161,7 +162,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+let s:l = 1 - ((0 * winheight(0) + 4) / 9)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -183,12 +184,13 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 119 - ((19 * winheight(0) + 19) / 39)
+let s:l = 119 - ((4 * winheight(0) + 4) / 9)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 119
 normal! 01l
+lcd ~/code/sc/seco/vlive
 tabedit ~/code/sc/seco/vlive/demo/param/step3.scd
 set splitbelow splitright
 set nosplitbelow
@@ -204,13 +206,35 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 454 - ((34 * winheight(0) + 19) / 39)
+let s:l = 453 - ((7 * winheight(0) + 4) / 9)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-454
+453
 normal! 0
+lcd ~/code/sc/seco/vlive
 tabedit ~/code/sc/seco/vlive/demo/param/step4.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1 - ((0 * winheight(0) + 4) / 9)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+tabedit ~/code/sc/seco/vlive/demo/param/combi1.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -246,7 +270,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 367 - ((18 * winheight(0) + 19) / 39)
+let s:l = 367 - ((4 * winheight(0) + 4) / 9)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -268,7 +292,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 334 - ((19 * winheight(0) + 19) / 39)
+let s:l = 334 - ((4 * winheight(0) + 4) / 9)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -290,14 +314,14 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1003 - ((22 * winheight(0) + 19) / 39)
+let s:l = 1003 - ((5 * winheight(0) + 4) / 9)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1003
-normal! 05l
+normal! 0
 lcd ~/code/sc/seco/vlive
-tabnext 7
+tabnext 8
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif
