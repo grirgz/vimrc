@@ -64,7 +64,7 @@ badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/Timeline.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/TimelineView.sc
 badd +1 ~/code/sc/seco/vlive/test_vrange_hrange.scd
 badd +1 test_vrange_hrange.scd
-badd +17 ~/code/sc/seco/vlive/WANTTO
+badd +5 ~/code/sc/seco/vlive/WANTTO
 badd +1 bass3.scd
 badd +1 step1.scd
 badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/Gui.sc
@@ -77,100 +77,17 @@ badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/seq.scd
 badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/seq.sc
 badd +119 step2.scd
 badd +453 step3.scd
-badd +36 step4.scd
+badd +1 step4.scd
 badd +174 step6.scd
 badd +1 combi1.scd
 badd +9 step7.scd
-badd +1 step8.scd
+badd +34 step8.scd
 badd +1 lib/stepeditor.scd
-badd +1 step9.scd
+badd +50 step9.scd
+badd +1 lib/drumrack.scd
+badd +0 lib/base.scd
 args ~/code/sc/seco/vlive/stone8/1.1.scd
 edit step4.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 1 - ((0 * winheight(0) + 5) / 10)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-1
-normal! 0
-tabedit step8.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 34 - ((15 * winheight(0) + 18) / 36)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-34
-normal! 0
-tabedit step9.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 50 - ((20 * winheight(0) + 18) / 36)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-50
-normal! 04l
-tabedit ~/code/sc/seco/vlive/WANTTO
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 4 - ((3 * winheight(0) + 18) / 36)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-4
-normal! 0
-lcd ~/code/sc/seco/vlive
-tabedit ~/code/sc/seco/vlive/demo/param/lib/stepeditor.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -191,6 +108,112 @@ exe s:l
 normal! zt
 1
 normal! 0
+tabedit step8.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 96 - ((16 * winheight(0) + 18) / 36)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+96
+normal! 01l
+tabedit step9.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 93 - ((17 * winheight(0) + 18) / 36)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+93
+normal! 016l
+tabedit lib/drumrack.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+let s:l = 4 - ((3 * winheight(0) + 18) / 36)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+4
+normal! 0
+tabedit lib/base.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 3 - ((2 * winheight(0) + 18) / 36)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+3
+normal! 0
+tabedit lib/stepeditor.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 45 - ((16 * winheight(0) + 18) / 36)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+45
+normal! 0
+lcd ~/code/sc/seco/vlive
 tabedit ~/code/sc/seco/vlive/demo/param/combi1.scd
 set splitbelow splitright
 set nosplitbelow
@@ -228,7 +251,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 367 - ((17 * winheight(0) + 18) / 36)
+let s:l = 367 - ((16 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -250,12 +273,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 589 - ((18 * winheight(0) + 18) / 36)
+let s:l = 228 - ((17 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-589
-normal! 02l
+228
+normal! 042l
 lcd ~/code/sc/seco/vlive
 tabedit ~/.local/share/SuperCollider/Extensions/param/Classes/Param.sc
 set splitbelow splitright
@@ -268,18 +291,28 @@ setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
 setlocal fmr={{{,}}}
 setlocal fdi=#
-setlocal fdl=0
+setlocal fdl=1
 setlocal fml=1
 setlocal fdn=20
-setlocal nofen
-let s:l = 1003 - ((5 * winheight(0) + 4) / 9)
+setlocal fen
+3
+normal zo
+3
+normal zo
+2075
+normal zo
+2087
+normal zo
+2075
+normal zo
+let s:l = 2087 - ((17 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1003
-normal! 0
+2087
+normal! 08l
 lcd ~/code/sc/seco/vlive
-tabnext 2
+tabnext 3
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif
