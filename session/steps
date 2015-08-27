@@ -21,7 +21,6 @@ badd +124 ~/code/sc/seco/vlive/stone14/s.scd
 badd +43 ~/code/sc/seco/vlive/stone14/s.3.scd
 badd +312 ~/code/sc/seco/vlive/lib/main.scd
 badd +767 ~/code/sc/seco/vlive/lib/midi.scd
-badd +14 ~/code/sc/seco/vlive/lib/demo
 badd +1 ~/code/sc/seco/vlive/stone8/1.1.scd
 badd +1 ~/code/sc/seco/vlive/init.scd
 badd +16 ~/code/sc/seco/vlive/stone8/init.scd
@@ -85,9 +84,11 @@ badd +34 step8.scd
 badd +1 lib/stepeditor.scd
 badd +50 step9.scd
 badd +1 lib/drumrack.scd
-badd +0 lib/base.scd
+badd +1 lib/base.scd
+badd +0 ~/code/sc/seco/vlive/stepseq1/1.1.scd
+badd +0 ../../lib/drums.scd
 args ~/code/sc/seco/vlive/stone8/1.1.scd
-edit step4.scd
+edit step8.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -102,28 +103,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1 - ((0 * winheight(0) + 18) / 36)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-1
-normal! 0
-tabedit step8.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 96 - ((16 * winheight(0) + 18) / 36)
+let s:l = 96 - ((17 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -144,12 +124,74 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 93 - ((17 * winheight(0) + 18) / 36)
+let s:l = 93 - ((19 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 93
-normal! 016l
+normal! 0
+tabedit ~/code/sc/seco/vlive/stepseq1/1.1.scd
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 72) / 144)
+exe 'vert 2resize ' . ((&columns * 112 + 72) / 144)
+argglobal
+enew
+setlocal fdm=manual
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+wincmd w
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 26 - ((22 * winheight(0) + 19) / 38)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+26
+normal! 0
+wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 72) / 144)
+exe 'vert 2resize ' . ((&columns * 112 + 72) / 144)
+tabedit ../../lib/drums.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 35 - ((15 * winheight(0) + 19) / 39)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+35
+normal! 06l
 tabedit lib/drumrack.scd
 set splitbelow splitright
 set nosplitbelow
@@ -165,7 +207,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 4 - ((3 * winheight(0) + 18) / 36)
+let s:l = 4 - ((3 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -186,7 +228,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 3 - ((2 * winheight(0) + 18) / 36)
+let s:l = 3 - ((2 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -207,33 +249,11 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 45 - ((16 * winheight(0) + 18) / 36)
+let s:l = 45 - ((17 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 45
-normal! 0
-lcd ~/code/sc/seco/vlive
-tabedit ~/code/sc/seco/vlive/demo/param/combi1.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 1 - ((0 * winheight(0) + 18) / 36)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-1
 normal! 0
 lcd ~/code/sc/seco/vlive
 tabedit ~/.local/share/SuperCollider/Extensions/param/Classes/Gui.sc
@@ -251,7 +271,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 367 - ((16 * winheight(0) + 18) / 36)
+let s:l = 367 - ((17 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -273,7 +293,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 228 - ((17 * winheight(0) + 18) / 36)
+let s:l = 228 - ((17 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -305,14 +325,14 @@ normal zo
 normal zo
 2075
 normal zo
-let s:l = 2087 - ((17 * winheight(0) + 18) / 36)
+let s:l = 2087 - ((8 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 2087
 normal! 08l
 lcd ~/code/sc/seco/vlive
-tabnext 3
+tabnext 4
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif
