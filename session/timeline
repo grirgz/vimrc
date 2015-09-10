@@ -12,7 +12,6 @@ badd +127 ~/.local/share/SuperCollider/Extensions/param/Param.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/buffer.scd
 badd +72 ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib/midi.scd
 badd +16 ~/code/sc/seco/vlive/lib/demo/param.scd
-badd +1 ~/code/sc/seco/vlive/crap
 badd +5 ~/code/sc/seco/vlive/crap/71.scd
 badd +1 ~/code/sc/seco/vlive/stone14/d.3.scd
 badd +34 ~/code/sc/seco/vlive/stone14/q.1.scd
@@ -22,7 +21,6 @@ badd +124 ~/code/sc/seco/vlive/stone14/s.scd
 badd +43 ~/code/sc/seco/vlive/stone14/s.3.scd
 badd +312 ~/code/sc/seco/vlive/lib/main.scd
 badd +767 ~/code/sc/seco/vlive/lib/midi.scd
-badd +14 ~/code/sc/seco/vlive/lib/demo
 badd +1 ~/code/sc/seco/vlive/stone8/1.1.scd
 badd +1 ~/code/sc/seco/vlive/init.scd
 badd +16 ~/code/sc/seco/vlive/stone8/init.scd
@@ -37,15 +35,16 @@ badd +1 ~/code/sc/seco/vlive/crap/84.scd
 badd +199 bass.scd
 badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/Param.sc
 badd +110 bass2.scd
+badd +1 ~/code/sc/seco/vlive/crap
 badd +4 ~/code/sc/seco/vlive/crap/87.scd
 badd +4 ~/code/sc/seco/vlive/lib/demo/ugens.scd
 badd +1 ~/code/sc/seco/vlive/catalog/main.scd
 badd +56 ~/code/sc/seco/vlive/test/view.scd
 badd +133 ~/.local/share/SuperCollider/Extensions/seco/seco/seqtest.scd
 badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/seqtest2.scd
-badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/timeline.scd
+badd +20 ~/.local/share/SuperCollider/Extensions/seco/seco/timeline.scd
 badd +1 ~/code/sc/seco/vlive/crap/40.scd
-badd +1 timeline.scd
+badd +1330 timeline.scd
 badd +1 ~/.local/share/SuperCollider/Extensions/seco/TimelineView.sc
 badd +1 ~/.local/share/SuperCollider/quarks/KtlLoop/Classes/EventList.sc
 badd +1 ~/.local/share/SuperCollider/quarks/KtlLoop/Classes/EventLoop.sc
@@ -58,14 +57,21 @@ badd +1 ktloop.scd
 badd +1 ~/.local/share/SuperCollider/quarks/KtlLoop/Classes/KtlLoop.sc
 badd +1 timeline2.scd
 badd +40 ~/.vimrc
-badd +114 timeline3.scd
+badd +299 timeline3.scd
 badd +241 ~/.local/share/SuperCollider/Extensions/param/Classes/EventList.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/Timeline.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/TimelineView.sc
-badd +0 ~/.local/share/SuperCollider/Extensions/param/Classes/Patterns.sc
-badd +0 timeline6.sc
+badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/Patterns.sc
+badd +72 lib/base.scd
+badd +14 ~/code/sc/seco/vlive/lib/demo
+badd +28 timeline6.sc
+badd +46 timeline7.scd
+badd +24 timeline4.scd
+badd +8 timeline5.scd
+badd +0 timeline8.scd
+badd +0 lib/timeline.scd
 args ~/code/sc/seco/vlive/stone8/1.1.scd
-edit ~/.local/share/SuperCollider/Extensions/seco/seco/timeline.scd
+edit lib/timeline.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -80,14 +86,13 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 20 - ((15 * winheight(0) + 18) / 37)
+let s:l = 388 - ((20 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-20
-normal! 02l
-lcd ~/code/sc/seco/vlive
-tabedit ~/code/sc/seco/vlive/demo/param/timeline.scd
+388
+normal! 03l
+tabedit timeline7.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -102,37 +107,13 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1330 - ((14 * winheight(0) + 18) / 36)
+let s:l = 81 - ((16 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1330
+81
 normal! 0
-lcd ~/code/sc/seco/vlive
-tabedit ~/code/sc/seco/vlive/demo/param/timeline2.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=manual
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-silent! normal! zE
-let s:l = 5 - ((4 * winheight(0) + 18) / 36)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-5
-normal! 0
-lcd ~/code/sc/seco/vlive
-tabedit ~/code/sc/seco/vlive/demo/param/timeline3.scd
+tabedit timeline8.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -147,33 +128,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 352 - ((20 * winheight(0) + 18) / 36)
+let s:l = 7 - ((6 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-352
-normal! 01l
-tabedit ~/code/sc/seco/vlive/demo/param/timeline6.sc
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 1 - ((0 * winheight(0) + 18) / 36)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-1
-normal! 0
+7
+normal! 08l
 tabedit ~/.local/share/SuperCollider/Extensions/param/Classes/Patterns.sc
 set splitbelow splitright
 set nosplitbelow
@@ -189,7 +149,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1326 - ((17 * winheight(0) + 18) / 36)
+let s:l = 1326 - ((16 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -211,12 +171,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 195 - ((17 * winheight(0) + 18) / 36)
+let s:l = 151 - ((16 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-195
-normal! 057l
+151
+normal! 0
 lcd ~/code/sc/seco/vlive
 tabedit ~/.local/share/SuperCollider/Extensions/param/Classes/TimelineView.sc
 set splitbelow splitright
@@ -233,12 +193,13 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 418 - ((15 * winheight(0) + 18) / 36)
+let s:l = 67 - ((19 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-418
+67
 normal! 0
+lcd ~/code/sc/seco/vlive
 tabedit ~/.local/share/SuperCollider/Extensions/param/Classes/EventList.sc
 set splitbelow splitright
 set nosplitbelow
@@ -254,7 +215,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 237 - ((178 * winheight(0) + 18) / 36)
+let s:l = 237 - ((173 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -276,7 +237,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 101 - ((15 * winheight(0) + 18) / 36)
+let s:l = 101 - ((7 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -298,7 +259,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 7 - ((6 * winheight(0) + 18) / 36)
+let s:l = 7 - ((3 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -320,7 +281,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 3 - ((2 * winheight(0) + 18) / 36)
+let s:l = 3 - ((1 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -342,14 +303,14 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1 - ((0 * winheight(0) + 18) / 36)
+let s:l = 1 - ((0 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
 normal! 0
 lcd ~/code/sc/seco/vlive
-tabnext 6
+tabnext 2
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif
