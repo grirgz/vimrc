@@ -80,6 +80,7 @@ badd +361 ~/.local/share/SuperCollider/Extensions/param/Classes/extSpec.sc
 badd +121 spec.scd
 badd +1 timeline9.scd
 badd +1 timeline10.scd
+badd +0 timeline11.scd
 args ~/code/sc/seco/vlive/stone8/1.1.scd
 edit lib/timeline.scd
 set splitbelow splitright
@@ -96,7 +97,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 488 - ((16 * winheight(0) + 18) / 37)
+let s:l = 488 - ((15 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -124,6 +125,27 @@ normal! zt
 332
 normal! 0
 tabedit timeline10.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1 - ((0 * winheight(0) + 18) / 36)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+tabedit timeline11.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -213,14 +235,14 @@ normal zo
 normal zo
 64
 normal zo
-let s:l = 520 - ((16 * winheight(0) + 18) / 36)
+let s:l = 106 - ((17 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-520
-normal! 013l
+106
+normal! 024l
 lcd ~/code/sc/seco/vlive
-tabnext 3
+tabnext 4
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif
