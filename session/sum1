@@ -1,0 +1,231 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/code/sc/seco/vlive/demo/param
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +127 ~/.local/share/SuperCollider/Extensions/param/Param.sc
+badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/buffer.scd
+badd +72 ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib/midi.scd
+badd +16 ~/code/sc/seco/vlive/lib/demo/param.scd
+badd +5 ~/code/sc/seco/vlive/crap/71.scd
+badd +1 ~/code/sc/seco/vlive/stone14/d.3.scd
+badd +34 ~/code/sc/seco/vlive/stone14/q.1.scd
+badd +14 ~/code/sc/seco/vlive/stone14/q.scd
+badd +15 ~/code/sc/seco/vlive/stone14/init.scd
+badd +124 ~/code/sc/seco/vlive/stone14/s.scd
+badd +43 ~/code/sc/seco/vlive/stone14/s.3.scd
+badd +312 ~/code/sc/seco/vlive/lib/main.scd
+badd +767 ~/code/sc/seco/vlive/lib/midi.scd
+badd +14 ~/code/sc/seco/vlive/lib/demo
+badd +1 ~/code/sc/seco/vlive/stone8/1.1.scd
+badd +1 ~/code/sc/seco/vlive/init.scd
+badd +16 ~/code/sc/seco/vlive/stone8/init.scd
+badd +301 ~/code/sc/seco/vlive/lib/demo/macro.scd
+badd +1 ~/code/sc/seco/vlive/lib/demo/morph.scd
+badd +3 ~/code/sc/seco/vlive/lib/demo/fx.scd
+badd +4 ~/code/sc/seco/vlive/lib/demo/multiproject.scd
+badd +3 ~/code/sc/seco/vlive/lib/scripts/alpha.scd
+badd +2 base.scd
+badd +13 preset.scd
+badd +1 ~/code/sc/seco/vlive/crap/84.scd
+badd +199 bass.scd
+badd +984 ~/.local/share/SuperCollider/Extensions/param/Classes/Param.sc
+badd +110 bass2.scd
+badd +1 ~/code/sc/seco/vlive/crap
+badd +4 ~/code/sc/seco/vlive/crap/87.scd
+badd +4 ~/code/sc/seco/vlive/lib/demo/ugens.scd
+badd +1 ~/code/sc/seco/vlive/catalog/main.scd
+badd +56 ~/code/sc/seco/vlive/test/view.scd
+badd +133 ~/.local/share/SuperCollider/Extensions/seco/seco/seqtest.scd
+badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/seqtest2.scd
+badd +20 ~/.local/share/SuperCollider/Extensions/seco/seco/timeline.scd
+badd +1 ~/code/sc/seco/vlive/crap/40.scd
+badd +1330 timeline.scd
+badd +1 ~/.local/share/SuperCollider/Extensions/seco/TimelineView.sc
+badd +52 ~/.local/share/SuperCollider/quarks/KtlLoop/Classes/EventList.sc
+badd +3 ~/.local/share/SuperCollider/quarks/KtlLoop/Classes/EventLoop.sc
+badd +1 ~/code/sc/seco/vlive/crap/75.scd
+badd +1 eventloop.scd
+badd +14 ~/.vim/ultisnips3/UltiSnips/supercollider.snippets
+badd +1 ~/.local/share/SuperCollider/quarks/ixiViews/classes/MIDIKeyboard.sc
+badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/MIDIKeyboardView.sc
+badd +266 ktloop.scd
+badd +7 ~/.local/share/SuperCollider/quarks/KtlLoop/Classes/KtlLoop.sc
+badd +1 timeline2.scd
+badd +40 ~/.vimrc
+badd +18 timeline3.scd
+badd +237 ~/.local/share/SuperCollider/Extensions/param/Classes/EventList.sc
+badd +378 ~/.local/share/SuperCollider/Extensions/param/Classes/Timeline.sc
+badd +25 ~/.local/share/SuperCollider/Extensions/param/Classes/TimelineView.sc
+badd +1452 ~/.local/share/SuperCollider/Extensions/param/Classes/Patterns.sc
+badd +72 lib/base.scd
+badd +29 timeline6.sc
+badd +28 timeline7.scd
+badd +55 timeline4.scd
+badd +3 timeline5.scd
+badd +52 timeline8.scd
+badd +509 lib/timeline.scd
+badd +1 timeline_miditimeline.scd
+badd +35 test_vrange_hrange.scd
+badd +92 eventlist.scd
+badd +151 ktloop2.scd
+badd +1 GUI
+badd +107 ~/.local/share/SuperCollider/Extensions/param/Classes/Gui.sc
+badd +366 ~/.local/share/SuperCollider/Extensions/param/Classes/extSpec.sc
+badd +136 spec.scd
+badd +212 timeline9.scd
+badd +18 timeline10.scd
+badd +42 timeline11.scd
+badd +227 to_convert.scd
+badd +1 lib/drumrack.scd
+badd +108 to_convert_converted.scd
+badd +20 ~/code/sc/seco/vlive/lib/samples.scd
+badd +371 to_convert_converted2.scd
+badd +31 router1.scd
+badd +30 NERD_tree_3
+badd +70 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/mixer.scd
+badd +139 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/sendpad.scd
+badd +1 to_convert_converted3.scd
+badd +1 to_convert_converted4.scd
+badd +1 modulator1.scd
+badd +5 modulator2.scd
+badd +10 lib/drumrack_instr.scd
+badd +0 sum1/note1.scd
+args ~/code/sc/seco/vlive/stone8/1.1.scd
+edit modulator1.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 446 - ((7 * winheight(0) + 8) / 16)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+446
+normal! 020l
+tabedit sum1/note1.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 33 - ((7 * winheight(0) + 8) / 16)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+33
+normal! 0
+tabedit ~/.local/share/SuperCollider/Extensions/param/Classes/Gui.sc
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 866 - ((7 * winheight(0) + 8) / 16)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+866
+normal! 0
+tabedit ~/.local/share/SuperCollider/Extensions/param/Classes/Patterns.sc
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1551 - ((4 * winheight(0) + 4) / 9)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1551
+normal! 0
+tabedit ~/.local/share/SuperCollider/Extensions/param/Classes/EventList.sc
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+64
+normal zo
+68
+normal zo
+72
+normal zo
+72
+normal zo
+68
+normal zo
+64
+normal zo
+let s:l = 192 - ((5 * winheight(0) + 4) / 9)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+192
+normal! 018l
+lcd ~/code/sc/seco/vlive
+tabnext 2
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=1 shortmess=aoO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

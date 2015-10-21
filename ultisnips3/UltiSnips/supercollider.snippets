@@ -2,6 +2,42 @@
 #######################################################
 ###### coding templates
 
+snippet Def
+Def {
+	classvar <>all;
+	var <>key;
+	var <>source;
+
+	*initClass {
+		all = PresetDictionary(\WindowDef)
+	}
+
+	*new { arg key, val;
+		if(all[key].isNil) {
+			if(val.notNil) {
+				^super.new.init(val).prAdd(key)
+			} {
+				^nil
+			}
+		} {
+			var ret = all[key];
+			if(val.notNil) {
+				ret.source = val
+			};
+			^ret;
+		}
+	}
+
+	prAdd { arg xkey;
+		key = xkey;
+	}
+
+	init { arg val;
+
+	}
+}
+endsnippet
+
 snippet test
 { SinOsc.ar(200) ! 2 * 0.1}.play;
 endsnippet
