@@ -2,6 +2,40 @@
 #######################################################
 ###### coding templates
 
+snippet edit
+edit: { arg self;
+	var window = Window.new;
+	var layout;
+	layout = self.asView;
+	window.layout = layout;
+	//window.alwaysOnTop = true;
+	window.front;
+},
+endsnippet
+
+snippet eventDef
+all: PresetDictionary.new(\Sequencer),
+new: { arg self, key, instrs;
+
+	if(self.all[key].isNil) {
+		self = self.deepCopy;
+		self.instrs = instrs;
+		self.playerWrapper;
+		self.coins = IdentityDictionary.new;
+		self.populate_tracks;
+		self.key = key;
+		self.all[key] = self;
+
+	} {
+		self = self.all[key];
+		self.instrs = instrs;
+		self.populate_tracks;
+	};
+	
+	self;
+},
+endsnippet
+
 snippet Def
 Def {
 	classvar <>all;
@@ -59,6 +93,13 @@ keyDownAction_({ arg me, key, modifiers, unicode, keycode;
 	[me, key.asCompileString, modifiers, unicode, keycode].debug("keyDownAction");
 	$1
 });
+endsnippet
+
+snippet mouseDown
+mouseDownAction_({ arg view, x, y, modifiers, buttonNumber, clickCount;
+	[view, x, y, modifiers, buttonNumber, clickCount].debug("mouseDownAction");
+	$1
+})
 endsnippet
 
 snippet win
