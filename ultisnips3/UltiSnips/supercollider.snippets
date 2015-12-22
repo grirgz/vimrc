@@ -36,6 +36,28 @@ new: { arg self, key, instrs;
 },
 endsnippet
 
+snippet protoDef
+~${1:trackDef} = ProtoClass((
+	all: PresetDictionary.new(\\$1),
+
+	new: { arg self, key, val;
+
+		if(self.all[key].isNil) {
+			self = self.deepCopy;
+			self.key = key;
+			self.init(val);
+			self.all[key] = self;
+
+		} {
+			self = self.all[key];
+			//self.val = val;
+		};
+		
+		self;
+	},
+));
+endsnippet
+
 snippet Def
 Def {
 	classvar <>all;
@@ -64,6 +86,7 @@ Def {
 
 	prAdd { arg xkey;
 		key = xkey;
+		all[key] = this;
 	}
 
 	init { arg val;
