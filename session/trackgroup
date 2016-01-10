@@ -34,26 +34,28 @@ badd +1 ~/code/sc/seco/vlive/demo/param/base.scd
 badd +13 ~/code/sc/seco/vlive/demo/param/preset.scd
 badd +1 ~/code/sc/seco/vlive/crap/84.scd
 badd +199 ~/code/sc/seco/vlive/demo/param/bass.scd
-badd +610 Param.sc
+badd +998 Param.sc
 badd +110 ~/code/sc/seco/vlive/demo/param/bass2.scd
 badd +8 ~/code/sc/seco/vlive/crap/89.scd
 badd +1 ~/code/sc/seco/vlive/demo/param/NERD_tree_1
 badd +1 ~/code/sc/seco/vlive/crap/1.scd
-badd +1 ~/code/sc/seco/vlive/crap/108.scd
+badd +476 ~/code/sc/seco/vlive/crap/108.scd
 badd +1 ~/code/sc/seco/vlive/explore/15.scd
-badd +1 ~/code/sc/seco/vlive/explore/14.scd
+badd +343 ~/code/sc/seco/vlive/explore/14.scd
 badd +89 ~/.vim/ultisnips3/UltiSnips/supercollider.snippets
-badd +0 Track.sc
+badd +1 Track.sc
 badd +1 Proto.sc
-badd +82 data.sc
+badd +584 data.sc
 badd +1 Patterns.sc
-badd +5 NERD_tree_2
 badd +1 PchainT.sc
 badd +1 NERD_tree_3
 badd +3 debug.sc
 badd +1 EventList.sc
+badd +0 NERD_tree_4
+badd +0 ~/code/sc/seco/vlive/demo/param/disc/track2.scd
+badd +0 ~/.local/share/SuperCollider/Extensions/param/Proto/track.scd
 args ~/code/sc/seco/vlive/stone8/1.1.scd
-edit ~/code/sc/seco/vlive/crap/1.scd
+edit ~/.local/share/SuperCollider/Extensions/param/Proto/track.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -74,7 +76,7 @@ exe s:l
 normal! zt
 1
 normal! 0
-tabedit ~/code/sc/seco/vlive/crap/108.scd
+tabedit ~/code/sc/seco/vlive/demo/param/disc/track2.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -89,12 +91,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 476 - ((15 * winheight(0) + 18) / 36)
+let s:l = 104 - ((15 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-476
-normal! 010l
+104
+normal! 03l
 tabedit Track.sc
 set splitbelow splitright
 set nosplitbelow
@@ -110,97 +112,13 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 42 - ((20 * winheight(0) + 18) / 36)
+let s:l = 92 - ((20 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-42
+92
 normal! 02l
-tabedit data.sc
-set splitbelow splitright
-wincmd _ | wincmd |
-vsplit
-1wincmd h
-wincmd w
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 31 + 67) / 134)
-exe 'vert 2resize ' . ((&columns * 102 + 67) / 134)
-argglobal
-enew
-file NERD_tree_4
-setlocal fdm=manual
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-wincmd w
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 584 - ((18 * winheight(0) + 17) / 35)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-584
-normal! 010l
-wincmd w
-exe 'vert 1resize ' . ((&columns * 31 + 67) / 134)
-exe 'vert 2resize ' . ((&columns * 102 + 67) / 134)
-tabedit Param.sc
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 998 - ((16 * winheight(0) + 18) / 36)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-998
-normal! 0
-tabedit ~/code/sc/seco/vlive/explore/14.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-let s:l = 343 - ((83 * winheight(0) + 11) / 22)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-343
-normal! 0
-tabnext 2
+tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif
