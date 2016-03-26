@@ -273,6 +273,9 @@ Ndef(~name+++\fx).put(50, \filter -> { arg in;
 });
 endsnippet
 
+snippet Greyhole
+Greyhole.ar(sig, \delay.kr(1/4),\damp.kr(0.1),\size.kr(1), \diff.kr(0.707) , \feedback.kr(0.8), \modDepth.kr(0.1), \modFreq.kr(2));
+endsnippet
 
 snippet fx_channel
 
@@ -499,7 +502,7 @@ sig = sig + Fb { arg fb;
 endsnippet
 
 snippet Compander
-Compander.ar(sig, in, \compt.kr(0.4), \complo.kr(1.001), \comphi.kr(0.9));
+Compander.ar(sig, in, \cpt.kr(0.4), \cpbelow.kr(1.001), \cpabove.kr(0.9), \cpclamp.kr(0.01), \cprelax.kr(0.1));
 endsnippet
 
 snippet in
