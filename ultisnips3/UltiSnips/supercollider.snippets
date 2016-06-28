@@ -96,6 +96,13 @@ Def {
 	init { arg val;
 
 	}
+
+	clear {
+		if(key.notNil) {
+			all[key] = nil
+		};
+		^nil
+	}
 }
 endsnippet
 
