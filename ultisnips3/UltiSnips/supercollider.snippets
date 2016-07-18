@@ -1004,6 +1004,12 @@ Pseq([
 ],inf),
 endsnippet
 
+snippet Pseqenv
+Pseq([
+	${1:[ Env([1,2,1], [0.1,0.1]) ]},
+],inf),
+endsnippet
+
 snippet Ppar
 Ppar([
 	${VISUAL}${1}
@@ -1017,7 +1023,7 @@ Pseq([
 endsnippet
 
 snippet Pser
-Pseq([
+Pser([
 	${VISUAL}${1}
 ],${2:1}),
 endsnippet
