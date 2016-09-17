@@ -1212,7 +1212,22 @@ Pdef(\\${1:plop}, Pbind(
 );
 endsnippet
 
+snippet Pdefpar
+Pdef(\\${1:plop}, 
+	Ppar([
+		${VISUAL}${2}
+	])
+).play;
+endsnippet
 
+
+snippet Pdefseq
+Pdef(\\${1:plop}, 
+	Pseq([
+		${VISUAL}${2}
+	])
+).play;
+endsnippet
 
 #######################################################
 ###### Old
