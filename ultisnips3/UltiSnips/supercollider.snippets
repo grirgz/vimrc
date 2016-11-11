@@ -10,6 +10,13 @@ k.postElements;
 k.elAt(\pad).elAt(0).elAt(0).value = 0.05;
 endsnippet
 
+snippet icon
+k = MKtl('icon', "icon-icontrols");
+k[\kn].collect({ arg k; k })
+k[\kn][0]
+k.postElements;
+endsnippet
+
 snippet edit
 edit: { arg self;
 	var window = Window.new;
