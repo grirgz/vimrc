@@ -33,7 +33,7 @@ snippet midside
 endsnippet
 
 snippet eventDef
-all: PresetDictionary.new(\Sequencer),
+all: { PresetDictionary.new(\Sequencer) },
 new: { arg self, key, instrs;
 
 	if(self.all[key].isNil) {
@@ -57,7 +57,7 @@ endsnippet
 
 snippet protoDef
 ~${1:trackDef} = ProtoClass((
-	all: PresetDictionary.new(\\$1),
+	all: { PresetDictionary.new(\\$1) },
 
 	new: { arg self, key, val;
 
