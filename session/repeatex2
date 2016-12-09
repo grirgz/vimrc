@@ -61,22 +61,26 @@ badd +1 ~/.local/share/SuperCollider/Extensions/param/Proto/timeline.scd
 badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/NERD_tree_1
 badd +22 ~/.local/share/SuperCollider/Extensions/RandGraph/StringPaste.sc
 badd +301 ~/.local/share/SuperCollider/Extensions/param/Proto/player.scd
-badd +1 ~/code/sc/seco/vlive/lib/samples.scd
-badd +41 drumkit.scd
+badd +21 ~/code/sc/seco/vlive/lib/samples.scd
+badd +1 drumkit.scd
 badd +169 ~/.local/share/SuperCollider/Extensions/param/Classes/Gui.sc
 badd +3 ~/.local/share/SuperCollider/Extensions/param/Classes/Player.sc
 badd +426 ~/.local/share/SuperCollider/Extensions/param/Classes/Patterns.sc
 badd +72 bla6.scd
 badd +18 metronome.scd
 badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/EventList.sc
-badd +0 NERD_tree_4
-badd +0 ~/.local/share/SuperCollider/Extensions/param/Classes/NERD_tree_3
-badd +453 bla7.scd
+badd +1 NERD_tree_4
+badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/NERD_tree_3
+badd +156 bla7.scd
 badd +223 ~/code/sc/seco/vlive/repeat/ex1/multifbdel.scd
 badd +1 soundfileview.scd
-badd +0 bla8.scd
+badd +18 bla8.scd
+badd +0 NERD_tree_1
+badd +0 ~/code/sc/seco/vlive/NERD_tree_2
+badd +0 ~/.local/share/SuperCollider/Extensions/param/Proto/NERD_tree_3
+badd +0 sco1.scd
 silent! argdel *
-edit bla8.scd
+edit sco1.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -91,34 +95,13 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 18 - ((17 * winheight(0) + 20) / 41)
+let s:l = 7 - ((6 * winheight(0) + 9) / 18)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-18
-normal! 044|
-tabedit bla7.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 156 - ((15 * winheight(0) + 20) / 41)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-156
+7
 normal! 0
-tabedit drumkit.scd
+tabedit NERD_tree_1
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -131,8 +114,6 @@ set winheight=1 winwidth=1
 exe 'vert 1resize ' . ((&columns * 31 + 81) / 162)
 exe 'vert 2resize ' . ((&columns * 130 + 81) / 162)
 argglobal
-enew
-file NERD_tree_1
 setlocal fdm=manual
 setlocal fde=GetPotionFold(v:lnum)
 setlocal fmr={{{,}}}
@@ -141,8 +122,16 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 8) / 17)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
 wincmd w
 argglobal
+edit drumkit.scd
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
 setlocal fmr={{{,}}}
@@ -151,16 +140,16 @@ setlocal fdl=1
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 90 - ((20 * winheight(0) + 20) / 40)
+let s:l = 90 - ((9 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 90
-normal! 054|
+normal! 021|
 wincmd w
 exe 'vert 1resize ' . ((&columns * 31 + 81) / 162)
 exe 'vert 2resize ' . ((&columns * 130 + 81) / 162)
-tabedit ~/code/sc/seco/vlive/lib/samples.scd
+tabedit main.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -175,36 +164,14 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 21 - ((20 * winheight(0) + 20) / 41)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-21
-normal! 0
-lcd ~/code/sc/seco/vlive
-tabedit ~/code/sc/seco/vlive/repeat/ex2/main.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 14 - ((13 * winheight(0) + 20) / 41)
+let s:l = 14 - ((8 * winheight(0) + 9) / 18)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 14
 normal! 037|
 lcd ~/code/sc/seco/vlive
-tabedit ~/.local/share/SuperCollider/Extensions/param/Classes/EventList.sc
+tabedit ~/code/sc/seco/vlive/NERD_tree_2
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -217,8 +184,6 @@ set winheight=1 winwidth=1
 exe 'vert 1resize ' . ((&columns * 20 + 81) / 162)
 exe 'vert 2resize ' . ((&columns * 141 + 81) / 162)
 argglobal
-enew
-file ~/code/sc/seco/vlive/NERD_tree_2
 setlocal fdm=manual
 setlocal fde=GetPotionFold(v:lnum)
 setlocal fmr={{{,}}}
@@ -227,9 +192,17 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 8) / 17)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
 lcd ~/code/sc/seco/vlive
 wincmd w
 argglobal
+edit ~/.local/share/SuperCollider/Extensions/param/Classes/EventList.sc
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
 setlocal fmr={{{,}}}
@@ -238,7 +211,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 500 - ((2 * winheight(0) + 20) / 40)
+let s:l = 500 - ((1 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -248,7 +221,7 @@ lcd ~/code/sc/seco/vlive
 wincmd w
 exe 'vert 1resize ' . ((&columns * 20 + 81) / 162)
 exe 'vert 2resize ' . ((&columns * 141 + 81) / 162)
-tabedit ~/.local/share/SuperCollider/Extensions/param/Proto/timeline.scd
+tabedit ~/.local/share/SuperCollider/Extensions/param/Proto/NERD_tree_3
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -261,8 +234,6 @@ set winheight=1 winwidth=1
 exe 'vert 1resize ' . ((&columns * 31 + 81) / 162)
 exe 'vert 2resize ' . ((&columns * 130 + 81) / 162)
 argglobal
-enew
-file ~/.local/share/SuperCollider/Extensions/param/Proto/NERD_tree_3
 setlocal fdm=manual
 setlocal fde=GetPotionFold(v:lnum)
 setlocal fmr={{{,}}}
@@ -271,8 +242,17 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 8) / 17)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+lcd ~/code/sc/seco/vlive
 wincmd w
 argglobal
+edit ~/.local/share/SuperCollider/Extensions/param/Proto/timeline.scd
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
 setlocal fmr={{{,}}}
@@ -281,12 +261,13 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1326 - ((24 * winheight(0) + 20) / 40)
+let s:l = 1326 - ((10 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1326
 normal! 0
+lcd ~/code/sc/seco/vlive
 wincmd w
 exe 'vert 1resize ' . ((&columns * 31 + 81) / 162)
 exe 'vert 2resize ' . ((&columns * 130 + 81) / 162)
@@ -305,7 +286,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 35 - ((15 * winheight(0) + 20) / 41)
+let s:l = 35 - ((7 * winheight(0) + 9) / 18)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
