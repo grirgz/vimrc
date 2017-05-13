@@ -2,6 +2,10 @@
 #######################################################
 ###### coding templates
 
+snippet log
+Log(\Param).debug("${1}");${4}
+endsnippet
+
 snippet launchpad
 k = MKtl(\lp, "novation-launchpad-s");
 k.elAt(\pad).elAt(0).elAt(0).action = { "0 on pushed".postln; };
