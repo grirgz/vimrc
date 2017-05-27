@@ -861,6 +861,10 @@ sig3 = sig.tanh(1);
 sig = SelectX.ar(\distmix.kr(0.5)*2, [sig1, sig2, sig3]);
 endsnippet
 
+snippet dist
+( sig*\distamp.kr(10) ).tanh * \distpostamp.kr(1/2)
+endsnippet
+
 snippet mix
 SelectX.ar(${1:\mix.kr(0.5)}, [sig, sig1]);
 endsnippet
@@ -1092,6 +1096,12 @@ snippet coin
 \\isRest, Pseq([
 	${1:1,${2:0},$2,$2, $2,$2,$2,$2,}
 ],inf).coin.not,
+endsnippet
+
+snippet coindup
+\\isRest, Pseq({[
+	${1:1,${2:0},$2,$2, $2,$2,$2,$2,}
+].clump(${3:8}).choose}.dup(${4:4}).flat,inf).coin.not,
 endsnippet
 
 snippet legatorest
