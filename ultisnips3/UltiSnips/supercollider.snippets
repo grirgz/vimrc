@@ -2,8 +2,30 @@
 #######################################################
 ###### coding templates
 
+snippet tempo
+~t = 185/4/60; TempoClock.default.tempo = ~t;
+endsnippet
+
+snippet phase
+{ SinOsc.ar(200, (1..4)/4 * 2pi)}.plot;
+endsnippet
+
 snippet log
 Log(\Param).debug("${1}");${4}
+endsnippet
+
+snippet playergrid
+(
+TrackDef(\\${1:grid1}, TrackDef(\playergrid));
+TrackDef(\\$1).source = [
+	[
+		nil,
+	],
+];
+);
+
+//TrackDef(\\$1).edit;
+WindowDef(\multigrid).front;
 endsnippet
 
 snippet launchpad
@@ -809,6 +831,10 @@ snippet adsr
 EnvGen.kr(\\${1:adsr}.kr(Env.adsr(0.1,0.1,0.8,0.1)), gate, doneAction:doneAction);
 endsnippet
 
+snippet asr
+EnvGen.kr(\\${1:asr}.kr(Env.asr(0.01,1,0.01)), gate, doneAction:2);
+endsnippet
+
 snippet iadsr
 EnvGen.kr(\iadsr.kr(Env.adsr(0.1,0.1,0.8,0.1)), Trig.kr(\itrig.kr(1),\isustain.kr(1)), doneAction:0);
 endsnippet
@@ -1102,6 +1128,12 @@ snippet coindup
 \\isRest, Pseq({[
 	${1:1,${2:0},$2,$2, $2,$2,$2,$2,}
 ].clump(${3:8}).choose}.dup(${4:4}).flat,inf).coin.not,
+endsnippet
+
+snippet dup
+Pseq({[
+	${1:1,${2:0},$2,$2, $2,$2,$2,$2,}
+].clump(${3:8}).choose}.dup(${4:4}).flat,inf)
 endsnippet
 
 snippet legatorest
