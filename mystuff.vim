@@ -1,4 +1,6 @@
 command! Scremlines %s/\n\n//
+
+" was working on first SC doc
 command! -range Scheader '<,'>!scformat.py header
 command! -range Scdescription '<,'>!scformat.py description
 command! -range Scmethod '<,'>!scformat.py method

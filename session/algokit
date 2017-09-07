@@ -27,22 +27,22 @@ badd +2 ~/code/sc/seco/vlive/repeat/libdef/soundfileview.scd
 badd +214 ~/code/sc/seco/vlive/repeat/libdef/drumkit.scd
 badd +357 ~/.local/share/SuperCollider/Extensions/param/Classes/extSpec.sc
 badd +1 main.scd
-badd +1 kitlib.scd
-badd +625 patterns.scd
-badd +1 patterns2.scd
+badd +170 kitlib.scd
+badd +534 patterns.scd
+badd +568 patterns2.scd
 badd +24 NERD_tree_2
-badd +0 scapes.scd
-badd +0 scapes2.scd
+badd +388 scapes.scd
+badd +50 scapes2.scd
 badd +865 ~/.vim/ultisnips3/UltiSnips/supercollider.snippets
-badd +0 kitwork.scd
-badd +0 ~/code/sc/seco/vlive/repeat/ex3/kit_workspace.scd
+badd +45 kitwork.scd
+badd +47 ~/code/sc/seco/vlive/repeat/ex3/kit_workspace.scd
 badd +1 ~/code/sc/seco/vlive/catalog/perc.scd
 badd +2 ~/code/sc/seco/vlive/catalog/atrier.scd
 badd +16 NERD_tree_4
 badd +96 ~/code/sc/seco/vlive/repeat/libdef/kitsnap.scd
-badd +0 ~/code/sc/seco/vlive/repeat/libdef/synthplayrec.scd
+badd +39 ~/code/sc/seco/vlive/repeat/libdef/synthplayrec.scd
 silent! argdel *
-edit patterns.scd
+edit main.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -57,181 +57,13 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 534 - ((8 * winheight(0) + 9) / 18)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-534
-normal! 017|
-tabedit patterns2.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 568 - ((15 * winheight(0) + 20) / 41)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-568
-normal! 0
-tabedit kitlib.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 170 - ((20 * winheight(0) + 20) / 41)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-170
-normal! 021|
-tabedit main.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 14 - ((13 * winheight(0) + 20) / 41)
+let s:l = 14 - ((9 * winheight(0) + 9) / 19)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 14
 normal! 0
-tabedit scapes.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=1
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 388 - ((40 * winheight(0) + 20) / 41)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-388
-normal! 0
-tabedit scapes2.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 50 - ((40 * winheight(0) + 20) / 41)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-50
-normal! 02|
-tabedit kitwork.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 45 - ((18 * winheight(0) + 20) / 41)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-45
-normal! 012|
-tabedit ~/code/sc/seco/vlive/repeat/libdef/synthplayrec.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 39 - ((29 * winheight(0) + 20) / 41)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-39
-normal! 0
-tabedit ~/code/sc/seco/vlive/repeat/ex3/kit_workspace.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 47 - ((25 * winheight(0) + 20) / 41)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-47
-normal! 0
-tabnext 8
+tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif

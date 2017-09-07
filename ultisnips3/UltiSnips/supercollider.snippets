@@ -3,7 +3,7 @@
 ###### coding templates
 
 snippet tempo
-~t = 185/4/60; TempoClock.default.tempo = ~t;
+~t = ${1:185/4}/60; TempoClock.default.tempo = ~t;
 endsnippet
 
 snippet phase
@@ -634,6 +634,11 @@ endsnippet
 
 #######################################################
 ###### SynthDef synthdef
+
+snippet Local
+sig = LocalIn.ar(2) * \fb.kr(0.1);
+LocalOut.ar(sig);
+endsnippet
 
 snippet Fb
 sig = sig + Fb { arg fb;
