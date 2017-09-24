@@ -2,6 +2,10 @@
 #######################################################
 ###### coding templates
 
+snippet pmod
+~pmodenv.(Pseq([${1:1},2,1,4],inf), 8),
+endsnippet
+
 snippet tempo
 ~t = ${1:185/4}/60; TempoClock.default.tempo = ~t;
 endsnippet
@@ -710,7 +714,7 @@ RecordBuf.ar(sig, bufnum, offset:0, recLevel:1, preLevel:0, run:1, loop:0, trigg
 endsnippet
 
 snippet PlayBuf
-PlayBuf.ar(2, bufnum, BufRateScale.kr(bufnum) * speed, trigger, startPos: (pos*BufFrames.kr(bufnum)), doneAction:doneAction, loop: loop);
+PlayBuf.ar(2, bufnum, BufRateScale.kr(bufnum) * speed, trigger, startPos: (pos*BufFrames.kr(bufnum)), doneAction:2, loop: loop);
 endsnippet
 
 snippet BufRd
@@ -832,7 +836,7 @@ NamedControl.kr(\\${1:adsr}, Env.adsr(0.1,0.1,0.8,0.1))
 endsnippet
 
 snippet adsr
-EnvGen.kr(\\${1:adsr}.kr(Env.adsr(0.1,0.1,0.8,0.1)), gate, doneAction:doneAction);
+EnvGen.kr(\\${1:adsr}.kr(Env.adsr(0.1,0.1,0.8,0.1)), gate, doneAction:2);
 endsnippet
 
 snippet asr
