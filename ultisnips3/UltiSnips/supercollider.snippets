@@ -386,7 +386,7 @@ SynthDef(~name, { arg out=0, amp=0.1, gate=1, pan=0, spread=0.8, freq=200, doneA
 	\degree, Pseq([0],inf),
 	\isRest, Veco(~name).isrest,
 	\dur, 1/4,
-	\amp, 0.1
+	\amp, 0.1,
 ))
 );
 endsnippet
@@ -411,7 +411,7 @@ snippet pdn
 	\degree, Pseq([0],inf),
 	\isRest, Veco(~name).isrest,
 	\dur, 1/4,
-	\amp, 0.1
+	\amp, 0.1,
 ))
 );
 endsnippet
@@ -1254,7 +1254,7 @@ Pbind(
 	\instrument, \\${1:default},
 	\freq, 200,
 	\dur, 1,
-	\amp, 0.1
+	\amp, 0.1,
 );
 endsnippet
 
@@ -1264,7 +1264,7 @@ Pbind(
 	\instrument, \\${1:default},
 	\freq, 200,
 	\dur, 1,
-	\amp, 0.1
+	\amp, 0.1,
 );
 )
 endsnippet
@@ -1274,7 +1274,7 @@ Pdef(\\${1:plop}, Pbind(
 	\instrument, \\${2:default},
 	\freq, 200,
 	\dur, 1,
-	\amp, 0.1
+	\amp, 0.1,
 ));
 endsnippet
 
@@ -1284,7 +1284,7 @@ Pdef(\\${1:plop}, Pbind(
 	\instrument, \\${2:default},
 	\degree, Pseq([0],inf),
 	\dur, 1,
-	\amp, 0.1
+	\amp, 0.1,
 )).play;
 );
 endsnippet
@@ -1297,6 +1297,15 @@ Pdef(\\${1:plop},
 ).play;
 endsnippet
 
+snippet Pdefparp
+(
+Pdef(\\${1:plop}, 
+	Ppar([
+		${VISUAL}${2}
+	])
+).play;
+);
+endsnippet
 
 snippet Pdefseq
 Pdef(\\${1:plop}, 
@@ -1304,6 +1313,25 @@ Pdef(\\${1:plop},
 		${VISUAL}${2}
 	])
 ).play;
+endsnippet
+
+snippet Pdefseqp
+(
+Pdef(\\${1:plop}, 
+	Pseq([
+		${VISUAL}${2}
+	])
+).play;
+);
+endsnippet
+
+snippet smp
+Pbind(
+	\instrument, \playersec,
+	\bufnum, BufDef($2'voices/feynman.flac'),
+	\dur, 1,
+	\amp, 0.1,
+)$1
 endsnippet
 
 snippet kitkick
@@ -1357,7 +1385,7 @@ Mdef(\\${1:plop}, Pbind(
 	\instrument, \\${2:default},
 	\degree, Pseq([0],inf),
 	\dur, 1,
-	\amp, 0.1
+	\amp, 0.1,
 ));
 );
 endsnippet
