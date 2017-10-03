@@ -10,6 +10,11 @@ snippet tempo
 ~t = ${1:185/4}/60; TempoClock.default.tempo = ~t;
 endsnippet
 
+snippet quant
+Pdef.defaultQuant = ${1:4};
+Ndef.defaultQuant = $1;
+endsnippet
+
 snippet phase
 { SinOsc.ar(200, (1..4)/4 * 2pi)}.plot;
 endsnippet
