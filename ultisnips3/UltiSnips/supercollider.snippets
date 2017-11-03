@@ -160,6 +160,20 @@ snippet test
 { SinOsc.ar(200) ! 2 * 0.1}.play;
 endsnippet
 
+snippet cputest
+(
+	Tdef(\cputest, {
+
+		5000.do { arg idx;
+			{ SinOsc.ar(200) ! 2 * 0.1}.play;
+			if(idx%100==0) { idx.postln; };
+			0.01.wait;
+
+		}
+	}).play;
+)
+endsnippet
+
 snippet HLayout
 HLayout (
 	${VISUAL}${2}
