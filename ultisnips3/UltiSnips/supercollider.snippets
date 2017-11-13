@@ -1113,6 +1113,16 @@ snippet 810
 1,0,1,0, 1,0,1,0, 
 endsnippet
 
+snippet 4set
+0,0,0,0,  
+1,0,0,0, 
+1,0,1,0,  
+0,0,1,0,  
+1,1,1,1, 
+1,1,0,0,  
+0,0,1,1,  
+endsnippet
+
 snippet 8set
 1,1,1,1, 1,1,1,1,
 0,0,0,0, 0,0,0,0,
@@ -1389,6 +1399,16 @@ Pdef(\\${1:plop},
 	])
 ).play;
 );
+endsnippet
+
+snippet Pdefpart
+(
+Pdef(\part, Pdef(\\${1:plop}, 
+	Ppar([
+		${VISUAL}${2}
+	])
+)).play;
+)
 endsnippet
 
 snippet smp

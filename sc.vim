@@ -1,4 +1,8 @@
 
+" this file is run by ~/.scvimrc
+" see also ~/.scvimrc for scvim settings like spliting screen
+
+
 map <F2> mZ'W<F5>'Z
 map <F3> mZ'X<F5>'Z
 
