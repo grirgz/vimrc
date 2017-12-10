@@ -1229,6 +1229,13 @@ snippet leg
 ],inf),
 endsnippet
 
+snippet legr
+\legato, Pseq([
+		${1:1},0,0,0, 0,0,0,0,
+],inf),
+\isRest, Pfunc({ arg ev; ev[\legato] <= 0 }),
+endsnippet
+
 snippet isRestcoin
 \\isRest, Pseq([
 	1,0,0,0,
@@ -1271,6 +1278,12 @@ snippet Ppar
 Ppar([
 	${VISUAL}${1}
 ]),
+endsnippet
+
+snippet Pparfin
+Pfindur(${2:16}, Ppar([
+	${VISUAL}${1}
+])),
 endsnippet
 
 snippet Pseq

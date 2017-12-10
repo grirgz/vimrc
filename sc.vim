@@ -14,9 +14,6 @@ imap <F4>Q <Esc>:call SendToSC("s.quit;")<CR>a
 map <F4>k <Esc>:call SendToSC("Quarks.gui;")<CR>
 imap <F4>k <Esc>:call SendToSC("Quarks.gui;")<CR>a
 
-map <F4>g <Esc>:call SendToSC("if(GUI.current == SwingGUI) { GUI.qt } { GUI.swing };")<CR>
-imap <F4>g <Esc>:call SendToSC("if(GUI.current == SwingGUI) { GUI.qt } { GUI.swing };")<CR>
-
 map <F4>q <Esc>:call SendToSC("s.queryAllNodes;")<CR>
 map <F4>t <Esc>:call SendToSC("s.plotTree;")<CR>
 
@@ -34,7 +31,8 @@ map <F4>j <Esc>:call Jack_connect()<CR>
 ""map <F4>n <Esc>:call SendToSC("[~name, ~namex, ~index].debug(\"== NOM: name, namex, index\");")<CR>
 map <F4>n <Esc>:call SendToSC("debug(\"!!========!! name:%, namex:%, index:%; pdefdquant:%, default.tempo:%, t:% \".format(~name, ~namex, ~index, Pdef.defaultQuant, TempoClock.default.tempo, ~t));")<CR>
 map <F4>v <Esc>:call SendToSC("s.volume.gui;")<CR>
-map <F4>m <Esc>:call SendToSC("~mixer_gui.new(Veco.main);")<CR>
+"map <F4>m <Esc>:call SendToSC("~mixer_gui.new(Veco.main);")<CR>
+map <F4>m <Esc>:call SendToSC("WindowDef(\\main).front;")<CR>
 
 map <F4>i <Esc>:call SendToSC("Veco.force_init; VecoLib.load_lib;")<CR>
 
