@@ -1105,6 +1105,10 @@ snippet 80
 0,0,0,0, 0,0,0,0,
 endsnippet
 
+snippet 160
+0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
+endsnippet
+
 snippet 4140
 1,1,1,1, 0,0,0,0,
 endsnippet
@@ -1362,6 +1366,12 @@ Pbind(
 )
 endsnippet
 
+snippet Pbindi
+Pbind(
+	${VISUAL}${1}
+),$2
+endsnippet
+
 snippet Pdef
 Pdef(\\${1:plop}, Pbind(
 	\instrument, \\${2:default},
@@ -1380,6 +1390,12 @@ Pdef(\\${1:plop}, Pbind(
 	\amp, 0.1,
 )).play;
 );
+endsnippet
+
+snippet Pdefi
+Pdef(\\${1:plop}, 
+	${VISUAL}${2}
+),$3
 endsnippet
 
 snippet Pdefpar
@@ -1477,6 +1493,14 @@ PatKitDef(\sample1).asPattern(Pbind(
 	\dur, 1/8,
 	\amp, 0.1,
 ))
+endsnippet
+
+snippet pout
+Pbind(\out, BusDef(\\${1:fx1}, \audio)) <>$2
+endsnippet
+
+snippet fxout
+\out, BusDef(\\${1:fx1}, \audio),$2
 endsnippet
 
 #######################################################
