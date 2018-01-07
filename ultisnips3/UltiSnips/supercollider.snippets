@@ -1499,8 +1499,20 @@ snippet pout
 Pbind(\out, BusDef(\\${1:fx1}, \audio)) <>$2
 endsnippet
 
-snippet fxout
+snippet \out
 \out, BusDef(\\${1:fx1}, \audio),$2
+endsnippet
+
+snippet \note
+\note, Pseq([
+		${1:0},
+],inf),
+endsnippet
+
+snippet \adsr
+\adsr, Pseq([
+	[ Env.adsr(${1}0.1,0.1,0.8,0.1) ],
+],inf),
 endsnippet
 
 #######################################################
