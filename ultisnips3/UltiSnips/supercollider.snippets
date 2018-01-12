@@ -1061,6 +1061,13 @@ endsnippet
 #######################################################
 ###### Patterns patterns
 
+snippet Psym
+Psym(Pseq([0,1],inf), (
+	0: ${VISUAL},
+	1: ${2:2},
+))
+endsnippet
+
 snippet Pdur
 PdurStutter(Pseq([1,4,2,8],inf), 1/2),
 endsnippet
@@ -1436,13 +1443,24 @@ endsnippet
 
 snippet Pdefpart
 (
-Pdef(\part, Pdef(\\${1:plop}, 
+Pdef(\\${3:part}, Pdef(\\${1:plop}, 
 	Ppar([
 		${VISUAL}${2}
 	])
 )).play;
 )
 endsnippet
+
+snippet Pdefdemo
+(
+Pdef(\\${3:demo}, Pdef(\\${1:xdemo}, 
+	Ppar([
+		${VISUAL}${2}
+	])
+)).play;
+)
+endsnippet
+
 
 snippet smp
 Pbind(
@@ -1495,6 +1513,43 @@ PatKitDef(\sample1).asPattern(Pbind(
 ))
 endsnippet
 
+snippet kitksnare
+PatKitDef(\ksh2b).asPattern(Pbind(
+	\kitIndex, 5,
+	\isRest, Pseq([
+		0,0,0,0, 1,0,0,0,
+	],inf).coin.not,
+	\sustain, 0.1,
+	\gain, 0.2,
+	\dur, 1/8,
+)),
+endsnippet
+
+snippet kitphyhat
+Pbind(
+	\instrument, \phyhat3,
+	\isRest, Pseq([
+		1,1,
+	],inf).coin.not,
+	\sustain, 0.05,
+	\fac1,0.1,
+	\dur, 1/8,
+	\amp, 0.01 * Pseq([1,0.7],inf),
+),
+endsnippet
+
+snippet kitkickx
+Pbind(
+	\instrument, \snapkickx,
+	\dur, 1/8,
+	\isRest, Pseq([
+		1,0,0,0, 0,0,0,0,
+		1,0,1,0, 0,0,0,0,
+	],inf).coin.not,
+	\amp, 0.1,
+),
+endsnippet
+
 snippet pout
 Pbind(\out, BusDef(\\${1:fx1}, \audio)) <>$2
 endsnippet
@@ -1505,7 +1560,7 @@ endsnippet
 
 snippet \note
 \note, Pseq([
-		${1:0},
+${1:0},
 ],inf),
 endsnippet
 
