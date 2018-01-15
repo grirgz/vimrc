@@ -1061,11 +1061,27 @@ endsnippet
 #######################################################
 ###### Patterns patterns
 
+snippet Ptpar
+Ptpar([
+	0, ${VISUAL}
+])
+endsnippet
+
+snippet Pn
+Pn(${VISUAL},${1:inf})${0}
+endsnippet
+
 snippet Psym
 Psym(Pseq([0,1],inf), (
 	0: ${VISUAL},
 	1: ${2:2},
 ))
+endsnippet
+
+snippet Pwalk
+Pwalk(${1:(0..12)}, 
+	${VISUAL},
+)
 endsnippet
 
 snippet Pdur
@@ -1560,7 +1576,7 @@ endsnippet
 
 snippet \note
 \note, Pseq([
-${1:0},
+	${1:0},
 ],inf),
 endsnippet
 
