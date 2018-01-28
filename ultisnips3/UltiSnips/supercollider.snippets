@@ -2,6 +2,15 @@
 #######################################################
 ###### coding templates
 
+snippet MIDIdef
+(
+MIDIdef.noteOn(\track1, { arg ... args;
+	args.postln;
+	${1}
+});
+)
+endsnippet
+
 snippet pmod
 ~pmodenv.(Pseq([${1:1},2,1,4],inf), 8),
 endsnippet
@@ -888,6 +897,10 @@ endsnippet
 
 snippet envc
 EnvGen.kr(Env([1,2,1],[0.1,0.8,0.3]).circle, 1);
+endsnippet
+
+snippet FreeVerb
+FreeVerb.ar(sig, mix:0.2, room:0.5, damp:0.5);
 endsnippet
 
 snippet	RLPF
