@@ -11,6 +11,10 @@ MIDIdef.noteOn(\track1, { arg ... args;
 )
 endsnippet
 
+snippet clear
+Pdef(\\${1:part}).clear;
+endsnippet
+
 snippet pmod
 ~pmodenv.(Pseq([${1:1},2,1,4],inf), 8),
 endsnippet
@@ -799,6 +803,34 @@ SynthDef(\\${1:plop}, { arg out=0, amp=0.1, gate=1, pan=0, freq=200;
 );
 endsnippet
 
+snippet SynthDefx
+SynthDef(\\${1:plopfx}, { arg out=0, gate=1;
+	var sig;
+	var in = InFeedback.ar(\inbus.kr(BusDef(\zero, \audio)), 2); 
+	sig = in;
+	sig = ${2:sig * SinOsc.ar(300)};
+	sig = SelectX.ar(\mix.kr(0.5), [in, sig]);
+	sig = sig * EnvGen.ar(Env.adsr(0.01,0,1,0.01),gate,doneAction:2);
+	sig = sig * \gain.kr(1);
+	Out.ar(out, sig);
+}).add;
+endsnippet
+
+snippet SynthDefxp
+(
+SynthDef(\\${1:plopfx}, { arg out=0, gate=1;
+	var sig;
+	var in = InFeedback.ar(\inbus.kr(BusDef(\zero, \audio)), 2); 
+	sig = in;
+	sig = ${2:sig * SinOsc.ar(300)};
+	sig = SelectX.ar(\mix.kr(0.5), [in, sig]);
+	sig = sig * EnvGen.ar(Env.adsr(0.01,0,1,0.01),gate,doneAction:2);
+	sig = sig * \gain.kr(1);
+	Out.ar(out, sig);
+}).add;
+);
+endsnippet
+
 snippet SynthDefinp
 (
 SynthDef(\\${1:plop}, { arg in, out=0, mix=0.5, amp=1, gate=1;
@@ -941,6 +973,10 @@ endsnippet
 
 snippet mix
 SelectX.ar(${1:\mix.kr(0.5)}, [sig, sig1]);
+endsnippet
+
+snippet mixin
+SelectX.ar(${1:\mix.kr(0.5)}, [in, sig]);
 endsnippet
 
 snippet mix2
@@ -1320,6 +1356,13 @@ Ppar([
 ]),
 endsnippet
 
+snippet Pparout
+Pbind(\out, BusDef(\\${2:sendbus1}, \audio)) <>
+Ppar([
+	${VISUAL}${1}
+]),
+endsnippet
+
 snippet Pparfin
 Pfindur(${2:16}, Ppar([
 	${VISUAL}${1}
@@ -1382,13 +1425,20 @@ Pmono(\\${1:default},
 );
 endsnippet
 
+snippet Pmonofx
+Pmono(\\${1:default},
+	\inbus, BusDef(\\${2:sendbus1}),
+	\dur, 1,
+)${3:;}
+endsnippet
+
 snippet Pbind
 Pbind(
 	\instrument, \\${1:default},
 	\freq, 200,
 	\dur, 1,
 	\amp, 0.1,
-);
+)${2:;}
 endsnippet
 
 snippet Pbindp
@@ -1597,6 +1647,37 @@ snippet \adsr
 \adsr, Pseq([
 	[ Env.adsr(${1}0.1,0.1,0.8,0.1) ],
 ],inf),
+endsnippet
+
+
+snippet fxcleandist
+Pmono( \rdncleandist_fulllight,
+	\inbus, BusDef(\sendbus1, \audio, 2),
+	\addAction, \addToTail,
+	'wet10', 1.0,
+	'mix', 0.15714285714286,
+	'gain', 0.7344889782792,
+	'fb', 0.0002099467303085,
+	'delay', 0.000600001231 * Pseq([
+		1,
+	],inf).stutter(1),
+	'delay2', 0.210000543560101,
+	'distamp', 1.361836201538,
+	'prelpf', 17000,
+	'prehpf', 17,
+	'lpf', 17000,
+	'hpf', 17,
+	'fbdistamp', 4.5388371966577,
+	'fbdistmix', 0.98176470588235,
+	'postlpf', 17000,
+	'posthpf', 17,
+	\bpmix, 0,
+	'wetamp', 0.20503372119697,
+	'indelay', 0.04,
+	'wet20', 1.0,
+	'mamp', 1,
+	\dur, 1,
+),
 endsnippet
 
 #######################################################
