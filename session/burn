@@ -3,7 +3,7 @@ if &cp | set nocp | endif
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/code/sc/seco/vlive/crap
+cd ~/code/sc/seco/vlive/proj/burn/plantoids_music/copyToRaspberryPi/copy_to_supercolliderFiles
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -12,7 +12,7 @@ badd +127 ~/.local/share/SuperCollider/Extensions/param/Param.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/buffer.scd
 badd +72 ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib/midi.scd
 badd +16 ~/code/sc/seco/vlive/lib/demo/param.scd
-badd +5 71.scd
+badd +5 ~/code/sc/seco/vlive/crap/71.scd
 badd +1 ~/code/sc/seco/vlive/stone14/d.3.scd
 badd +34 ~/code/sc/seco/vlive/stone14/q.1.scd
 badd +14 ~/code/sc/seco/vlive/stone14/q.scd
@@ -32,22 +32,20 @@ badd +4 ~/code/sc/seco/vlive/lib/demo/multiproject.scd
 badd +19 ~/code/sc/seco/vlive/lib/scripts/alpha.scd
 badd +1 ~/code/sc/seco/vlive/demo/param/base.scd
 badd +13 ~/code/sc/seco/vlive/demo/param/preset.scd
-badd +1 84.scd
+badd +1 ~/code/sc/seco/vlive/crap/84.scd
 badd +199 ~/code/sc/seco/vlive/demo/param/bass.scd
 badd +610 ~/.local/share/SuperCollider/Extensions/param/Classes/Param.sc
 badd +110 ~/code/sc/seco/vlive/demo/param/bass2.scd
-badd +8 89.scd
+badd +8 ~/code/sc/seco/vlive/crap/89.scd
 badd +1 ~/code/sc/seco/vlive/demo/param/NERD_tree_1
-badd +1 1.scd
-badd +1 108.scd
-badd +1 ~/code/sc/seco/vlive/explore/15.scd
-badd +1 ~/code/sc/seco/vlive/explore/14.scd
-badd +1 NERD_tree_1
+badd +1 ~/code/sc/seco/vlive/crap/1.scd
+badd +4 ~/code/sc/seco/vlive/demo/scvim.scd
+badd +0 ~/code/sc/seco/vlive/demo/test3.scd
+badd +0 plantoids_beats.scd
 argglobal
 silent! argdel *
 argadd ~/code/sc/seco/vlive/stone8/1.1.scd
-set stal=2
-edit 1.scd
+edit plantoids_beats.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -62,56 +60,13 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1 - ((0 * winheight(0) + 17) / 34)
+let s:l = 1 - ((0 * winheight(0) + 25) / 51)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
 normal! 0
-tabedit 108.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 1 - ((0 * winheight(0) + 17) / 34)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-1
-normal! 0
-tabedit ~/code/sc/seco/vlive/explore/14.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 462 - ((15 * winheight(0) + 17) / 34)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-462
-normal! 0
-tabnext 2
-set stal=1
+tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif

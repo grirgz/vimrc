@@ -3,51 +3,47 @@ if &cp | set nocp | endif
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/code/sc/seco/vlive/crap
+cd ~/code/sc/seco/vlive/repeat/capsule
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
+badd +1 ~/code/sc/seco/vlive/repeat/libdef/apc.scd
 badd +127 ~/.local/share/SuperCollider/Extensions/param/Param.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/buffer.scd
 badd +72 ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib/midi.scd
 badd +16 ~/code/sc/seco/vlive/lib/demo/param.scd
-badd +5 71.scd
-badd +1 ~/code/sc/seco/vlive/stone14/d.3.scd
-badd +34 ~/code/sc/seco/vlive/stone14/q.1.scd
-badd +14 ~/code/sc/seco/vlive/stone14/q.scd
-badd +15 ~/code/sc/seco/vlive/stone14/init.scd
-badd +124 ~/code/sc/seco/vlive/stone14/s.scd
-badd +43 ~/code/sc/seco/vlive/stone14/s.3.scd
-badd +315 ~/code/sc/seco/vlive/lib/main.scd
-badd +767 ~/code/sc/seco/vlive/lib/midi.scd
-badd +14 ~/code/sc/seco/vlive/lib/demo
-badd +1 ~/code/sc/seco/vlive/stone8/1.1.scd
-badd +1 ~/code/sc/seco/vlive/init.scd
-badd +16 ~/code/sc/seco/vlive/stone8/init.scd
-badd +301 ~/code/sc/seco/vlive/lib/demo/macro.scd
-badd +1 ~/code/sc/seco/vlive/lib/demo/morph.scd
-badd +3 ~/code/sc/seco/vlive/lib/demo/fx.scd
-badd +4 ~/code/sc/seco/vlive/lib/demo/multiproject.scd
-badd +19 ~/code/sc/seco/vlive/lib/scripts/alpha.scd
-badd +1 ~/code/sc/seco/vlive/demo/param/base.scd
-badd +13 ~/code/sc/seco/vlive/demo/param/preset.scd
-badd +1 84.scd
-badd +199 ~/code/sc/seco/vlive/demo/param/bass.scd
-badd +610 ~/.local/share/SuperCollider/Extensions/param/Classes/Param.sc
-badd +110 ~/code/sc/seco/vlive/demo/param/bass2.scd
-badd +8 89.scd
-badd +1 ~/code/sc/seco/vlive/demo/param/NERD_tree_1
-badd +1 1.scd
-badd +1 108.scd
-badd +1 ~/code/sc/seco/vlive/explore/15.scd
-badd +1 ~/code/sc/seco/vlive/explore/14.scd
-badd +1 NERD_tree_1
+badd +1 main.scd
+badd +1 track1.scd
+badd +3 draft8.scd
+badd +1 draft16.scd
+badd +6845 suft27.scd
+badd +1248 suft26.scd
+badd +1 suft22.scd
+badd +1 suft21.scd
+badd +1 fxheavy.scd
+badd +1 draftsynth.scd
+badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/ParamGroup.sc
+badd +1 ~/bin/seco/
+badd +1 ~/bin/seco
+badd +44 /usr/share/vim/vim74/doc/remote.txt
+badd +1085 suft28.scd
+badd +477 suft29.scd
+badd +1 suft2
+badd +1 suft25.scd
+badd +1 suft17.scd
+badd +2455 suft30.scd
+badd +1 fxsimple.scd
+badd +1706 ~/.vim/ultisnips3/UltiSnips/supercollider.snippets
+badd +1 live2.scd
+badd +1 protolive.scd
+badd +0 suft49.scd
+badd +0 ~/.local/share/SuperCollider/downloaded-quarks/Modality-toolkit/Modality/MKtlDescriptions/akai-apc40mkii.desc.scd
+badd +0 ../../demo/modality.scd
 argglobal
 silent! argdel *
-argadd ~/code/sc/seco/vlive/stone8/1.1.scd
 set stal=2
-edit 1.scd
+edit suft49.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -62,13 +58,13 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1 - ((0 * winheight(0) + 17) / 34)
+let s:l = 1 - ((0 * winheight(0) + 32) / 64)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
 normal! 0
-tabedit 108.scd
+tabedit ~/code/sc/seco/vlive/repeat/libdef/apc.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -83,13 +79,13 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1 - ((0 * winheight(0) + 17) / 34)
+let s:l = 317 - ((47 * winheight(0) + 32) / 64)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
-tabedit ~/code/sc/seco/vlive/explore/14.scd
+317
+normal! 023|
+tabedit ../../demo/modality.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -104,13 +100,34 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 462 - ((15 * winheight(0) + 17) / 34)
+let s:l = 17 - ((16 * winheight(0) + 32) / 64)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-462
+17
 normal! 0
-tabnext 2
+tabedit ~/.local/share/SuperCollider/downloaded-quarks/Modality-toolkit/Modality/MKtlDescriptions/akai-apc40mkii.desc.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 125 - ((28 * winheight(0) + 32) / 64)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+125
+normal! 0
+tabnext 1
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

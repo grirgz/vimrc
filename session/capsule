@@ -12,14 +12,54 @@ badd +127 ~/.local/share/SuperCollider/Extensions/param/Param.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/buffer.scd
 badd +72 ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib/midi.scd
 badd +16 ~/code/sc/seco/vlive/lib/demo/param.scd
-badd +1 main.scd
+badd +6 main.scd
 badd +1 track1.scd
-badd +1 draft8.scd
-badd +0 draft16.scd
+badd +3 draft8.scd
+badd +1 draft16.scd
+badd +6845 suft27.scd
+badd +1248 suft26.scd
+badd +1 suft22.scd
+badd +1 suft21.scd
+badd +1 fxheavy.scd
+badd +1 draftsynth.scd
+badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/ParamGroup.sc
+badd +1 ~/bin/seco/
+badd +1 ~/bin/seco
+badd +44 /usr/share/vim/vim74/doc/remote.txt
+badd +1085 suft28.scd
+badd +477 suft29.scd
+badd +1 suft2
+badd +1 suft25.scd
+badd +1 suft17.scd
+badd +2455 suft30.scd
+badd +1 fxsimple.scd
+badd +1706 ~/.vim/ultisnips3/UltiSnips/supercollider.snippets
+badd +1 live2.scd
+badd +1 protolive.scd
+badd +1 NERD_tree_1
+badd +1 suft60.scd
+badd +1 suft61.scd
+badd +1 suft59.scd
+badd +1 ../../catalog/chord.scd
+badd +1 ../demo/dub.scd
+badd +931 suft62.scd
+badd +51 lib.scd
+badd +7 suft63.scd
+badd +1 suft69.scd
+badd +1 ../../catalog/synthDefault.scd
+badd +1 suft68.scd
+badd +1 ../../sdesign/acid.scd
+badd +1 ../../catalog/tech.scd
+badd +1 metaltech.scd
+badd +1 ../../catalog/compotech.scd
+badd +1 suft70.scd
+badd +1 suft11.scd
+badd +1 ../../catalog/trans.scd
+badd +1 draft21.scd
 argglobal
 silent! argdel *
 set stal=2
-edit track1.scd
+edit main.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -34,13 +74,34 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 2 - ((1 * winheight(0) + 31) / 62)
+let s:l = 7 - ((6 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-2
+7
+normal! 026|
+tabedit suft69.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 765 - ((31 * winheight(0) + 16) / 32)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+765
 normal! 0
-tabedit main.scd
+tabedit draft21.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -54,56 +115,14 @@ setlocal fdi=#
 setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
-setlocal nofen
-let s:l = 99 - ((46 * winheight(0) + 31) / 62)
+setlocal fen
+let s:l = 1586 - ((597 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-99
-normal! 011|
-tabedit draft8.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 18 - ((17 * winheight(0) + 31) / 62)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-18
-normal! 033|
-tabedit draft16.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 35 - ((34 * winheight(0) + 31) / 62)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-35
-normal! 08|
-tabnext 4
+1586
+normal! 0
+tabnext 1
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

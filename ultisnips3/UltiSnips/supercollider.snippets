@@ -2,6 +2,42 @@
 #######################################################
 ###### coding templates
 
+snippet piano
+ProtoDef(\piano).startControl(Pdef(\\${1:melo}))
+endsnippet
+
+snippet Outsd
+out=0, gate=1, 
+sig = sig * EnvGen.kr(\adsr.kr(Env.adsr(0.1,0.1,0.8,0.1)), gate, doneAction:2);
+Out.ar(out, sig);
+}).add;
+endsnippet
+
+snippet pedit
+WindowDef(\PdefEditor).front(Pdef(\\${1:combkick}))
+endsnippet
+
+snippet nedit
+WindowDef(\NdefEditor).front(Ndef(\\${1:combkick}))
+endsnippet
+
+snippet \add
+\addAction, \addToTail,
+\lag, 0.0005,
+endsnippet
+
+snippet trackmixer
+Pmono(\simpletrackmixer,
+	\inbus, BusDef(\sendbus1),
+	\pregain, 1,
+	\postgain, 1,
+	\delay, 0,
+	\send0, 0,
+	\sendbus0, BusDef(\sendbus0, \audio, 2),
+	\dur, 1,
+),
+endsnippet
+
 snippet MIDIdef
 (
 MIDIdef.noteOn(\track1, { arg ... args;
@@ -11,8 +47,16 @@ MIDIdef.noteOn(\track1, { arg ... args;
 )
 endsnippet
 
+snippet fun "" w
+{ arg x; $1 }
+endsnippet
+
 snippet clear
-Pdef(\\${1:part}).clear;
+Pdef(\\${1:part}).${2:clear};
+endsnippet
+
+snippet reset
+Pdef(\\${1:part}).${2:reset};
 endsnippet
 
 snippet pmod
@@ -34,6 +78,10 @@ endsnippet
 
 snippet log
 Log(\Param).debug("${1}");${4}
+endsnippet
+
+snippet sigdb
+sig.debug("sig$1");$2
 endsnippet
 
 snippet playergrid
@@ -60,6 +108,7 @@ endsnippet
 
 snippet icon
 k = MKtl('icon', "icon-icontrols");
+~icon_map_param.(MKtl('icon')[\kn][0], Param(Ndef(\rdn), \delay));
 k[\kn].collect({ arg k; k })
 k[\kn][0]
 k.postElements;
@@ -74,6 +123,20 @@ edit: { arg self;
 	//window.alwaysOnTop = true;
 	window.front;
 },
+endsnippet
+
+snippet TrackDef
+TrackDef(\\${3:live2}_${1:fxbass}, (
+	parent: TrackTemplateDef(\track_live2),
+	new: { arg self;
+		self.init_chain;
+		Pdef(self.key+++\pat,
+			${VISUAL}
+		);
+		self;
+	},
+));
+~$1 = TrackDef(\\$3_$1).new;
 endsnippet
 
 snippet midside
@@ -199,14 +262,14 @@ VLayout (
 )${3}
 endsnippet
 
-snippet keyDown
+snippet keyDown "" w
 keyDownAction_({ arg me, key, modifiers, unicode, keycode;
 	[me, key.asCompileString, modifiers, unicode, keycode].debug("keyDownAction");
 	$1
 });
 endsnippet
 
-snippet mouseDown
+snippet mouseDown "" w
 mouseDownAction_({ arg view, x, y, modifiers, buttonNumber, clickCount;
 	[view, x, y, modifiers, buttonNumber, clickCount].debug("mouseDownAction");
 	$1
@@ -230,20 +293,26 @@ block { arg break;
 }
 endsnippet
 
-snippet {
+snippet { "" w
 ${1} {
 	${VISUAL}${2}
 ${3}
 endsnippet
 
-snippet [
+snippet ( "" w
+${1} (
+	${VISUAL}${2}
+${3}
+endsnippet
+
+snippet [ "" w
 ${1} [
 	${VISUAL}${2}
 ${3}
 endsnippet
 
 snippet swing
-(1 + (0.06 * Pseq([-1,1],inf)))
+(1 + (0.06 * Pseq([1,-1],inf)))
 endsnippet
 
 snippet if
@@ -292,13 +361,13 @@ endsnippet
 snippet arg
 { arg self${1};
 	${0}
-},
+}${2:,}
 endsnippet
 
-snippet argx
+snippet argv
 { arg ${1:x};
-	${0}
-}${2}
+	${VISUAL}${3}
+}${2:;}
 endsnippet
 
 snippet ~class
@@ -552,6 +621,16 @@ snippet patfx
 ~patfx.(~name+++\\patfx) <>
 endsnippet
 
+snippet Pdefname
+(
+Pdef(~name, Pdef(~namex,
+	Ppar([
+		${1}${VISUAL}
+	])
+))
+);
+endsnippet
+
 snippet initproject
 Veco.load_lib("main.scd");
 Veco.load_lib("synth.scd");
@@ -574,6 +653,18 @@ endsnippet
 
 #######################################################
 ###### SynthDef synthdef preset
+
+snippet fxrec
+Pbind(
+	\instrument, \recorder,
+	\addAction, \addToTail,
+	\lag, 0.0009,
+	\inbus, BusDef(\recorder, \audio),
+	\bufnum, BufDef(\mybuf, s.sampleRate * 2/~t, 2),
+	\dur, Pn(1,1),
+	\amp, 0.1,
+),
+endsnippet
 
 snippet fxrevdel
 Ndef(\revdel, { arg in=3, del=1, feed=1,dw=0.35;
@@ -677,13 +768,13 @@ LocalOut.ar(sig);
 endsnippet
 
 snippet Fb
-sig = sig + Fb { arg fb;
+sig = sig + Fb({ arg fb;
 	var isig;
 	isig = ( fb * \fb.kr(1) ) + sig;
 
 	isig = Limiter.ar(isig);
 	isig;
-};
+});
 endsnippet
 
 snippet FreeVerb2
@@ -711,7 +802,18 @@ igate = Trig.kr(itrig, \isustain.kr(0.1));
 endsnippet
 
 snippet TGrains
-TGrains.ar(2, clk, bufnum, pitch_stretch, pos % BufDur.kr(bufnum), dur, pan, 1);
+TGrains.ar(2, clk, bufnum, pitch_stretch, pos % BufDur.kr(bufnum), gdur, pan, 1);
+endsnippet
+
+snippet sdgrain
+SynthDef(\graine, { arg out=0, amp=0.1, gate=1, pan=0, freq=200, pitch_stretch=1, pos=0, gdur=0.1, mbufnum=0;
+	var sig;
+	var clk = Impulse.ar(\gfreq.kr(1));
+	sig = TGrains.ar(2, clk, mbufnum, pitch_stretch, pos % BufDur.kr(mbufnum), gdur, pan, 1);
+	sig = sig * EnvGen.kr(\adsr.kr(Env.adsr(0.1,0.1,0.8,0.1)), gate, doneAction:2);
+	sig = Pan2.ar(sig, pan, amp);
+	Out.ar(out, sig);
+}).add;
 endsnippet
 
 snippet bufstutter
@@ -777,15 +879,23 @@ snippet kr
 \\${VISUAL:\key}.kr(${1})
 endsnippet
 
+snippet krv "" w
+\\${1:key}.kr(${VISUAL})
+endsnippet
+
 snippet ndefgain
 amp = amp * \\gain.kr(1);
 endsnippet
 
+snippet gain
+sig = sig * \\gain.kr(1);
+endsnippet
+
 snippet SynthDef
-SynthDef(\\${1:plop}, { arg out=0, amp=0.1, gate=1, pan=0, freq=200;
+SynthDef(\\${1:zed}, { arg out=0, gate=1, amp=0.1, pan=0, freq=200;
 	var sig;
 	sig = ${2:SinOsc.ar(freq)};
-	sig = sig * EnvGen.ar(Env.adsr(0.01,0.1,0.8,0.1),gate,doneAction:2);
+	sig = sig * EnvGen.kr(\adsr.kr(Env.adsr(0.1,0.1,0.8,0.1)), gate, doneAction:2);
 	sig = Pan2.ar(sig, pan, amp);
 	Out.ar(out, sig);
 }).add;
@@ -793,10 +903,10 @@ endsnippet
 
 snippet SynthDefp
 (
-SynthDef(\\${1:plop}, { arg out=0, amp=0.1, gate=1, pan=0, freq=200;
+SynthDef(\\${1:zed}, { arg out=0, gate=1, amp=0.1, pan=0, freq=200;
 	var sig;
 	sig = ${2:SinOsc.ar(freq)};
-	sig = sig * EnvGen.ar(Env.adsr(0.01,0.1,0.8,0.1),gate,doneAction:2);
+	sig = sig * EnvGen.kr(\adsr.kr(Env.adsr(0.1,0.1,0.8,0.1)), gate, doneAction:2);
 	sig = Pan2.ar(sig, pan, amp);
 	Out.ar(out, sig);
 }).add;
@@ -804,13 +914,13 @@ SynthDef(\\${1:plop}, { arg out=0, amp=0.1, gate=1, pan=0, freq=200;
 endsnippet
 
 snippet SynthDefx
-SynthDef(\\${1:plopfx}, { arg out=0, gate=1;
+SynthDef(\\${1:zedfx}, { arg out=0, gate=1;
 	var sig;
 	var in = InFeedback.ar(\inbus.kr(BusDef(\zero, \audio)), 2); 
 	sig = in;
 	sig = ${2:sig * SinOsc.ar(300)};
 	sig = SelectX.ar(\mix.kr(0.5), [in, sig]);
-	sig = sig * EnvGen.ar(Env.adsr(0.01,0,1,0.01),gate,doneAction:2);
+	sig = sig * EnvGen.kr(\adsr.kr(Env.adsr(0.1,0.1,0.8,0.1)), gate, doneAction:2);
 	sig = sig * \gain.kr(1);
 	Out.ar(out, sig);
 }).add;
@@ -818,13 +928,13 @@ endsnippet
 
 snippet SynthDefxp
 (
-SynthDef(\\${1:plopfx}, { arg out=0, gate=1;
+SynthDef(\\${1:zedfx}, { arg out=0, gate=1;
 	var sig;
 	var in = InFeedback.ar(\inbus.kr(BusDef(\zero, \audio)), 2); 
 	sig = in;
 	sig = ${2:sig * SinOsc.ar(300)};
 	sig = SelectX.ar(\mix.kr(0.5), [in, sig]);
-	sig = sig * EnvGen.ar(Env.adsr(0.01,0,1,0.01),gate,doneAction:2);
+	sig = sig * EnvGen.kr(\adsr.kr(Env.adsr(0.1,0.1,0.8,0.1)), gate, doneAction:2);
 	sig = sig * \gain.kr(1);
 	Out.ar(out, sig);
 }).add;
@@ -833,12 +943,13 @@ endsnippet
 
 snippet SynthDefinp
 (
-SynthDef(\\${1:plop}, { arg in, out=0, mix=0.5, amp=1, gate=1;
-	var sigin, sig;
-	sigin = In.ar(in, 2);
-	sig = ${2:sigin};
-	sig = SelectX.ar(mix, [sigin, sig]);
-	sig = sig * EnvGen.ar(Env.asr(0.0001,1,0.0001),gate,doneAction:2);
+SynthDef(\\${1:zed}, { arg out=0, gate=1, mix=0.5, gain=1;
+	var in, sig;
+	in = InFeedback.ar(\inbus.kr(BusDef(\zero, \audio)), 2);
+	sig = ${2:in};
+	sig = SelectX.ar(mix, [in, sig]);
+	sig = sig * EnvGen.ar(\asr.kr(Env.asr(0.01,1,0.01)),gate,doneAction:2);
+	sig = sig * gain;
 	Out.ar(out, sig);
 }).add;
 )
@@ -846,7 +957,7 @@ endsnippet
 
 snippet Ndefp
 (
-Ndef(\\${1:plop}, { arg freq=200, pan=0, amp=0.1;
+Ndef(\\${1:zed}, { arg freq=200, pan=0, amp=0.1;
 	var sig;
 	sig = ${2:SinOsc.ar(freq)};
 	sig = Pan2.ar(sig, pan, amp);
@@ -855,7 +966,7 @@ Ndef(\\${1:plop}, { arg freq=200, pan=0, amp=0.1;
 endsnippet
 
 snippet Instr
-Instr(\\${1:plop}, { arg amp=0.1, gate=1, pan=0, freq=200;
+Instr(\\${1:zed}, { arg amp=0.1, gate=1, pan=0, freq=200;
 	var sig;
 	sig = ${2:SinOsc.ar(freq)};
 	sig = sig * EnvGen.ar(\\adsr.kr(Env.adsr(0.01,0.1,0.8,0.1)),gate,doneAction:2);
@@ -1003,6 +1114,14 @@ snippet varlfo
 var lfo1, lfo2, lfo3, lfo4, lfo5, lfo6, lfo7, lfo8;
 endsnippet
 
+snippet varmod
+var mod1, mod2, mod3, mod4, mod5, mod6, mod7, mod8;
+endsnippet
+
+snippet varseq
+var seq1, seq2, seq3, seq4, seq5, seq6, seq7, seq8;
+endsnippet
+
 snippet 3osc
 sig1 = LFSaw.ar(freq);
 sig2 = LFPulse.ar(freq);
@@ -1055,6 +1174,10 @@ endsnippet
 
 snippet fm
 ( ${2:SinOsc.kr(${1})} * ${3:1} + 1 )
+endsnippet
+
+snippet fma
+( SinOsc.ar(freq * \fmr.kr(1)) * \fmamp.kr(0.5) + 1 )
 endsnippet
 
 snippet lfo
@@ -1116,7 +1239,7 @@ Ptpar([
 ])
 endsnippet
 
-snippet Pn
+snippet Pn "" w
 Pn(${VISUAL},${1:inf})${0}
 endsnippet
 
@@ -1139,6 +1262,14 @@ endsnippet
 
 snippet 60
 0,0,0, 0,0,0,
+endsnippet
+
+snippet 90
+0,0,0, 0,0,0, 0,0,0,
+endsnippet
+
+snippet 91
+1,1,1, 1,1,1, 1,1,1,
 endsnippet
 
 snippet 120
@@ -1252,11 +1383,11 @@ snippet amp
 endsnippet
 
 snippet Pseg
-Pseg(Pseq([0,1],inf),${1:8}),
+Pseg(${VISUAL:Pseq([0,1],inf)},${1:8}),
 endsnippet
 
 snippet Pstep
-Pstep(Pseq([${1:0,1}],inf),${2:8}),
+Pstep(${VISUAL:Pseq([0,1],inf)},${1:2}),
 endsnippet
 
 snippet Pseqcoin
@@ -1301,13 +1432,13 @@ endsnippet
 
 snippet leg
 \legato, Pseq([
-		1,0,0,0, 0,0,0,0,
+	1,0,0,0, 0,0,0,0,
 ],inf),
 endsnippet
 
 snippet legr
 \legato, Pseq([
-		${1:1},0,0,0, 0,0,0,0,
+	${1:1},0,0,0, 0,0,0,0,
 ],inf),
 \isRest, Pfunc({ arg ev; ev[\legato] <= 0 }),
 endsnippet
@@ -1422,14 +1553,14 @@ Pmono(\\${1:default},
 	\freq, 200,
 	\dur, 1,
 	\amp, 0.1,
-);
+)${3:,}
 endsnippet
 
 snippet Pmonofx
 Pmono(\\${1:default},
 	\inbus, BusDef(\\${2:sendbus1}),
 	\dur, 1,
-)${3:;}
+)${3:,}
 endsnippet
 
 snippet Pbind
@@ -1438,7 +1569,7 @@ Pbind(
 	\freq, 200,
 	\dur, 1,
 	\amp, 0.1,
-)${2:;}
+)${2:,}
 endsnippet
 
 snippet Pbindp
@@ -1452,14 +1583,14 @@ Pbind(
 )
 endsnippet
 
-snippet Pbindi
+snippet Pbindv
 Pbind(
 	${VISUAL}${1}
 ),$2
 endsnippet
 
 snippet Pdef
-Pdef(\\${1:plop}, Pbind(
+Pdef(\\${1:zed}, Pbind(
 	\instrument, \\${2:default},
 	\freq, 200,
 	\dur, 1,
@@ -1469,32 +1600,42 @@ endsnippet
 
 snippet Pdefp
 (
-Pdef(\\${1:plop}, Pbind(
-	\instrument, \\${2:default},
-	\degree, Pseq([0],inf),
-	\dur, 1,
-	\amp, 0.1,
-)).play;
+Pdef(\\${1:zed}, 
+	Pbind(
+		\instrument, \\${2:default},
+		\degree, Pseq([0],inf),
+		\dur, 1,
+		\amp, 0.1,
+	)
+).play;
 );
 endsnippet
 
-snippet Pdefi
-Pdef(\\${1:plop}, 
+snippet Pdefv
+Pdef(\\${1:zed}, 
 	${VISUAL}${2}
 ),$3
 endsnippet
 
 snippet Pdefpar
-Pdef(\\${1:plop}, 
+Pdef(\\${1:zed}, 
 	Ppar([
 		${VISUAL}${2}
 	])
 ).play;
 endsnippet
 
+snippet Pdefmain
+Pdef(\part, Pdef(\\${1:main}, 
+	Pseq([
+		${VISUAL}${2}
+	])
+)).play;
+endsnippet
+
 snippet Pdefparp
 (
-Pdef(\\${1:plop}, 
+Pdef(\\${1:zed}, 
 	Ppar([
 		${VISUAL}${2}
 	])
@@ -1503,7 +1644,7 @@ Pdef(\\${1:plop},
 endsnippet
 
 snippet Pdefseq
-Pdef(\\${1:plop}, 
+Pdef(\\${1:zed}, 
 	Pseq([
 		${VISUAL}${2}
 	])
@@ -1512,7 +1653,7 @@ endsnippet
 
 snippet Pdefseqp
 (
-Pdef(\\${1:plop}, 
+Pdef(\\${1:zed}, 
 	Pseq([
 		${VISUAL}${2}
 	])
@@ -1522,13 +1663,14 @@ endsnippet
 
 snippet Pdefpart
 (
-Pdef(\\${3:part}, Pdef(\\${1:plop}, 
+Pdef(\\${3:part}, Pdef(\\${1:zed}, 
 	Ppar([
 		${VISUAL}${2}
 	])
 )).play;
-)
+);
 endsnippet
+
 
 snippet Pdefdemo
 (
@@ -1537,7 +1679,7 @@ Pdef(\\${3:demo}, Pdef(\\${1:xdemo},
 		${VISUAL}${2}
 	])
 )).play;
-)
+);
 endsnippet
 
 
@@ -1546,7 +1688,7 @@ Pbind(
 	\instrument, \playersec,
 	\bufnum, BufDef($2'voices/feynman.flac'),
 	\dur, 1,
-	\amp, 0.1,
+	\gain, 1,
 )$1
 endsnippet
 
@@ -1561,7 +1703,6 @@ PatKitDef(\sample1).asPattern(Pbind(
 	].clump(8).choose}.dup(8).flat,inf).coin.not,
 	\sustain, 0.1,
 	\dur, 1/8,
-	\amp, 0.1,
 ))
 endsnippet
 
@@ -1573,7 +1714,6 @@ PatKitDef(\sample1).asPattern(Pbind(
 	].clump(8).choose}.dup(8).flat,inf).coin.not,
 	\sustain, 0.1,
 	\dur, 1/8,
-	\amp, 0.1,
 ))
 endsnippet
 
@@ -1588,7 +1728,6 @@ PatKitDef(\sample1).asPattern(Pbind(
 	].clump(8).choose}.dup(8).flat,inf).coin.not,
 	\sustain, 0.1,
 	\dur, 1/8,
-	\amp, 0.1,
 ))
 endsnippet
 
@@ -1601,6 +1740,54 @@ PatKitDef(\ksh2b).asPattern(Pbind(
 	\sustain, 0.1,
 	\gain, 0.2,
 	\dur, 1/8,
+)),
+endsnippet
+
+snippet kitbsnare
+PatKitDef(\bat).asPattern(Pbind(
+	\kitIndex, 4,
+	\isRest, Pseq([
+		0,0,0,0, 1,0,0,0,
+	],inf).coin.not,
+	\sustain, 0.1,
+	\velamp, 1/3,
+	\dur, 1/8,
+)),
+endsnippet
+
+snippet kitbhat
+PatKitDef(\bat).asPattern(Pbind(
+	\kitIndex, 8,
+	\isRest, Pseq([
+		1,0,
+	],inf).coin.not,
+	\adsr, Pseq([
+		[ Env.adsr(0.001,0.1,0.8,0.1) ],
+	],inf),
+	\sustain, 0.1/2,
+	\velamp, 1/6,
+	\dur, 1/8,
+)),
+
+endsnippet
+
+snippet kitbclap
+PatKitDef(\bat).asPattern(Pbind(
+	\kitIndex, 16,
+	\isRest, Pseq([
+		0,0,0, 0,0,0, 1,0,0, 0,0,0,
+		0,0,0, 0,0,0, 1,0,0, 0,0,0,
+		0,0,0, 0,0,0, 1,0,0, 0,0,0,
+		0,0,0, 0,0,0, 1,0,0, 0,0,0,
+
+		0,0,0, 0,0,0, 1,0,0, 0,0,0,
+		0,0,0, 0,0,0, 1,0,0, 0,0,0,
+		0,0,0, 0,0,0, 0,0,0, 0,0,0,
+		0,0,0, 0,0,0, 1,0,0, 0,0,0,
+	],inf).coin.not,
+	\velamp, 1/3,
+	\sustain, 0.1,
+	\dur, 1/12,
 )),
 endsnippet
 
@@ -1620,6 +1807,7 @@ endsnippet
 snippet kitkickx
 Pbind(
 	\instrument, \snapkickx,
+	\bodyfreqenv, [ Env([261, 54, 21], [0.035, 0.08], curve: \exp) ],
 	\dur, 1/8,
 	\isRest, Pseq([
 		1,0,0,0, 0,0,0,0,
@@ -1629,12 +1817,59 @@ Pbind(
 ),
 endsnippet
 
+snippet kitkickxx
+Pbind(
+	\instrument, \snapkickx,
+	\bodyfreqenv, [ Env([261, 54, 21], [0.035, 0.08], curve: \exp) ],
+	\bodyenv, [ Env.linen(0.005, 0.1, 0.3) ],
+
+	\popfstart, 750,
+	\popfend, 261,
+	\popfdur, 0.02,
+	\popenv, [ Env.linen(0.001, 0.02, 0.001) ],
+	\popamp, 0.15,
+
+	\formfund, 910,
+	\formfreq, 4760,
+	\formbw, 2110,
+	\lpf, 3140,
+	\clickat, 0.001,
+	\clickrel, 0.01,
+	\clickamp, 0.15,
+
+	\distpreamp, 1,
+	\distpostamp, 1,
+
+	\isRest, Pseq([
+		1,0,0,0, 1,0,0,0,
+	],inf).coin.not,
+	\dur, 1/8,
+	\amp, 0.1,
+),
+endsnippet
+
+snippet kitrim
+PatKitDef(\rim).asPattern(Pbind(
+	\kitIndex, 5,
+	\isRest, Pseq([
+		0,0,0,0, 1,0,0,0,
+	],inf).coin.not,
+	\sustain, 0.1,
+	\gain, 0.2,
+	\dur, 1/8,
+)),
+endsnippet
+
 snippet pout
 Pbind(\out, BusDef(\\${1:fx1}, \audio)) <>$2
 endsnippet
 
 snippet \out
-\out, BusDef(\\${1:fx1}, \audio),$2
+\out, BusDef(\\${1:sendbus1}, \audio),$2
+endsnippet
+
+snippet \inbus
+\inbus, BusDef(\\${1:sendbus1}, \audio),$2
 endsnippet
 
 snippet \note
@@ -1649,12 +1884,76 @@ snippet \adsr
 ],inf),
 endsnippet
 
+snippet fxreverb
+Pmono(\fx_reverb,
+	\inbus, BusDef(\sendbus1),
+	\lpf, 16000,
+	\lpmix, 0.5,
+	\decay, 3,
+	\delayfac, 1,
+	\mix, 1,
+	\gain, 1,
+	\dur, 1,
+),
+endsnippet
+
+snippet fxchorus
+Pmono(\fx_chorus,
+	\inbus, BusDef(\fxchorus, \audio),
+	\addAction, \addToTail,
+	\lag, 0.0006,
+	\mix, 1/2,
+	\fb, 0.9,
+	\delay, 0.1,
+	\diff, 0.001,
+	\modfreq, 0.1,
+	\modamp, 1,
+	\gain,2,
+	\dur, 1,
+	\amp, 0.1,
+),
+endsnippet
+
+snippet fxstutter
+Pmono(\fx_stutter,
+	\inbus, BusDef(\sendbus2, \audio),
+	\addAction, \addToTail,
+	\lag, 0.0005,
+	\mix, Pseq([
+		//0,0,0,0, 0,0,1,0,
+		//0,1,0,0, 0,0,0,0,
+		0
+	],inf),
+	\rate, 1,
+	\time, Pstep(Pseq([1/4,1/8,1/4],inf),1/4)/~t,
+	\time, 1/16/~t,
+	\dur, Pser([1/8],inf),
+	\amp, 0.1,
+),
+endsnippet
+
+snippet fxchorusdist
+Pmono(\chorusdist,
+	\inbus, BusDef(\\${1:sendbus1}, \audio, 2),
+	\freq, 200,
+	\distamp, 20,
+	\distpostamp, 1/1,
+	\fb, 0.404,
+	\distmix, 1,
+	\delay, 0.00111,
+	\modfreq, 4*~t,
+	\modamp, 0.0001,
+	\hpf, 500,
+	\gain, 0.4,
+	\dur, 1,
+	\amp, 0.1,
+),
+endsnippet
 
 snippet fxcleandist
 Pmono( \rdncleandist_fulllight,
-	\inbus, BusDef(\sendbus1, \audio, 2),
+	\inbus, BusDef(\\${1:sendbus1}, \audio, 2),
 	\addAction, \addToTail,
-	'wet10', 1.0,
 	'mix', 0.15714285714286,
 	'gain', 0.7344889782792,
 	'fb', 0.0002099467303085,
@@ -1663,21 +1962,40 @@ Pmono( \rdncleandist_fulllight,
 	],inf).stutter(1),
 	'delay2', 0.210000543560101,
 	'distamp', 1.361836201538,
-	'prelpf', 17000,
+	'prelpf', 19900,
 	'prehpf', 17,
-	'lpf', 17000,
+	'lpf', 19900,
 	'hpf', 17,
 	'fbdistamp', 4.5388371966577,
 	'fbdistmix', 0.98176470588235,
-	'postlpf', 17000,
+	'postlpf', 19900,
 	'posthpf', 17,
 	\bpmix, 0,
 	'wetamp', 0.20503372119697,
 	'indelay', 0.04,
-	'wet20', 1.0,
-	'mamp', 1,
 	\dur, 1,
-),
+),$2
+endsnippet
+
+snippet rdnroom
+Pmono(\rdnroom,
+	\inbus, BusDef(\\${1:sendbus1}, \audio, 2),
+	\dur, 1/8,
+	'wet10', 1.0,
+	'mix', 0.01,
+	'gain', 2,
+	'fb', 0.000000031,
+	'delay', 0.00000001,
+	'delay2', 0.00001001,
+	'delay3', 0.2000080,
+	'distamp', 0.604,
+	'distamp2', 0.23,
+	'distamp3', 0.89,
+	'shift', -5.0,
+	'shiftmix', 0.0,
+	'stereo', 1.0,
+	'indelay', 0.04,
+),$2
 endsnippet
 
 #######################################################
@@ -1685,7 +2003,7 @@ endsnippet
 
 snippet Mdef
 (
-Mdef(\\${1:plop}, Pbind(
+Mdef(\\${1:zed}, Pbind(
 	\instrument, \\${2:default},
 	\degree, Pseq([0],inf),
 	\dur, 1,
@@ -1695,7 +2013,7 @@ Mdef(\\${1:plop}, Pbind(
 endsnippet
 
 snippet ~class_ci
-~class_ci_${1:plop} = (
+~class_ci_${1:zed} = (
 	parent: ~class_instr,
 	synth_rate: \ar,
 	new: { arg self, main, player, namer;

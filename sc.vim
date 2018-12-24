@@ -2,6 +2,7 @@
 " this file is run by ~/.scvimrc
 " see also ~/.scvimrc for scvim settings like spliting screen
 
+imap <C-z> <esc>:call SCfindArgs()<CR>a
 
 map <F2> mZ'W<F5>'Z
 map <F3> mZ'X<F5>'Z
