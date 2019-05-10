@@ -36,16 +36,16 @@ badd +1 fxsimple.scd
 badd +1706 ~/.vim/ultisnips3/UltiSnips/supercollider.snippets
 badd +1 live2.scd
 badd +1 protolive.scd
-badd +1 NERD_tree_1
+badd +64 NERD_tree_1
 badd +1 suft60.scd
 badd +1 suft61.scd
 badd +1 suft59.scd
 badd +1 ../../catalog/chord.scd
 badd +1 ../demo/dub.scd
 badd +931 suft62.scd
-badd +51 lib.scd
+badd +62 lib.scd
 badd +7 suft63.scd
-badd +1 suft69.scd
+badd +765 suft69.scd
 badd +1 ../../catalog/synthDefault.scd
 badd +1 suft68.scd
 badd +1 ../../sdesign/acid.scd
@@ -55,7 +55,24 @@ badd +1 ../../catalog/compotech.scd
 badd +1 suft70.scd
 badd +1 suft11.scd
 badd +1 ../../catalog/trans.scd
-badd +1 draft21.scd
+badd +1589 draft21.scd
+badd +142 suft84.scd
+badd +2 ../libdef/track_patkitdef.scd
+badd +725 ~/.local/share/SuperCollider/Extensions/param/Classes/PlayerWrapper.sc
+badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/ParamProto.sc
+badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/TrackDef.sc
+badd +16 ~/.local/share/SuperCollider/Extensions/param/Classes/View_fix.sc
+badd +677 ~/.local/share/SuperCollider/Extensions/param/Classes/sequencing.sc
+badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/sequencing_GUI.sc
+badd +210 ~/.local/share/SuperCollider/Extensions/param/Classes/custom_events.sc
+badd +7 ~/.local/share/SuperCollider/Extensions/param/Classes/Proto_bindings/PatKitDef.sc
+badd +288 ~/.local/share/SuperCollider/Extensions/param/Proto/player_groups.scd
+badd +11 NERD_tree_2
+badd +1 ~/code/sc/seco/vlive/repeat/libdef/kitsnap.scd
+badd +14 ~/code/sc/seco/vlive/repeat/libdef/drumkit.scd
+badd +1 ~/code/sc/seco/vlive/repeat/libdef/deprecated/filedialog.scd
+badd +71 ~/code/sc/seco/vlive/repeat/libdef/filedialog.scd
+badd +0 suft90.scd
 argglobal
 silent! argdel *
 set stal=2
@@ -64,7 +81,7 @@ set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
-set winheight=1 winwidth=1
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 argglobal
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
@@ -74,18 +91,18 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 7 - ((6 * winheight(0) + 16) / 32)
+let s:l = 8 - ((7 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-7
+8
 normal! 026|
-tabedit suft69.scd
+tabedit suft90.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
-set winheight=1 winwidth=1
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 argglobal
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
@@ -95,32 +112,11 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 765 - ((31 * winheight(0) + 16) / 32)
+let s:l = 13 - ((12 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-765
-normal! 0
-tabedit draft21.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-let s:l = 1586 - ((597 * winheight(0) + 16) / 32)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-1586
+13
 normal! 0
 tabnext 1
 set stal=1
@@ -129,6 +125,7 @@ if exists('s:wipebuf')
 endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20 shortmess=filnxtToO
+set winminheight=1 winminwidth=1
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if file_readable(s:sx)
   exe "source " . fnameescape(s:sx)

@@ -49,6 +49,12 @@ map <F9><F5> <Esc>:call SendToSC("Veco(~name).play_node;")<CR>
 map <F9><F6> <Esc>:call SendToSC("Veco(~name).stop_node;")<CR>
 map <F11><F5> <Esc>:%call SClang_send()<CR>
 
+" inline editor
+map <F10>n <Esc>:call SCcallInlineEditor("number")<CR>
+map <F10>s <Esc>:call SCcallInlineEditorRange("seq")<CR>
+vmap <F10>i <Esc>:call SCinterpretInPlace<CR>
+vmap <F10>r <Esc>:call SCcallFunctionOnSelection<CR>
+map <F10>b <Esc>:call SCcallInlineEditor("sample")<CR>
 
 ""source ~/.vim/indent/sc_indent.vim
 set dictionary=~/.scvim/sc_object_completion
@@ -272,6 +278,28 @@ function! SCcallInlineEditor(cmd)
 	""let l:cmd = "number"
 	let l:cmd = a:cmd
 	let code = "~inline_editor.(\\" . l:cmd . " , " . blkstart[0] . ", " . blkend[0] . ", " . linepos . ", " . col(".") . ", \"" . flines . "\" )"
+	""echo code
+	call SendToSC(code)
+endfunction
+
+function! SCcallInlineEditorRange(cmd) range
+	let [blkstart,blkend] = FindOuterMostBlock()
+	let [vistart, vistartcol] = getpos("'<")[1:2]
+	let [viend, viendcol] = getpos("'>")[1:2]
+	echo blkstart
+	let lines = getline(blkstart[0],blkend[0])
+	let lines[0] = lines[0][blkstart[1] - 1:]
+	let lines[-1] = lines[-1][: blkend[1] - 1]
+	let flines = join(lines, "\n")
+	let flines = substitute(flines, '\', '\\\\', 'g')
+	let flines = substitute(flines, '"', '\\"', 'g')
+	""echo line(".") - blkstart[0]
+	let linepos = line(".") - blkstart[0] 
+	""echo linepos
+	""echo "----"
+	""let l:cmd = "number"
+	let l:cmd = a:cmd
+	let code = "~inline_editor.(\\" . l:cmd . " , " . blkstart[0] . ", " . blkend[0] . ", " . linepos . ", " . col(".") . ', "' . flines . '" , ' . vistart . ", " . viend . ', "' . s:get_visual_selection() . "\" )"
 	""echo code
 	call SendToSC(code)
 endfunction
