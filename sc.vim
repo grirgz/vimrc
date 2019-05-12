@@ -1,6 +1,8 @@
 
 " this file is run by ~/.scvimrc
 " see also ~/.scvimrc for scvim settings like spliting screen
+"
+command! Wr w | SClangRecompile
 
 imap <C-z> <esc>:call SCfindArgs()<CR>a
 
@@ -228,6 +230,7 @@ function! SCreplace2() range
 	exe "normal i" . cc . "\e"
 	"call SendToSC(cc);
 endfunction
+
 
 function! s:get_visual_selection()
   let [lnum1, col1] = getpos("'<")[1:2]
