@@ -32,11 +32,10 @@ badd +1 suft2
 badd +1 suft25.scd
 badd +1 suft17.scd
 badd +2455 suft30.scd
-badd +1 fxsimple.scd
-badd +1706 ~/.vim/ultisnips3/UltiSnips/supercollider.snippets
+badd +105 fxsimple.scd
+badd +1 ~/.vim/ultisnips3/UltiSnips/supercollider.snippets
 badd +1 live2.scd
 badd +1 protolive.scd
-badd +64 NERD_tree_1
 badd +1 suft60.scd
 badd +1 suft61.scd
 badd +1 suft59.scd
@@ -67,12 +66,17 @@ badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/sequencing_GUI.sc
 badd +210 ~/.local/share/SuperCollider/Extensions/param/Classes/custom_events.sc
 badd +7 ~/.local/share/SuperCollider/Extensions/param/Classes/Proto_bindings/PatKitDef.sc
 badd +288 ~/.local/share/SuperCollider/Extensions/param/Proto/player_groups.scd
-badd +11 NERD_tree_2
 badd +1 ~/code/sc/seco/vlive/repeat/libdef/kitsnap.scd
 badd +14 ~/code/sc/seco/vlive/repeat/libdef/drumkit.scd
 badd +1 ~/code/sc/seco/vlive/repeat/libdef/deprecated/filedialog.scd
 badd +71 ~/code/sc/seco/vlive/repeat/libdef/filedialog.scd
-badd +0 suft90.scd
+badd +529 suft90.scd
+badd +1240 vin2.scd
+badd +131 ~/.local/share/SuperCollider/Extensions/param/Classes/server_stores.sc
+badd +10 ../tests/bufdef.scd
+badd +10 ../../lib/samples.scd
+badd +113 ~/.local/share/SuperCollider/Extensions/param/Classes/misc/BufferPool.sc
+badd +1 vin5.scd
 argglobal
 silent! argdel *
 set stal=2
@@ -91,13 +95,13 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 8 - ((7 * winheight(0) + 16) / 32)
+let s:l = 8 - ((7 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 8
 normal! 026|
-tabedit suft90.scd
+tabedit vin5.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -112,12 +116,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 13 - ((12 * winheight(0) + 16) / 32)
+let s:l = 6 - ((5 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-13
-normal! 0
+6
+normal! 04|
 tabnext 1
 set stal=1
 if exists('s:wipebuf')

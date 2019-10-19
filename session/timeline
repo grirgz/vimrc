@@ -8,7 +8,6 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +317 ~/code/sc/seco/vlive/repeat/libdef/apc.scd
 badd +127 ~/.local/share/SuperCollider/Extensions/param/Param.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/buffer.scd
 badd +72 ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib/midi.scd
@@ -37,60 +36,40 @@ badd +1 ~/code/sc/seco/vlive/repeat/capsule/fxsimple.scd
 badd +1706 ~/.vim/ultisnips3/UltiSnips/supercollider.snippets
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/live2.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/protolive.scd
+badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/PlayerWrapper.sc
+badd +317 ~/code/sc/seco/vlive/repeat/libdef/apc.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft49.scd
 badd +24 ~/.local/share/SuperCollider/downloaded-quarks/Modality-toolkit/Modality/MKtlDescriptions/akai-apc40mkii.desc.scd
 badd +17 ~/code/sc/seco/vlive/demo/modality.scd
-badd +4 GlobalLibrary.scd
+badd +7 GlobalLibrary.scd
 badd +4 ~/.local/share/SuperCollider/Extensions/param/Classes/server_stores.sc
 badd +596 ~/.local/share/SuperCollider/Extensions/param/Classes/extSpec.sc
 badd +355 tracklist.scd
-badd +0 ~/code/sc/seco/vlive/repeat/libdef/tracks.scd
+badd +21 ~/code/sc/seco/vlive/repeat/libdef/tracks.scd
 badd +27 OverlayMenu.scd
-badd +0 ~/.local/share/SuperCollider/Extensions/param/Proto/timeline.scd
+badd +1 ~/.local/share/SuperCollider/Extensions/param/Proto/timeline.scd
 badd +8 ~/.local/share/SuperCollider/Extensions/param/Proto/misc/overlayMenu.scd
 badd +14 ~/.local/share/SuperCollider/Extensions/param/Proto/main.scd
 badd +7 ~/.local/share/SuperCollider/Extensions/param/Classes/Param_GUI.sc
 badd +350 ~/.local/share/SuperCollider/Extensions/param/Classes/Param_extensions.sc
 badd +798 ~/.local/share/SuperCollider/Extensions/param/Classes/Param.sc
-badd +0 ~/code/sc/seco/vlive/repeat/capsule/vin1.scd
+badd +5 ~/code/sc/seco/vlive/repeat/capsule/vin1.scd
 badd +2 PatKitDef_newkit.scd
-badd +699 ~/.local/share/SuperCollider/Extensions/param/Proto/GlobalLibrary.scd
-badd +40 main_window.scd
-badd +0 ~/.local/share/SuperCollider/Extensions/param/Proto/TrackList.scd
+badd +493 ~/.local/share/SuperCollider/Extensions/param/Proto/GlobalLibrary.scd
+badd +39 main_window.scd
+badd +1 ~/.local/share/SuperCollider/Extensions/param/Proto/TrackList.scd
+badd +1 NERD_tree_3
+badd +1 NERD_tree_4
+badd +1 NERD_tree_2
 argglobal
 silent! argdel *
 set stal=2
-edit main_window.scd
+edit tracklist.scd
 set splitbelow splitright
-wincmd _ | wincmd |
-vsplit
-1wincmd h
-wincmd w
-wincmd _ | wincmd |
-split
-1wincmd k
-wincmd w
 set nosplitbelow
 set nosplitright
 wincmd t
 set winminheight=1 winheight=1 winminwidth=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 31 + 69) / 139)
-exe '2resize ' . ((&lines * 25 + 27) / 55)
-exe 'vert 2resize ' . ((&columns * 107 + 69) / 139)
-exe '3resize ' . ((&lines * 26 + 27) / 55)
-exe 'vert 3resize ' . ((&columns * 107 + 69) / 139)
-argglobal
-enew
-file NERD_tree_1
-setlocal fdm=manual
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-wincmd w
 argglobal
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
@@ -100,143 +79,18 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 39 - ((12 * winheight(0) + 12) / 25)
+let s:l = 392 - ((15 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-39
-normal! 017|
-wincmd w
-argglobal
-if bufexists('GlobalLibrary.scd') | buffer GlobalLibrary.scd | else | edit GlobalLibrary.scd | endif
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-let s:l = 7 - ((6 * winheight(0) + 13) / 26)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-7
-normal! 0
-wincmd w
-exe 'vert 1resize ' . ((&columns * 31 + 69) / 139)
-exe '2resize ' . ((&lines * 25 + 27) / 55)
-exe 'vert 2resize ' . ((&columns * 107 + 69) / 139)
-exe '3resize ' . ((&lines * 26 + 27) / 55)
-exe 'vert 3resize ' . ((&columns * 107 + 69) / 139)
-tabedit ~/code/sc/seco/vlive/repeat/libdef/tracks.scd
-set splitbelow splitright
-wincmd _ | wincmd |
-vsplit
-1wincmd h
-wincmd w
-set nosplitbelow
-set nosplitright
-wincmd t
-set winminheight=1 winheight=1 winminwidth=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 31 + 69) / 139)
-exe 'vert 2resize ' . ((&columns * 107 + 69) / 139)
-argglobal
-enew
-file NERD_tree_3
-setlocal fdm=manual
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-wincmd w
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 82 - ((20 * winheight(0) + 26) / 52)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-82
-normal! 06|
-wincmd w
-exe 'vert 1resize ' . ((&columns * 31 + 69) / 139)
-exe 'vert 2resize ' . ((&columns * 107 + 69) / 139)
-tabedit ~/code/sc/seco/vlive/repeat/capsule/vin1.scd
-set splitbelow splitright
-wincmd _ | wincmd |
-vsplit
-1wincmd h
-wincmd w
-set nosplitbelow
-set nosplitright
-wincmd t
-set winminheight=1 winheight=1 winminwidth=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 31 + 69) / 139)
-exe 'vert 2resize ' . ((&columns * 107 + 69) / 139)
-argglobal
-enew
-file NERD_tree_4
-setlocal fdm=manual
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-wincmd w
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 5 - ((4 * winheight(0) + 26) / 52)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-5
-normal! 0
-wincmd w
-exe 'vert 1resize ' . ((&columns * 31 + 69) / 139)
-exe 'vert 2resize ' . ((&columns * 107 + 69) / 139)
+392
+normal! 08|
 tabedit ~/.local/share/SuperCollider/Extensions/param/Proto/GlobalLibrary.scd
 set splitbelow splitright
-wincmd _ | wincmd |
-vsplit
-1wincmd h
-wincmd w
 set nosplitbelow
 set nosplitright
 wincmd t
 set winminheight=1 winheight=1 winminwidth=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 31 + 69) / 139)
-exe 'vert 2resize ' . ((&columns * 107 + 69) / 139)
-argglobal
-enew
-file NERD_tree_2
-setlocal fdm=manual
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-wincmd w
 argglobal
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
@@ -246,16 +100,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 493 - ((24 * winheight(0) + 26) / 52)
+let s:l = 1 - ((0 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-493
+1
 normal! 0
-wincmd w
-2wincmd w
-exe 'vert 1resize ' . ((&columns * 31 + 69) / 139)
-exe 'vert 2resize ' . ((&columns * 107 + 69) / 139)
 tabedit ~/.local/share/SuperCollider/Extensions/param/Proto/timeline.scd
 set splitbelow splitright
 set nosplitbelow
@@ -271,15 +121,57 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-3218
+3084
 normal! zo
-let s:l = 3387 - ((33 * winheight(0) + 26) / 53)
+let s:l = 3387 - ((16 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 3387
 normal! 024|
-tabnext 4
+tabedit ~/code/sc/seco/vlive/repeat/libdef/tracks.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 55 - ((37 * winheight(0) + 26) / 53)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+55
+normal! 09|
+tabedit ~/.local/share/SuperCollider/Extensions/param/Classes/PlayerWrapper.sc
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 287 - ((25 * winheight(0) + 26) / 53)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+287
+normal! 05|
+tabnext 1
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

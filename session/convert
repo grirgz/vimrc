@@ -93,13 +93,16 @@ badd +70 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/mixer.scd
 badd +139 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/sendpad.scd
 badd +1 to_convert_converted3.scd
 badd +1 to_convert_converted4.scd
-args ~/code/sc/seco/vlive/stone8/1.1.scd
+argglobal
+silent! argdel *
+$argadd ~/code/sc/seco/vlive/stone8/1.1.scd
+set stal=2
 edit lib/timeline.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
-set winheight=1 winwidth=1
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 argglobal
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
@@ -109,18 +112,18 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 509 - ((17 * winheight(0) + 18) / 37)
+let s:l = 1 - ((0 * winheight(0) + 27) / 54)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-509
-normal! 015l
+1
+normal! 0
 tabedit timeline9.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
-set winheight=1 winwidth=1
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 argglobal
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
@@ -130,7 +133,7 @@ setlocal fdl=1
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 212 - ((142 * winheight(0) + 18) / 36)
+let s:l = 212 - ((197 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -141,7 +144,7 @@ set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
-set winheight=1 winwidth=1
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 argglobal
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
@@ -151,7 +154,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 18 - ((17 * winheight(0) + 18) / 36)
+let s:l = 18 - ((17 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -162,7 +165,7 @@ set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
-set winheight=1 winwidth=1
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 argglobal
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
@@ -173,10 +176,8 @@ setlocal fml=1
 setlocal fdn=20
 setlocal nofen
 20
-normal zo
-20
-normal zo
-let s:l = 42 - ((16 * winheight(0) + 18) / 36)
+normal! zo
+let s:l = 42 - ((24 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -187,7 +188,7 @@ set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
-set winheight=1 winwidth=1
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 argglobal
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
@@ -197,18 +198,18 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 227 - ((18 * winheight(0) + 18) / 36)
+let s:l = 227 - ((27 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 227
-normal! 04l
+normal! 05|
 tabedit to_convert_converted.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
-set winheight=1 winwidth=1
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 argglobal
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
@@ -218,7 +219,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 108 - ((20 * winheight(0) + 18) / 36)
+let s:l = 108 - ((29 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -229,7 +230,7 @@ set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
-set winheight=1 winwidth=1
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 argglobal
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
@@ -239,7 +240,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 371 - ((16 * winheight(0) + 18) / 36)
+let s:l = 371 - ((24 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -250,7 +251,7 @@ set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
-set winheight=1 winwidth=1
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 argglobal
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
@@ -260,7 +261,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1 - ((0 * winheight(0) + 18) / 36)
+let s:l = 1 - ((0 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -271,7 +272,7 @@ set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
-set winheight=1 winwidth=1
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 argglobal
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
@@ -281,7 +282,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1 - ((0 * winheight(0) + 18) / 36)
+let s:l = 1 - ((0 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -292,7 +293,7 @@ set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
-set winheight=1 winwidth=1
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 argglobal
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
@@ -302,7 +303,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 366 - ((18 * winheight(0) + 18) / 36)
+let s:l = 366 - ((27 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -313,7 +314,7 @@ set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
-set winheight=1 winwidth=1
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 argglobal
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
@@ -323,18 +324,18 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 866 - ((18 * winheight(0) + 18) / 36)
+let s:l = 1 - ((0 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-866
+1
 normal! 0
 tabedit ~/.local/share/SuperCollider/Extensions/param/Classes/Patterns.sc
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
-set winheight=1 winwidth=1
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 argglobal
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
@@ -344,18 +345,18 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 1551 - ((16 * winheight(0) + 18) / 36)
+let s:l = 1 - ((0 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1551
+1
 normal! 0
 tabedit ~/.local/share/SuperCollider/Extensions/param/Classes/EventList.sc
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
 wincmd t
-set winheight=1 winwidth=1
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 argglobal
 setlocal fdm=indent
 setlocal fde=GetPotionFold(v:lnum)
@@ -366,30 +367,24 @@ setlocal fml=1
 setlocal fdn=20
 setlocal nofen
 64
-normal zo
-68
-normal zo
-72
-normal zo
-72
-normal zo
-68
-normal zo
-64
-normal zo
-let s:l = 192 - ((18 * winheight(0) + 18) / 36)
+normal! zo
+69
+normal! zo
+let s:l = 192 - ((27 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 192
-normal! 018l
+normal! 025|
 lcd ~/code/sc/seco/vlive
 tabnext 9
+set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif
 unlet! s:wipebuf
 set winheight=1 winwidth=1 shortmess=aoO
+set winminheight=1 winminwidth=1
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if file_readable(s:sx)
   exe "source " . fnameescape(s:sx)

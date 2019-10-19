@@ -45,6 +45,45 @@ ProtoDef(\apc40).activate(TrackDef(\pdefgrid));
 
 ProtoDef(\apc40).map_rdn_to_bank(0, \rdn, [\delay, \delay2]);
 ProtoDef(\apc40).activate_bank_selector
+MKtl.find(\midi); // when was not connected
+endsnippet
+
+snippet amen
+BufDef(\amen, "vipere/amenbreak.wav");
+BufDef(\moeten, "voices/02_moeten.flac")
+BufDef(\crepe, "field/crepe.flac");
+BufDef(\oeuf, "field/oeuf.flac");
+BufDef(\ukraine, "bruit1/07_ukraine.flac");
+BufDef(\table, "field/table.flac");
+BufDef(\scream, "vipere/scream.flac");
+BufDef(\rocksteady, "vipere/rocksteady.flac");
+BufDef(\metal, "vipere/metal.flac");
+BufDef(\bomb, "vipere/bomb.flac");
+endsnippet
+
+snippet Pen
+(
+	WindowDef(\farfalle, {
+		var canvas = UserView.new;
+		canvas.drawFunc = {
+			Pen.strokeColor = Color.red;
+			Pen.fillColor = Color.blue;
+			Pen.moveTo(200@100);
+
+			Pen.lineTo(250@200);
+			Pen.lineTo(300@200);
+			Pen.lineTo(200@250);
+			Pen.lineTo(100@200);
+			Pen.lineTo(150@200);
+			Pen.lineTo(200@100);
+
+			//Pen.stroke;
+			//Pen.fill;
+			Pen.draw(3);
+		};
+		canvas.background_(Color.grey);
+	}).front;
+)
 endsnippet
 
 snippet Outsd
@@ -65,6 +104,21 @@ endsnippet
 snippet \add
 \addAction, \addToTail,
 \lag, 0.0005,
+endsnippet
+
+snippet saverdns
+(
+[\rdn, \rdn2, \rdn3, \rdn4].collect({ arg key;
+	ProtoDef(key).presetCompileString;
+}).join("\n\n").editorInsert
+)
+endsnippet
+
+snippet initrdn
+ProtoDef(\rdn, ProtoTemplateDef(\rdn));
+ProtoDef(\rdn2, ProtoTemplateDef(\rdn));
+ProtoDef(\rdn3, ProtoTemplateDef(\rdn));
+ProtoDef(\rdn4, ProtoTemplateDef(\rdn));
 endsnippet
 
 snippet trackmixer
@@ -359,7 +413,7 @@ endsnippet
 snippet if
 if($1) {
 	${VISUAL}${3}
-}$2
+};$2
 endsnippet
 
 snippet ife
@@ -367,7 +421,7 @@ if($1) {
 	${VISUAL}${3}
 } {
 	$4
-}$2
+};$2
 endsnippet
 
 snippet exec
@@ -1611,6 +1665,12 @@ Pbind(
 	\dur, 1,
 	\amp, 0.1,
 )${2:,}
+endsnippet
+
+snippet Pbindchain
+Pbind(
+	\\${1:out, BusDef(\\sendbus3, \\audio),}
+) <>
 endsnippet
 
 snippet Pbindp
