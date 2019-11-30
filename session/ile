@@ -1,0 +1,320 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/code/sc/seco/vlive/repeat/capsule
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +127 ~/.local/share/SuperCollider/Extensions/param/Param.sc
+badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/buffer.scd
+badd +72 ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib/midi.scd
+badd +16 ~/code/sc/seco/vlive/lib/demo/param.scd
+badd +8 main.scd
+badd +1 track1.scd
+badd +3 draft8.scd
+badd +1 draft16.scd
+badd +6845 suft27.scd
+badd +1248 suft26.scd
+badd +1 suft22.scd
+badd +1 suft21.scd
+badd +1 fxheavy.scd
+badd +1 draftsynth.scd
+badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/ParamGroup.sc
+badd +1 ~/bin/seco/
+badd +1 ~/bin/seco
+badd +44 /usr/share/vim/vim74/doc/remote.txt
+badd +1085 suft28.scd
+badd +477 suft29.scd
+badd +1 suft2
+badd +1 suft25.scd
+badd +1 suft17.scd
+badd +2455 suft30.scd
+badd +105 fxsimple.scd
+badd +1 ~/.vim/ultisnips3/UltiSnips/supercollider.snippets
+badd +1 live2.scd
+badd +1 protolive.scd
+badd +1 suft60.scd
+badd +1 suft61.scd
+badd +1 suft59.scd
+badd +1 ../../catalog/chord.scd
+badd +1 ../demo/dub.scd
+badd +931 suft62.scd
+badd +62 lib.scd
+badd +7 suft63.scd
+badd +765 suft69.scd
+badd +1 ../../catalog/synthDefault.scd
+badd +1 suft68.scd
+badd +1 ../../sdesign/acid.scd
+badd +1 ../../catalog/tech.scd
+badd +1 metaltech.scd
+badd +1 ../../catalog/compotech.scd
+badd +1 suft70.scd
+badd +1 suft11.scd
+badd +1 ../../catalog/trans.scd
+badd +1589 draft21.scd
+badd +142 suft84.scd
+badd +2 ../libdef/track_patkitdef.scd
+badd +725 ~/.local/share/SuperCollider/Extensions/param/Classes/PlayerWrapper.sc
+badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/ParamProto.sc
+badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/TrackDef.sc
+badd +16 ~/.local/share/SuperCollider/Extensions/param/Classes/View_fix.sc
+badd +677 ~/.local/share/SuperCollider/Extensions/param/Classes/sequencing.sc
+badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/sequencing_GUI.sc
+badd +210 ~/.local/share/SuperCollider/Extensions/param/Classes/custom_events.sc
+badd +7 ~/.local/share/SuperCollider/Extensions/param/Classes/Proto_bindings/PatKitDef.sc
+badd +288 ~/.local/share/SuperCollider/Extensions/param/Proto/player_groups.scd
+badd +1 ~/code/sc/seco/vlive/repeat/libdef/kitsnap.scd
+badd +14 ~/code/sc/seco/vlive/repeat/libdef/drumkit.scd
+badd +1 ~/code/sc/seco/vlive/repeat/libdef/deprecated/filedialog.scd
+badd +71 ~/code/sc/seco/vlive/repeat/libdef/filedialog.scd
+badd +529 suft90.scd
+badd +1240 vin2.scd
+badd +131 ~/.local/share/SuperCollider/Extensions/param/Classes/server_stores.sc
+badd +10 ../tests/bufdef.scd
+badd +10 ../../lib/samples.scd
+badd +113 ~/.local/share/SuperCollider/Extensions/param/Classes/misc/BufferPool.sc
+badd +6 vin5.scd
+badd +1 ile1.scd
+badd +1 ile2.scd
+badd +1 ile3.scd
+badd +1 ile4.scd
+badd +1 ile5.scd
+badd +1 ile6.scd
+badd +1 ile1_draft.scd
+badd +23 NERD_tree_1
+badd +96 ~/code/sc/seco/vlive/catalog/hat.scd
+badd +0 ~/code/sc/seco/vlive/catalog/perc.scd
+badd +0 vin9.scd
+badd +0 ile_main.scd
+argglobal
+silent! argdel *
+set stal=2
+edit ile_main.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 8 - ((7 * winheight(0) + 26) / 53)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+8
+normal! 05|
+tabedit ile1.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 3 - ((2 * winheight(0) + 26) / 53)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+3
+normal! 0
+tabedit ile2.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 2979 - ((25 * winheight(0) + 26) / 53)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+2979
+normal! 0
+tabedit ile3.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 721 - ((26 * winheight(0) + 26) / 53)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+721
+normal! 0
+tabedit ile4.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1396 - ((25 * winheight(0) + 26) / 53)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1396
+normal! 017|
+tabedit ile5.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1239 - ((25 * winheight(0) + 26) / 53)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1239
+normal! 013|
+tabedit ile6.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 5900 - ((25 * winheight(0) + 26) / 53)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+5900
+normal! 0
+tabedit vin9.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 61 - ((45 * winheight(0) + 26) / 53)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+61
+normal! 020|
+tabedit ile1_draft.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1153 - ((25 * winheight(0) + 26) / 53)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1153
+normal! 017|
+tabedit ~/code/sc/seco/vlive/catalog/perc.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1155 - ((26 * winheight(0) + 26) / 53)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1155
+normal! 0
+tabnext 1
+set stal=1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+set winminheight=1 winminwidth=1
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

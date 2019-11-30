@@ -2,6 +2,12 @@
 #######################################################
 ###### coding templates
 
+snippet Win
+WindowDef(\\${1:win}, { arg def;
+	$2
+}).front;
+endsnippet
+
 snippet bigtitle
 ///////////////////// /////////////////  /////////////////  /////////////////
 ///////////////////
@@ -144,6 +150,14 @@ endsnippet
 
 snippet fun "" w
 { arg x; $1 }
+endsnippet
+
+snippet play
+Pdef(\\${1:part}).play;
+endsnippet
+
+snippet stop
+PlayerWrapper(Pdef(\\${1:part})).stop;
 endsnippet
 
 snippet clear
@@ -1280,11 +1294,11 @@ SinOsc.kr(${1}).range(${2:0},${3:1})
 endsnippet
 
 snippet spread
-((0..${1:7})/$1 - 0.5 * ${2:fspread} + 1)
+((0..${1:7})/$1 - 0.5 * ${2:\\fspread.kr(0.1)} + 1)
 endsnippet
 
 snippet Splay
-Splay.ar(sig, spread, amp, pan);
+Splay.ar(sig, \spread.kr(0.8), amp, pan);
 endsnippet
 
 snippet Splaya
@@ -1793,6 +1807,46 @@ Pbind(
 )$1
 endsnippet
 
+snippet kitlkick
+Pbind(
+	\instrument, \playersec,
+	\bufnum, ~buflib.kick[1966].value,
+	\bufnum, ~buflib.kick[~buflib.kick.size.rand.debug("k")].value,
+	\isRest, Pseq([
+		1,0,0,0, 0,0,0,0,
+	],inf).coin.not,
+	\dur, 1/8,
+	\gain, 0.3,
+),
+endsnippet
+
+
+snippet kitlsnare
+Pbind(
+	\instrument, \playersec,
+	\bufnum, ~buflib.snare[1975].value,
+	\bufnum, ~buflib.snare[~buflib.snare.size.rand.debug("s")].value,
+	\isRest, Pseq([
+		0,0,0,0, 1,0,0,0,
+	],inf).coin.not,
+	\dur, 1/8,
+	\gain, 1,
+),
+endsnippet
+
+snippet kitlhat
+Pbind(
+	\instrument, \playersec,
+	\bufnum, ~buflib.hat[1967].value,
+	\bufnum, ~buflib.hat[~buflib.hat.size.rand.debug("h")].value,
+	\isRest, Pseq([
+		1,0,1,0, 1,0,1,0,
+	],inf).coin.not,
+	\dur, 1/8,
+	\gain, 1,
+),
+endsnippet
+
 snippet kitkick
 PatKitDef(\sample1).asPattern(Pbind(
 	\kitIndex, 0,
@@ -1993,6 +2047,34 @@ Pmono(\fx_reverb,
 	\decay, 3,
 	\delayfac, 1,
 	\mix, 1,
+	\gain, 1,
+	\dur, 1,
+),
+endsnippet
+
+snippet fxfreeverb
+Pmono(\fx_freeverb2,
+	\addAction, \addToTail,
+	\lag, 0.0005,
+	\inbus, BusDef(\rev1, \audio),
+	\verbmix, 0.4,
+	\room, 0.5,
+	\damp, 0.7,
+	\mix, 1,
+	\gain, 1,
+	\dur, 2,
+),
+endsnippet
+
+snippet fxcomp
+Pmono(\simplecomp,
+	\inbus, BusDef(\comp, \audio),
+	\cpt, 0.01,
+	\pregain, 1,
+	\cpabove, 0.01,
+	\cpbelow, 1,
+	\cpclamp, 0.01,
+	\cprelax, 0.1,
 	\gain, 1,
 	\dur, 1,
 ),
