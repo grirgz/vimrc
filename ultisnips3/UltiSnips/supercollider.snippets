@@ -424,6 +424,10 @@ snippet swing
 (1 + (0.06 * Pseq([1,-1],inf)))
 endsnippet
 
+snippet \durswing
+\\dur, Pkey(\dur) * (1 + (~swing * Pseq([1,-1],inf))),
+endsnippet
+
 snippet if
 if($1) {
 	${VISUAL}${3}
