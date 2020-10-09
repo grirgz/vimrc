@@ -36,7 +36,7 @@ map <F4>n <Esc>:call SendToSC("debug(\"!!========!! name:%, namex:%, index:%; pd
 map <F4>v <Esc>:call SendToSC("s.volume.gui;")<CR>
 "map <F4>m <Esc>:call SendToSC("~mixer_gui.new(Veco.main);")<CR>
 map <F4>m <Esc>:call SendToSC("WindowDef(\\main).front;")<CR>
-map <F4>p <Esc>:call SendToSC("WindowDef(\\SimpleMainPanel).frontTop;")<CR>
+map <F4>p <Esc>:call SendToSC("WindowDef(\\MainProject).frontTop;")<CR>
 
 map <F4>i <Esc>:call SendToSC("Veco.force_init; VecoLib.load_lib;")<CR>
 

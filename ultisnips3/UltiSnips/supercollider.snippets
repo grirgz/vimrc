@@ -27,7 +27,10 @@ endsnippet
 snippet master
 (
 ~master = {
+	ProtoDef(\simpleMixer).play;
 	ProtoDef(\rdn).play;
+	ProtoDef(\rdn2).play;
+	ProtoDef(\rdn3).play;
 };
 ~master.();
 )
@@ -457,6 +460,13 @@ case(
 		$5
 	}
 )$0
+endsnippet
+
+snippet switch
+switch(${2:val},
+	${3:1}, { $3 },
+	${4:2}, { $5 },
+)${1:;}
 endsnippet
 
 snippet asig
@@ -1033,7 +1043,7 @@ SynthDef(\\${1:zedfx}, { arg out=0, gate=1;
 	sig = in;
 	sig = ${2:sig * SinOsc.ar(300)};
 	sig = SelectX.ar(\mix.kr(0.5), [in, sig]);
-	sig = sig * EnvGen.kr(\adsr.kr(Env.adsr(0.1,0.1,0.8,0.1)), gate, doneAction:2);
+	sig = sig * EnvGen.kr(\adsr.kr(Env.adsr(0.01,0.1,0.8,0.01)), gate, doneAction:2);
 	sig = sig * \gain.kr(1);
 	Out.ar(out, sig);
 }).add;
@@ -1120,7 +1130,7 @@ NamedControl.kr(\\${1:adsr}, Env.adsr(0.1,0.1,0.8,0.1))
 endsnippet
 
 snippet adsr
-EnvGen.kr(\\${1:adsr}.kr(Env.adsr(0.1,0.1,0.8,0.1)), gate, doneAction:2);
+EnvGen.kr(\\${1:adsr}.kr(Env.adsr(${3}0.1,0.1,0.8,0.1)), gate, doneAction:${2:2});
 endsnippet
 
 snippet asr
@@ -1147,6 +1157,14 @@ snippet envas
 EnvGen.kr(Env([0,1,0],[0.1,0.8]), 1);
 endsnippet
 
+snippet kenvas
+EnvGen.kr(\\${1:env1}.kr(Env([${2}0,1,0],[0.1,0.8])), 1);
+endsnippet
+
+snippet kenvs
+EnvGen.kr(\\${1:env1}.kr(Env([${2}1,2,1],[0.1,0.8])), 1);
+endsnippet
+
 snippet envs
 EnvGen.kr(Env([1,2,1],[0.1,0.8]), 1);
 endsnippet
@@ -1165,6 +1183,11 @@ endsnippet
 
 snippet	RLPFr
 RLPF.ar(sig, \\lpfr.kr(1.1) * freq, \rq.kr(0.5));
+endsnippet
+
+snippet RLPFre
+env1 = EnvGen.kr(\lpenv.kr(Env([0,1,0],[0.1,0.8])), 1);
+sig = RLPF.ar(sig, \lpfr.kr(1.1) * freq * (env1 * \lpenvamt.kr(3.2) + 1), \rq.kr(0.5));
 endsnippet
 
 snippet	RLPFmix
@@ -1343,8 +1366,41 @@ Ndef(~name+++${1:\lfo1}).put(1, \set -> Pbind(
 ));
 endsnippet
 
+snippet soundin
+(
+Ndef(\soundin, { arg freq=200, pan=0, amp=0.1;
+	var sig;
+	sig = SoundIn.ar([0,1]);
+	sig = sig * \gain.kr(1);
+	//sig = sig * ( LFSaw.kr( LFNoise0.kr(1).unipolar * 5600 ) * 1 + 1 );
+}).play(BusDef(\soundin, \audio, 2).index, 2);
+);
+Ndef(\soundin).play(0,2)
+Ndef(\soundin).edit;
+endsnippet
+
 #######################################################
 ###### Patterns patterns
+
+snippet Pswitch
+Pswitch1(
+	[
+		Pseg(Pseq([1/4,2],inf),8),
+		Pseg(Pseq([2,1/4],inf),8),
+	], 
+	Pseq([0,1],inf)
+),
+endsnippet
+
+snippet switchrest
+\isRest, Pswitch1(
+	[
+		true,
+		Pkeyd(\isRest, false),
+	], 
+	Pstep(Pseq([0,1],inf),1)
+),
+endsnippet
 
 snippet Ptpar
 Ptpar([
@@ -1600,6 +1656,13 @@ Ppar([
 ]),
 endsnippet
 
+snippet Pparlag
+Pbind(\lag, Pkey(\lag) + 0.04) <>
+Ppar([
+	${VISUAL}${1}
+]),
+endsnippet
+
 snippet Pparout
 Pbind(\out, BusDef(\\${2:sendbus1}, \audio)) <>
 Ppar([
@@ -1824,6 +1887,31 @@ Pbind(
 ),
 endsnippet
 
+snippet kitldrum
+Pbind(
+	\instrument, \playersec,
+	\bufnum, ~buflib.drum[56].value,
+	\bufnum, ~buflib.drum[~buflib.drum.size.rand.debug("d")].value,
+	\isRest, Pseq([
+		0,1,1,0, 0,1,0,1,
+	],inf).coin.not,
+	\dur, 1/8,
+	\gain, 0.61,
+),
+endsnippet
+
+snippet kitlclap
+Pbind(
+	\instrument, \playersec,
+	\bufnum, ~buflib.clap[19].value,
+	\bufnum, ~buflib.clap[~buflib.clap.size.rand.debug("c")].value,
+	\isRest, Pseq([
+		0,0,0,0, 1,0,0,0,
+	],inf).coin.not,
+	\dur, 1/8,
+	\gain, 0.61,
+),
+endsnippet
 
 snippet kitlsnare
 Pbind(
@@ -2034,6 +2122,12 @@ endsnippet
 snippet \note
 \note, Pseq([
 	${1:0},
+],inf),
+endsnippet
+
+snippet \env
+\\${1:env1}, Pseq([
+	[ Env([0,1,0],[0.1,0.8]) ],
 ],inf),
 endsnippet
 
