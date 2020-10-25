@@ -76,7 +76,8 @@ badd +131 ~/.local/share/SuperCollider/Extensions/param/Classes/server_stores.sc
 badd +10 ../tests/bufdef.scd
 badd +10 ../../lib/samples.scd
 badd +113 ~/.local/share/SuperCollider/Extensions/param/Classes/misc/BufferPool.sc
-badd +1 vin5.scd
+badd +6 vin5.scd
+badd +0 vin32.scd
 argglobal
 silent! argdel *
 set stal=2
@@ -95,13 +96,13 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 8 - ((7 * winheight(0) + 26) / 53)
+let s:l = 8 - ((7 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 8
 normal! 026|
-tabedit vin5.scd
+tabedit vin32.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -116,12 +117,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 6 - ((5 * winheight(0) + 26) / 53)
+let s:l = 86 - ((31 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-6
-normal! 04|
+86
+normal! 0
 tabnext 1
 set stal=1
 if exists('s:wipebuf')
