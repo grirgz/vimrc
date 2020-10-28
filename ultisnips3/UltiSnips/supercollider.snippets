@@ -16,6 +16,24 @@ snippet bigtitle
 /////////////  ///////////////// ///////////////// /////////////////
 endsnippet
 
+snippet do "" w
+do { arg ${1:item}, ${3:idx};
+	$2
+};
+endsnippet
+
+snippet co "" w
+collect { arg ${1:item}, ${3:idx};
+	$2
+};
+endsnippet
+
+snippet collect "" w
+collect { arg ${1:item}, ${3:idx};
+	$2
+};
+endsnippet
+
 snippet pe "" w
 presetCompileString.editorInsert
 endsnippet
@@ -1922,7 +1940,7 @@ Pbind(
 		0,0,0,0, 1,0,0,0,
 	],inf).coin.not,
 	\dur, 1/8,
-	\gain, 0.61,
+	\gain, 0.31,
 ),
 endsnippet
 
