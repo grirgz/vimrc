@@ -41,6 +41,7 @@ map <F4>p <Esc>:call SendToSC("WindowDef(\\MainProject).frontTop;")<CR>
 map <F4>i <Esc>:call SendToSC("Veco.force_init; VecoLib.load_lib;")<CR>
 
 map <F4>e <Esc>:call SCcallInlineEditor("number")<CR>
+map <F4>a <Esc>:call SendToSC("WindowDef(\\filedialog_insert_bufdef).front;")<CR>
 
 map <F8> <Esc>:call SendToSC("thisProcess.stop;")<CR>
 
