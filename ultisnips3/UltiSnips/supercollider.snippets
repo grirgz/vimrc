@@ -2,9 +2,34 @@
 #######################################################
 ###### coding templates
 
+snippet is "" w
+isNil
+endsnippet
+
+snippet no "" w
+notNil
+endsnippet
+
+snippet try
+try {
+	${VISUAL}$4
+} { arg error;
+	$3error.reportError;
+	error.throw;
+}$2
+endsnippet
+
+snippet Winp
+(
+WindowDef(\\${1:win}, { arg def;
+	${VISUAL}$2
+}).front;
+);
+endsnippet
+
 snippet Win
 WindowDef(\\${1:win}, { arg def;
-	$2
+	${VISUAL}$2
 }).front;
 endsnippet
 
@@ -73,6 +98,21 @@ ProtoDef(\apc40).activate(TrackDef(\pdefgrid));
 ProtoDef(\apc40).map_rdn_to_bank(0, \rdn, [\delay, \delay2]);
 ProtoDef(\apc40).activate_bank_selector
 MKtl.find(\midi); // when was not connected
+endsnippet
+
+snippet pigs
+Pbind(
+	\instrument, \playersec,
+	\bufnum, BufDef('loop/pigs.flac'),
+	\legato, 1,
+	\st, 92.10/4/60,
+	\speed, 1/2 * ~t / Pkey(\st),
+	\pos, Pseg(Pseq([
+		0, 1,
+	],1),2).loop / Pkey(\st),
+	\dur, 1/8,
+	\gain, 1,
+)
 endsnippet
 
 snippet amen
@@ -160,10 +200,19 @@ Pmono(\simpletrackmixer,
 ),
 endsnippet
 
+snippet MIDIdef.cc
+(
+MIDIdef.cc(\cc1, { arg val, channel, deviceId;
+	[ val, channel, deviceId ].debug;
+	${1}
+});
+)
+endsnippet
+
 snippet MIDIdef
 (
-MIDIdef.noteOn(\track1, { arg ... args;
-	args.postln;
+MIDIdef.noteOn(\track1, { arg velocity, noteNum, channel, deviceId;
+	[ velocity, noteNum, channel, deviceId ].debug;
 	${1}
 });
 )
@@ -190,7 +239,7 @@ Pdef(\\${1:part}).${2:reset};
 endsnippet
 
 snippet pmod
-~pmodenv.(Pseq([${1:1},2,1,4],inf), 8),
+~pmodenv.(Pseq([${1:1},2,1,4],1), 8).loop,
 endsnippet
 
 snippet tempo
@@ -499,9 +548,9 @@ snippet Control
 ControlSpec(0,1,${1:\lin})
 endsnippet
 
-snippet arg
+snippet arg "" w
 { arg self${1};
-	${0}
+	${3}
 }${2:,}
 endsnippet
 
@@ -704,6 +753,19 @@ SynthDef(~name, { arg out=0, amp=0.1, gate=1, pan=0, spread=0.8, freq=200, doneA
 );
 endsnippet
 
+snippet sdsaw
+(
+SynthDef(\saw, { arg out=0, amp=0.1, gate=1, pan=0, spread=0.8, freq=200,  doneAction=2;
+	var sig, sig1, sig2, sig3;
+	sig = LFSaw.ar(freq * [1.01,1,0.99]);
+	sig = RLPF.ar(sig, \lpfr.kr(1.1) * freq, \rq.kr(0.5));
+	sig = sig * EnvGen.ar(\adsr.kr(Env.adsr(0.01,0.1,0.8,0.1)),gate,doneAction:doneAction);
+	sig = Splay.ar(sig, spread, amp, pan);
+	Out.ar(out, sig);
+}).add;
+);
+endsnippet
+
 #######################################################
 ###### Others
 
@@ -803,7 +865,6 @@ Pbind(
 	\inbus, BusDef(\recorder, \audio),
 	\bufnum, BufDef(\mybuf, s.sampleRate * 2/~t, 2),
 	\dur, Pn(1,1),
-	\amp, 0.1,
 ),
 endsnippet
 
@@ -1165,6 +1226,10 @@ endsnippet
 
 snippet Env
 Env([1,2,1],[0.1,0.8])
+endsnippet
+
+snippet Envadsr
+Env.adsr(0.1,0.1,0.8,0.1)
 endsnippet
 
 snippet envperc
@@ -1757,6 +1822,8 @@ endsnippet
 snippet Pmonofx
 Pmono(\\${1:default},
 	\inbus, BusDef(\\${2:sendbus1}, \audio),
+	\addAction, \addToTail,
+	\lag, 0.0009,
 	\dur, 1,
 )${3:,}
 endsnippet
@@ -1867,7 +1934,7 @@ endsnippet
 
 snippet Pdefpart
 (
-Pdef(\\${3:part}, Pdef(\\${1:zed}, 
+Pdef(\\${3:part}, Pdef(\\${1:zedpart}, 
 	Ppar([
 		${VISUAL}${2}
 	])
@@ -1905,7 +1972,7 @@ Pbind(
 		1,0,0,0, 0,0,0,0,
 	],inf).coin.not,
 	\dur, 1/8,
-	\gain, 0.3,
+	\gain, 0.1,
 ),
 endsnippet
 
@@ -1918,7 +1985,7 @@ Pbind(
 		0,1,1,0, 0,1,0,1,
 	],inf).coin.not,
 	\dur, 1/8,
-	\gain, 0.61,
+	\gain, 0.11,
 ),
 endsnippet
 
@@ -1931,7 +1998,7 @@ Pbind(
 		0,0,0,0, 1,0,0,0,
 	],inf).coin.not,
 	\dur, 1/8,
-	\gain, 0.61,
+	\gain, 0.11,
 ),
 endsnippet
 
@@ -1944,7 +2011,7 @@ Pbind(
 		0,0,0,0, 1,0,0,0,
 	],inf).coin.not,
 	\dur, 1/8,
-	\gain, 0.31,
+	\gain, 0.11,
 ),
 endsnippet
 
@@ -1957,7 +2024,7 @@ Pbind(
 		1,0,1,0, 1,0,1,0,
 	],inf).coin.not,
 	\dur, 1/8,
-	\gain, 0.31,
+	\gain, 0.11,
 ),
 endsnippet
 

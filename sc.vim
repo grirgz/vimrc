@@ -66,10 +66,13 @@ set complete+=k
 set sessionoptions-=options
 
 
+"" path for gf
+set path+=~/code/sc/seco/vlive/repeat/
+
+"""""""""""""""""""""""""
+
 "" unfold searched word
 ""set foldexpr=getline(v:lnum)!~@/
-
-
 
 function! GetPotionFold(lnum)
     ""if getline(a:lnum)!~@/
