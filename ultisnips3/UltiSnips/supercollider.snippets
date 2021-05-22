@@ -2267,6 +2267,30 @@ Pmono(\simplecomp,
 ),
 endsnippet
 
+snippet fxsidechain
+Pmono(\simpletrackmixer,
+	\inbus, BusDef(\track1,\audio),
+	\pregain, 1,
+	\postgain, 1,
+	\delay, 0,
+	\send0, 1,
+	\sendbus0, BusDef(\sideinbus, \audio, 2),
+	\dur, 1,
+),
+Pmono(\fx_sidechain,
+	\inbus, BusDef(\comp, \audio),
+	\sideinbus, BusDef(\sideinbus, \audio),
+	\cpt, 0.051,
+	\pregain, 1,
+	\cpabove, 0.01,
+	\cpbelow, 1,
+	\cpclamp, 0.01,
+	\cprelax, 0.1,
+	\gain, 1,
+	\dur, 1,
+),
+endsnippet
+
 snippet fxchorus
 Pmono(\fx_chorus,
 	\inbus, BusDef(\fxchorus, \audio),
