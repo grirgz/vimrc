@@ -211,7 +211,7 @@ endsnippet
 
 snippet MIDIdef
 (
-MIDIdef.noteOn(\track1, { arg velocity, noteNum, channel, deviceId;
+MIDIdef.noteOn(\\${2:track1}, { arg velocity, noteNum, channel, deviceId;
 	[ velocity, noteNum, channel, deviceId ].debug;
 	${1}
 });
@@ -290,6 +290,16 @@ k = MKtl('icon', "icon-icontrols");
 ~icon_map_param.(MKtl('icon')[\kn][0], Param(Ndef(\rdn), \delay));
 k[\kn].collect({ arg k; k })
 k[\kn][0]
+k.postElements;
+endsnippet
+
+snippet nektar
+k = MKtl('netktar');
+k.postElements;
+endsnippet
+
+snippet MKtl
+k = MKtl('netktar');
 k.postElements;
 endsnippet
 
@@ -987,8 +997,12 @@ snippet Compander
 Compander.ar(sig, in, \cpt.kr(0.4), \cpbelow.kr(1.001), \cpabove.kr(0.9), \cpclamp.kr(0.01), \cprelax.kr(0.1));
 endsnippet
 
-snippet in
+snippet In
 InFeedback.ar(\inbus.kr(BusDef(\zero, \audio)), 2); 
+endsnippet
+
+snippet Audio
+AudioIn.ar([1,2]);
 endsnippet
 
 snippet Panrand
@@ -1163,6 +1177,20 @@ Ndef(\\${1:zed}, { arg freq=200, pan=0, amp=0.1;
 	var sig;
 	sig = ${2:SinOsc.ar(freq)};
 	sig = Pan2.ar(sig, pan, amp);
+}).play;
+);
+endsnippet
+
+snippet Ndeffxp
+(
+Ndef(\\${1:zed}, { arg freq=200, pan=0, amp=0.1;
+	var sig;
+	var in = InFeedback.ar(\inbus.kr(BusDef(\zero, \audio)), 2); 
+	sig = in;
+	sig = ${2:FreqShift.ar(sig, 100)};
+	sig = sig * \gain.kr(1);
+	sig = SelectX.ar(\mix.kr(0.5), [in, sig]);
+	sig;
 }).play;
 );
 endsnippet

@@ -4,7 +4,7 @@ let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/.local/share/SuperCollider/Extensions/param/Classes/timeline
+cd ~/code/sc/seco/vlive/repeat/camsnd
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -12,8 +12,6 @@ set shortmess=aoO
 argglobal
 %argdel
 set stal=2
-tabnew
-tabnew
 tabnew
 tabnew
 tabnew
@@ -37,14 +35,14 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 4 - ((3 * winheight(0) + 26) / 53)
+let s:l = 4 - ((3 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 4
 normal! 0
 tabnext
-edit ~/code/sc/seco/vlive/repeat/tests/ClipTimeline.scd
+edit ~/code/sc/webcam/histosc.py
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -62,14 +60,39 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 6 - ((5 * winheight(0) + 26) / 53)
+let s:l = 24 - ((18 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-6
+24
+normal! 09|
+tabnext
+edit demo_image.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 159 - ((16 * winheight(0) + 17) / 35)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+159
 normal! 0
 tabnext
-edit TimelineView.sc
+edit image.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -87,20 +110,14 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-8
-normal! zo
-1008
-normal! zo
-1580
-normal! zo
-let s:l = 1580 - ((26 * winheight(0) + 26) / 53)
+let s:l = 380 - ((16 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1580
-normal! 015|
+380
+normal! 048|
 tabnext
-edit TimelinePreview.sc
+edit sdesign.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -118,98 +135,24 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 33 - ((32 * winheight(0) + 26) / 53)
+let s:l = 897 - ((26 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-33
-normal! 020|
-tabnext
-edit SampleTimelineView.sc
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 10 - ((9 * winheight(0) + 26) / 53)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-10
+897
 normal! 05|
-tabnext
-edit ~/.local/share/SuperCollider/Extensions/param/Proto/GlobalLibrary.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 850 - ((28 * winheight(0) + 26) / 53)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-850
-normal! 0
-tabnext
-edit ~/.local/share/SuperCollider/Extensions/param/Proto/timeline/timeline_recorders.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-let s:l = 1 - ((0 * winheight(0) + 26) / 53)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-1
-normal! 0
-tabnext 5
+tabnext 2
 set stal=1
-badd +1 ~/code/sc/seco/vlive/repeat/cavern/nrevac1.scd
-badd +1 ~/code/sc/seco/vlive/repeat/cavern/cave14.scd
-badd +1 ~/code/sc/seco/vlive/repeat/cavern/cave7.scd
-badd +1 ~/code/sc/seco/vlive/repeat/capsule/fxsimple.scd
-badd +0 ~/code/sc/seco/vlive/repeat/cavern/main.scd
+badd +302 ~/code/sc/seco/vlive/repeat/cavern/nrevac1.scd
+badd +238 ~/code/sc/seco/vlive/repeat/cavern/cave14.scd
+badd +678 ~/code/sc/seco/vlive/repeat/cavern/cave7.scd
+badd +35 ~/code/sc/seco/vlive/repeat/capsule/fxsimple.scd
+badd +1 ~/code/sc/seco/vlive/repeat/cavern/main.scd
+badd +2330 ~/code/sc/seco/vlive/repeat/cavern/cave15.scd
 badd +127 ~/.local/share/SuperCollider/Extensions/param/Param.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/buffer.scd
 badd +72 ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib/midi.scd
-badd +1 ~/code/sc/seco/vlive/lib/demo/param.scd
+badd +16 ~/code/sc/seco/vlive/lib/demo/param.scd
 badd +7 ~/code/sc/seco/vlive/repeat/capsule/main.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/track1.scd
 badd +3 ~/code/sc/seco/vlive/repeat/capsule/draft8.scd
@@ -220,7 +163,7 @@ badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft22.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft21.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/fxheavy.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/draftsynth.scd
-badd +53 ~/.local/share/SuperCollider/Extensions/param/Classes/ParamGroup.sc
+badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/ParamGroup.sc
 badd +1 ~/bin/seco/
 badd +1 ~/bin/seco
 badd +44 /usr/share/vim/vim74/doc/remote.txt
@@ -233,6 +176,7 @@ badd +2455 ~/code/sc/seco/vlive/repeat/capsule/suft30.scd
 badd +1706 ~/.vim/ultisnips3/UltiSnips/supercollider.snippets
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/live2.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/protolive.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/NERD_tree_1
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft60.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft61.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft59.scd
@@ -252,43 +196,14 @@ badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft70.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft11.scd
 badd +1 ~/code/sc/seco/vlive/catalog/trans.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/draft21.scd
-badd +2330 ~/code/sc/seco/vlive/repeat/cavern/cave15.scd
-badd +1 ~/code/sc/seco/vlive/repeat/capsule/NERD_tree_1
 badd +4 ~/code/sc/seco/vlive/repeat/holis/part.scd
 badd +1 ~/code/sc/seco/vlive/repeat/holis/partmain.scd
 badd +7 ~/code/sc/seco/vlive/repeat/holis/main.scd
-badd +80 ~/code/sc/seco/vlive/repeat/tests/NoteTimeline.scd
-badd +138 ~/code/sc/seco/vlive/repeat/ex1/sampler.scd
-badd +108 ~/code/sc/seco/vlive/repeat/libdef/piano.scd
-badd +2043 ~/.local/share/SuperCollider/Extensions/param/Proto/timeline/timeline_gui.scd
-badd +0 ~/.local/share/SuperCollider/Extensions/param/Proto/timeline/timeline_recorders.scd
-badd +1693 ~/.local/share/SuperCollider/Extensions/param/Proto/timeline/timeline.scd
-badd +38 NERD_tree_5
-badd +476 ~/.local/share/SuperCollider/Extensions/param/Proto/timeline/timeline_sample.scd
-badd +1 ~/.local/share/SuperCollider/Extensions/param/Proto/timeline/timeline_utils.scd
-badd +51 NERD_tree_6
-badd +63 ~/code/sc/seco/vlive/repeat/tests/param_synth.scd
-badd +55 ~/code/sc/seco/vlive/repeat/tests/Param.scd
-badd +2037 ~/.local/share/SuperCollider/Extensions/param/Classes/Param.sc
-badd +39 NERD_tree_7
-badd +298 ~/.local/share/SuperCollider/Extensions/param/UnitTest/param_manual_tests.scd
-badd +9 ~/.local/share/SuperCollider/Extensions/param/UnitTest/param_tests.scd
-badd +37 ~/.local/share/SuperCollider/Extensions/param/UnitTest/test_all_param_wrappers.scd
-badd +31 NERD_tree_8
-badd +29 NERD_tree_9
-badd +14 ~/code/sc/seco/vlive/repeat/tests/SampleTimeline.scd
-badd +1 ~/code/sc/seco/vlive/repeat/tests
-badd +7 SampleTimelineView.sc
-badd +1256 TimelineView.sc
-badd +36 ~/code/sc/seco/vlive/explore/param/waveform.scd
-badd +9 extRect.sc
-badd +0 ~/code/sc/seco/vlive/repeat/tests/ClipTimeline.scd
-badd +0 TimelinePreview.sc
+badd +187 image.scd
+badd +0 ~/code/sc/webcam/histosc.py
+badd +160 demo_image.scd
 badd +1 .
-badd +0 ~/.local/share/SuperCollider/Extensions/param/Proto/GlobalLibrary.scd
-badd +0 ~/.local/share/SuperCollider/Extensions/param/Proto/timeline/timeline.scd:j
-badd +1 ~/.local/share/SuperCollider/Extensions/param/Proto/timeline
-badd +1 Timeline.sc
+badd +0 sdesign.scd
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

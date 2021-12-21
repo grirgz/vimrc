@@ -35,7 +35,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 4 - ((2 * winheight(0) + 16) / 32)
+let s:l = 4 - ((3 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -60,7 +60,7 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 302 - ((47 * winheight(0) + 26) / 53)
+let s:l = 302 - ((16 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -115,7 +115,7 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 678
-normal! 04|
+normal! 0
 tabnext
 edit ~/code/sc/seco/vlive/repeat/capsule/fxsimple.scd
 set splitbelow splitright
@@ -141,13 +141,8 @@ exe s:l
 normal! zt
 35
 normal! 014|
-tabnext 2
+tabnext 1
 set stal=1
-badd +2330 cave15.scd
-badd +495 cave14.scd
-badd +1 cave7.scd
-badd +1 ~/code/sc/seco/vlive/repeat/capsule/fxsimple.scd
-badd +1 main.scd
 badd +127 ~/.local/share/SuperCollider/Extensions/param/Param.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/buffer.scd
 badd +72 ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib/midi.scd
@@ -172,10 +167,10 @@ badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft2
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft25.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft17.scd
 badd +2455 ~/code/sc/seco/vlive/repeat/capsule/suft30.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/fxsimple.scd
 badd +1706 ~/.vim/ultisnips3/UltiSnips/supercollider.snippets
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/live2.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/protolive.scd
-badd +1 ~/code/sc/seco/vlive/repeat/capsule/NERD_tree_1
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft60.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft61.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft59.scd
@@ -195,10 +190,15 @@ badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft70.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft11.scd
 badd +1 ~/code/sc/seco/vlive/catalog/trans.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/draft21.scd
+badd +0 nrevac1.scd
+badd +495 cave14.scd
+badd +1 cave7.scd
+badd +1 main.scd
+badd +2330 cave15.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/NERD_tree_1
 badd +4 ~/code/sc/seco/vlive/repeat/holis/part.scd
 badd +1 ~/code/sc/seco/vlive/repeat/holis/partmain.scd
 badd +7 ~/code/sc/seco/vlive/repeat/holis/main.scd
-badd +0 nrevac1.scd
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

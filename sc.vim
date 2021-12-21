@@ -53,13 +53,15 @@ map <F9><F5> <Esc>:call SendToSC("Veco(~name).play_node;")<CR>
 map <F9><F6> <Esc>:call SendToSC("Veco(~name).stop_node;")<CR>
 map <F11><F5> <Esc>:%call SClang_send()<CR>
 
-" inline editor
+"""""""""" inline editor
 map <F10>n <Esc>:call SCcallInlineEditor("number")<CR>
 map <F10>s <Esc>:call SCcallInlineEditorRange("seq")<CR>
-vmap <F10>i <Esc>:call SCinterpretInPlace<CR>
-vmap <F10>r <Esc>:call SCcallFunctionOnSelection<CR>
+vmap <F10>i <Esc>:call SCinterpretInPlace()<CR>
+vmap <F10>r <Esc>:call SCcallFunctionOnSelection()<CR>
 map <F10>b <Esc>:call SCcallInlineEditor("sample")<CR>
-map <F10>p <Esc>:call SCcallInlineEditor("instrument")<CR>
+
+" insert synthdef argument in pbind
+map <F10>p <Esc>:call SCcallInlineEditor("instrument")<CR> 
 
 ""source ~/.vim/indent/sc_indent.vim
 set dictionary=~/.scvim/sc_object_completion
