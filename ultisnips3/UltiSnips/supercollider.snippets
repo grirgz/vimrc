@@ -1888,6 +1888,18 @@ Pbind(
 ),$2
 endsnippet
 
+snippet Pbindefp
+(
+Pbindef(\\${1:zed}, 
+	\instrument, \\${2:default},
+	\degree, Pseq([${3:0}],inf),
+	\dur, 1,
+	\amp, 0.1,
+).play;
+);
+endsnippet
+
+
 snippet Pdef
 Pdef(\\${1:zed}, Pbind(
 	\instrument, \\${2:default},

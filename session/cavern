@@ -13,9 +13,6 @@ argglobal
 %argdel
 set stal=2
 tabnew
-tabnew
-tabnew
-tabnew
 tabrewind
 edit main.scd
 set splitbelow splitright
@@ -35,14 +32,14 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 4 - ((3 * winheight(0) + 16) / 32)
+let s:l = 4 - ((3 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 4
 normal! 0
 tabnext
-edit nrevac1.scd
+edit cave32.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -60,89 +57,19 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 302 - ((16 * winheight(0) + 16) / 32)
+let s:l = 3 - ((2 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-302
-normal! 013|
-tabnext
-edit cave14.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 238 - ((21 * winheight(0) + 16) / 32)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-238
-normal! 05|
-tabnext
-edit cave7.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 678 - ((16 * winheight(0) + 16) / 32)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-678
+3
 normal! 0
-tabnext
-edit ~/code/sc/seco/vlive/repeat/capsule/fxsimple.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 35 - ((19 * winheight(0) + 16) / 32)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-35
-normal! 014|
 tabnext 1
 set stal=1
+badd +0 main.scd
+badd +302 nrevac1.scd
+badd +238 cave14.scd
+badd +678 cave7.scd
+badd +35 ~/code/sc/seco/vlive/repeat/capsule/fxsimple.scd
 badd +127 ~/.local/share/SuperCollider/Extensions/param/Param.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/buffer.scd
 badd +72 ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib/midi.scd
@@ -167,7 +94,6 @@ badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft2
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft25.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft17.scd
 badd +2455 ~/code/sc/seco/vlive/repeat/capsule/suft30.scd
-badd +1 ~/code/sc/seco/vlive/repeat/capsule/fxsimple.scd
 badd +1706 ~/.vim/ultisnips3/UltiSnips/supercollider.snippets
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/live2.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/protolive.scd
@@ -190,15 +116,12 @@ badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft70.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft11.scd
 badd +1 ~/code/sc/seco/vlive/catalog/trans.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/draft21.scd
-badd +0 nrevac1.scd
-badd +495 cave14.scd
-badd +1 cave7.scd
-badd +1 main.scd
 badd +2330 cave15.scd
 badd +1 ~/code/sc/seco/vlive/repeat/capsule/NERD_tree_1
 badd +4 ~/code/sc/seco/vlive/repeat/holis/part.scd
 badd +1 ~/code/sc/seco/vlive/repeat/holis/partmain.scd
 badd +7 ~/code/sc/seco/vlive/repeat/holis/main.scd
+badd +0 cave32.scd
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
