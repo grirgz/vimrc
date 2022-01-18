@@ -71,6 +71,7 @@ set sessionoptions-=options
 
 "" path for gf
 set path+=~/code/sc/seco/vlive/repeat/
+set path+=~/.local/share/SuperCollider/Extensions/param/
 
 """""""""""""""""""""""""
 
