@@ -38,14 +38,14 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 4 - ((3 * winheight(0) + 26) / 53)
+let s:l = 3 - ((2 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-4
+3
 normal! 0
 tabnext
-edit demo/param/PbindEditor.scd
+edit capsule/vin36.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -63,32 +63,14 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-18
-normal! zo
-54
-normal! zo
-973
-normal! zo
-976
-normal! zo
-977
-normal! zo
-988
-normal! zo
-991
-normal! zo
-994
-normal! zo
-1449
-normal! zo
-let s:l = 1464 - ((46 * winheight(0) + 26) / 53)
+let s:l = 524 - ((20 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1464
-normal! 038|
+524
+normal! 042|
 tabnext
-edit ~/.local/share/SuperCollider/Extensions/param/Proto/TrackMixerDef.scd
+edit libdef/piano.scd
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -106,48 +88,88 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-4
-normal! zo
-330
-normal! zo
-336
-normal! zo
-346
-normal! zo
-347
-normal! zo
-348
-normal! zo
-350
-normal! zo
-353
-normal! zo
-357
-normal! zo
-357
-normal! zo
-552
-normal! zo
-558
-normal! zo
-559
-normal! zo
-609
-normal! zo
-612
-normal! zo
-614
-normal! zo
-944
-normal! zo
-963
-normal! zo
-let s:l = 326 - ((27 * winheight(0) + 26) / 53)
+let s:l = 13 - ((12 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-326
-normal! 05|
+13
+normal! 080|
+tabnext
+edit demo/fm_gui.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 797 - ((30 * winheight(0) + 26) / 53)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+797
+normal! 0
+tabnext
+edit ~/.local/share/SuperCollider/Extensions/param/Classes/server_storages.sc
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 436 - ((25 * winheight(0) + 26) / 53)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+436
+normal! 031|
+lcd ~/.config/SuperCollider
+tabnext
+edit ~/code/sc/seco/vlive/crap/c10.scd
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=indent
+setlocal fde=GetPotionFold(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 78 - ((26 * winheight(0) + 26) / 53)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+78
+normal! 0
 tabnext
 edit ~/.local/share/SuperCollider/Extensions/param/Classes/Param.sc
 set splitbelow splitright
@@ -167,170 +189,100 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 2695 - ((26 * winheight(0) + 26) / 53)
+let s:l = 2695 - ((27 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 2695
 normal! 0
-tabnext
-edit ~/.local/share/SuperCollider/Extensions/param/Classes/Param_extensions.sc
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 4 - ((3 * winheight(0) + 26) / 53)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-4
-normal! 06|
-tabnext
-edit libdef/pmodenv.scd
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 639 - ((52 * winheight(0) + 26) / 53)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-639
-normal! 0
-tabnext
-edit ~/.local/share/SuperCollider/Extensions/param/Classes/ProtoClass.sc
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-argglobal
-setlocal fdm=indent
-setlocal fde=GetPotionFold(v:lnum)
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 94 - ((19 * winheight(0) + 20) / 41)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-94
-normal! 05|
-tabnext 2
+tabnext 4
 set stal=1
-badd +1 cavern/main.scd
-badd +2 tests/tmp/cfile/bla.1.scd
-badd +1 demo/param/PbindEditor.scd
+badd +1 ~/code/sc/seco/vlive/repeat/cavern/main.scd
+badd +2 ~/code/sc/seco/vlive/repeat/tests/tmp/cfile/bla.1.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/vin36.scd
+badd +150 ~/code/sc/seco/vlive/repeat/libdef/piano.scd
+badd +418 ~/.local/share/SuperCollider/Extensions/param/Proto/player_groups.scd
+badd +0 ~/code/sc/seco/vlive/repeat/demo/param/PbindEditor.scd
+badd +258 ~/.local/share/SuperCollider/Extensions/param/Proto/TrackMixerDef.scd
+badd +23 ~/code/sc/seco/vlive/repeat/libdef/simplemixer.scd
+badd +1 ~/code/sc/seco/vlive/crap/c10.scd
+badd +1591 ~/.local/share/SuperCollider/Extensions/param/Classes/Param.sc
+badd +594 ~/.local/share/SuperCollider/Extensions/param/Classes/Param_extensions.sc
+badd +639 ~/code/sc/seco/vlive/repeat/libdef/pmodenv.scd
+badd +94 ~/.local/share/SuperCollider/Extensions/param/Classes/ProtoClass.sc
 badd +1 ~/.vimrc
 badd +90 ~/.vim/bundle/vim-textobj-line/doc/textobj-line.txt
 badd +19 ~/.local/share/SuperCollider/Extensions/param/Classes/ParamCombinator.sc
-badd +152 ~/.local/share/SuperCollider/Extensions/param/Classes/Param_GUI.sc
-badd +93 tests/Pmod.scd
-badd +535 tests/ParamCombinator.scd
+badd +345 ~/.local/share/SuperCollider/Extensions/param/Classes/Param_GUI.sc
+badd +93 ~/code/sc/seco/vlive/repeat/tests/Pmod.scd
+badd +535 ~/code/sc/seco/vlive/repeat/tests/ParamCombinator.scd
 badd +506 ~/.local/share/SuperCollider/Extensions/param/Classes/experimental/Pmod.sc
-badd +844 libdef/tracklist.scd
-badd +0 /usr/local/share/SuperCollider/SCClassLibrary/JITLib/Patterns/Pdef.sc
+badd +844 ~/code/sc/seco/vlive/repeat/libdef/tracklist.scd
+badd +1 /usr/local/share/SuperCollider/SCClassLibrary/JITLib/Patterns/Pdef.sc
 badd +22 /usr/local/share/SuperCollider/SCClassLibrary/Common/Streams/Patterns.sc
-badd +1591 ~/.local/share/SuperCollider/Extensions/param/Classes/Param.sc
-badd +786 ~/.local/share/SuperCollider/Extensions/param/Proto/TrackMixerDef.scd
-badd +80 ~/.local/share/SuperCollider/Extensions/param/Classes/ProtoClass.sc
-badd +3 cavern/cave32.scd
-badd +302 cavern/nrevac1.scd
-badd +238 cavern/cave14.scd
-badd +678 cavern/cave7.scd
-badd +568 capsule/fxsimple.scd
+badd +3 ~/code/sc/seco/vlive/repeat/cavern/cave32.scd
+badd +302 ~/code/sc/seco/vlive/repeat/cavern/nrevac1.scd
+badd +238 ~/code/sc/seco/vlive/repeat/cavern/cave14.scd
+badd +678 ~/code/sc/seco/vlive/repeat/cavern/cave7.scd
+badd +568 ~/code/sc/seco/vlive/repeat/capsule/fxsimple.scd
 badd +127 ~/.local/share/SuperCollider/Extensions/param/Param.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/seco/seco/veco/buffer.scd
 badd +72 ~/.local/share/SuperCollider/Extensions/seco/seco/vecolib/midi.scd
 badd +16 ~/code/sc/seco/vlive/lib/demo/param.scd
-badd +7 capsule/main.scd
-badd +1 capsule/track1.scd
-badd +3 capsule/draft8.scd
-badd +1 capsule/draft16.scd
-badd +6845 capsule/suft27.scd
-badd +1248 capsule/suft26.scd
-badd +1 capsule/suft22.scd
-badd +1 capsule/suft21.scd
-badd +1 capsule/fxheavy.scd
-badd +1 capsule/draftsynth.scd
-badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/ParamGroup.sc
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/main.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/track1.scd
+badd +3 ~/code/sc/seco/vlive/repeat/capsule/draft8.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/draft16.scd
+badd +6845 ~/code/sc/seco/vlive/repeat/capsule/suft27.scd
+badd +1248 ~/code/sc/seco/vlive/repeat/capsule/suft26.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft22.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft21.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/fxheavy.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/draftsynth.scd
+badd +145 ~/.local/share/SuperCollider/Extensions/param/Classes/ParamGroup.sc
 badd +1 ~/bin/seco/
 badd +1 ~/bin/seco
 badd +44 /usr/share/vim/vim74/doc/remote.txt
-badd +1085 capsule/suft28.scd
-badd +477 capsule/suft29.scd
-badd +1 capsule/suft2
-badd +1 capsule/suft25.scd
-badd +1 capsule/suft17.scd
-badd +2455 capsule/suft30.scd
+badd +1085 ~/code/sc/seco/vlive/repeat/capsule/suft28.scd
+badd +477 ~/code/sc/seco/vlive/repeat/capsule/suft29.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft2
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft25.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft17.scd
+badd +2455 ~/code/sc/seco/vlive/repeat/capsule/suft30.scd
 badd +1895 ~/.vim/ultisnips3/UltiSnips/supercollider.snippets
-badd +1 capsule/live2.scd
-badd +1 capsule/protolive.scd
-badd +1 capsule/suft60.scd
-badd +1 capsule/suft61.scd
-badd +1 capsule/suft59.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/live2.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/protolive.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft60.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft61.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft59.scd
 badd +1 ~/code/sc/seco/vlive/catalog/chord.scd
-badd +1 demo/dub.scd
-badd +931 capsule/suft62.scd
-badd +51 capsule/lib.scd
-badd +7 capsule/suft63.scd
-badd +1 capsule/suft69.scd
+badd +1 ~/code/sc/seco/vlive/repeat/demo/dub.scd
+badd +931 ~/code/sc/seco/vlive/repeat/capsule/suft62.scd
+badd +51 ~/code/sc/seco/vlive/repeat/capsule/lib.scd
+badd +7 ~/code/sc/seco/vlive/repeat/capsule/suft63.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft69.scd
 badd +1 ~/code/sc/seco/vlive/catalog/synthDefault.scd
-badd +1 capsule/suft68.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft68.scd
 badd +1 ~/code/sc/seco/vlive/sdesign/acid.scd
 badd +1 ~/code/sc/seco/vlive/catalog/tech.scd
-badd +1 capsule/metaltech.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/metaltech.scd
 badd +1 ~/code/sc/seco/vlive/catalog/compotech.scd
-badd +1 capsule/suft70.scd
-badd +1 capsule/suft11.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft70.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/suft11.scd
 badd +1 ~/code/sc/seco/vlive/catalog/trans.scd
-badd +1 capsule/draft21.scd
-badd +2330 cavern/cave15.scd
-badd +1 capsule/NERD_tree_1
-badd +2127 holis/part.scd
-badd +173 holis/partmain.scd
-badd +9 holis/main.scd
-badd +22 demo/param/CustomTrackList.scd
-badd +38 NERD_tree_3
-badd +498 libdef/tracks.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/draft21.scd
+badd +2330 ~/code/sc/seco/vlive/repeat/cavern/cave15.scd
+badd +1 ~/code/sc/seco/vlive/repeat/capsule/NERD_tree_1
+badd +2127 ~/code/sc/seco/vlive/repeat/holis/part.scd
+badd +173 ~/code/sc/seco/vlive/repeat/holis/partmain.scd
+badd +9 ~/code/sc/seco/vlive/repeat/holis/main.scd
+badd +22 ~/code/sc/seco/vlive/repeat/demo/param/CustomTrackList.scd
+badd +498 ~/code/sc/seco/vlive/repeat/libdef/tracks.scd
 badd +77 ~/.local/share/SuperCollider/Extensions/param/Classes/WindowDef.sc
 badd +455 ~/.local/share/SuperCollider/Extensions/param/Classes/PlayerWrapperView.sc
-badd +182 ~/.local/share/SuperCollider/Extensions/param/Classes/Param_extensions.sc
-badd +47 NERD_tree_5
+badd +47 ~/code/sc/seco/vlive/repeat/NERD_tree_5
 badd +201 ~/.local/share/SuperCollider/Extensions/param/Classes/misc/SimpleServerMeterView.sc
-badd +1 cavern
+badd +1 ~/code/sc/seco/vlive/repeat/cavern
 badd +247 ~/.local/share/SuperCollider/Extensions/param/Proto/editors.scd
 badd +79 ~/.local/share/SuperCollider/Extensions/param/Classes/experimental/SampleChooserView.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/experimental/Gui.sc
@@ -339,62 +291,73 @@ badd +232 ~/.local/share/SuperCollider/Extensions/param/Classes/custom_events.sc
 badd +287 ~/.local/share/SuperCollider/Extensions/scide_scvim/SCVim.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/experimental/tricks.sc
 badd +9 ~/.local/share/SuperCollider/Extensions/param/Classes/misc/extString_copypaste.sc
-badd +221 libdef/inline_editor.scd
+badd +221 ~/code/sc/seco/vlive/repeat/libdef/inline_editor.scd
 badd +67 ~/.vim/sc.vim
-badd +47 NERD_tree_7
-badd +2 tests/tmp/cfile/bla.init.scd
+badd +47 ~/code/sc/seco/vlive/repeat/NERD_tree_7
+badd +2 ~/code/sc/seco/vlive/repeat/tests/tmp/cfile/bla.init.scd
 badd +1 ~/.local/share/SuperCollider/Extensions
-badd +4 tests/tmp/cfile/bla.0.scd
-badd +45 NERD_tree_10
+badd +4 ~/code/sc/seco/vlive/repeat/tests/tmp/cfile/bla.0.scd
+badd +45 ~/code/sc/seco/vlive/repeat/NERD_tree_10
 badd +130 ~/.local/share/SuperCollider/downloaded-quarks/crucial-library/Players/pathUtilities.sc
 badd +2 ~/.local/share/SuperCollider/Extensions/param/Classes/FileSystemProject.sc
 badd +138 ~/.local/share/SuperCollider/Extensions/param/Classes/PlayerWrapper.sc
-badd +32 NERD_tree_11
+badd +32 ~/code/sc/seco/vlive/repeat/NERD_tree_11
 badd +1 ~/code/sc/seco/vlive/rise8/1.scd
 badd +119 ~/code/sc/seco/vlive/stone14/1.scd
 badd +1 ~/code/sc/seco/vlive/alpha5/1.scd
 badd +1 ~/code/sc/seco/vlive/stone15/1.scd
 badd +19 ~/code/sc/seco/vlive/stone14/1.1.scd
-badd +38 NERD_tree_12
-badd +18 demo/param/VecoWrapper.scd
-badd +1 demo/param
+badd +38 ~/code/sc/seco/vlive/repeat/NERD_tree_12
+badd +18 ~/code/sc/seco/vlive/repeat/demo/param/VecoWrapper.scd
+badd +1 ~/code/sc/seco/vlive/repeat/demo/param
 badd +1 ~/.local/share/SuperCollider/Extensions.disabled/seco/seco/veco/launchpad.scd
 badd +1389 ~/code/sc/seco/vlive/lib/main.scd
 badd +1 ~/code/sc/seco/vlive/stone5/init.scd
-badd +1260 ~/.local/share/SuperCollider/Extensions/param/Proto/GlobalLibrary.scd
+badd +1052 ~/.local/share/SuperCollider/Extensions/param/Proto/GlobalLibrary.scd
 badd +256 ~/.local/share/SuperCollider/downloaded-quarks/Modality-toolkit/Modality/Classes/MKtl/MKtlElement.sc
-badd +25 NERD_tree_14
-badd +219 demo/param/list_of_proto.scd
-badd +3 libdef/SaverHelper.scd
-badd +299 libdef/MainProject.scd
-badd +1 libdef/filedialog.scd
-badd +1 libdef/controllers.scd
-badd +329 libdef/rdngui.scd
-badd +656 tests/TrackMixerDef.scd
+badd +25 ~/code/sc/seco/vlive/repeat/NERD_tree_14
+badd +219 ~/code/sc/seco/vlive/repeat/demo/param/list_of_proto.scd
+badd +3 ~/code/sc/seco/vlive/repeat/libdef/SaverHelper.scd
+badd +299 ~/code/sc/seco/vlive/repeat/libdef/MainProject.scd
+badd +1 ~/code/sc/seco/vlive/repeat/libdef/filedialog.scd
+badd +1 ~/code/sc/seco/vlive/repeat/libdef/controllers.scd
+badd +329 ~/code/sc/seco/vlive/repeat/libdef/rdngui.scd
+badd +656 ~/code/sc/seco/vlive/repeat/tests/TrackMixerDef.scd
 badd +584 ~/.local/share/SuperCollider/Extensions/param/Proto/misc/FileDialog.scd
-badd +35 NERD_tree_17
-badd +1258 holis/synthdef.scd
-badd +1 holis/lib.scd
-badd +1 tests/param_synth.scd
-badd +253 tests/Param.scd
+badd +35 ~/code/sc/seco/vlive/repeat/NERD_tree_17
+badd +1258 ~/code/sc/seco/vlive/repeat/holis/synthdef.scd
+badd +1 ~/code/sc/seco/vlive/repeat/holis/lib.scd
+badd +1 ~/code/sc/seco/vlive/repeat/tests/param_synth.scd
+badd +253 ~/code/sc/seco/vlive/repeat/tests/Param.scd
 badd +325 /usr/local/share/SuperCollider/SCClassLibrary/JITLib/ProxySpace/ProxyInterfaces.sc
 badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes
 badd +289 /usr/local/share/SuperCollider/SCClassLibrary/Common/Core/Object.sc
 badd +2631 ~/.local/share/SuperCollider/Extensions/param/Proto/timeline/timeline_gui.scd
 badd +68 ~/.local/share/SuperCollider/Extensions/param/Classes/ControllerDef.sc
 badd +269 ~/.local/share/SuperCollider/Extensions/param/HelpSource/Tutorials/Param\ cookbook.schelp
-badd +37 NERD_tree_19
-badd +150 libdef/piano.scd
+badd +37 ~/code/sc/seco/vlive/repeat/NERD_tree_19
 badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/experimental/Pmod.scd
 badd +11 ~/.tmux.conf
 badd +115 ~/.local/share/SuperCollider/Extensions/param/Classes/Builder.sc
-badd +39 NERD_tree_21
+badd +39 ~/code/sc/seco/vlive/repeat/NERD_tree_21
 badd +29 ~/.local/share/SuperCollider/Extensions/param/Classes/ParamMorpher.sc
 badd +27 ~/.local/share/SuperCollider/Extensions/param/Classes/sequencing.sc
-badd +56 demo/video/sequencer.scd
-badd +0 cavern/ifxsimple.scd
-badd +1 .
-badd +0 libdef/pmodenv.scd
+badd +56 ~/code/sc/seco/vlive/repeat/demo/video/sequencer.scd
+badd +1 ~/code/sc/seco/vlive/repeat/cavern/ifxsimple.scd
+badd +798 ~/code/sc/seco/vlive/repeat/demo/fm_gui.scd
+badd +1 ~/code/sc/seco/vlive/repeat/NERD_tree_1
+badd +6 ~/code/sc/seco/vlive/repeat/demo/param/wavetable.scd
+badd +1 ~/code/sc/seco/vlive/repeat/demo/mixer.scd
+badd +47 ~/code/sc/seco/vlive/repeat/NERD_tree_2
+badd +1 ~/code/sc/seco/vlive/repeat/demo/syncdialog.scd
+badd +32 ~/.config/SuperCollider/startup.scd
+badd +195 ~/.local/share/SuperCollider/Extensions/param/Classes/server_storages.sc
+badd +48 ~/code/sc/seco/vlive/repeat/libdef/buttonselector.scd
+badd +188 ~/.local/share/SuperCollider/Extensions/param/HelpSource/Classes/WindowDef.schelp
+badd +165 ~/.local/share/SuperCollider/Extensions/param/HelpSource/Classes/WavetableDef.schelp
+badd +591 ~/.local/share/SuperCollider/downloaded-quarks/crucial-library/Players/AbstractPlayer.sc
+badd +54 ~/code/sc/seco/vlive/repeat/NERD_tree_4
+badd +1 ~/.local/share/SuperCollider/Extensions/param/Classes/extPathName.sc
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
